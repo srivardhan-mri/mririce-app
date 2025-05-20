@@ -1,104 +1,93 @@
 // src/app/layout/header/header.component.scss
 
-// Assuming your CSS variables (--mri-logo-blue, --text-dark, etc.) are in global src/styles.scss
-// If :root variables are not accessible here directly due to encapsulation (though they usually are),
-// you might need to import a shared variables SCSS file or re-declare them if absolutely necessary.
-
+// Desktop Styles (styles above the media query)
 header {
   background-color: var(--background-light);
   padding: 15px 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: sticky;
+  position: sticky; // Keeps header at the top when scrolling
   top: 0;
-  z-index: 1000; // Ensure this is high enough
+  z-index: 1000;   // High z-index to stay on top of other content
   width: 100%;
   border-bottom: 3px solid var(--mri-logo-gray);
 
-  // .container is a global class, defined in src/styles.scss
-  // If you need specific adjustments for the header's container:
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // flex-direction and align-items for mobile are handled by media queries below
+    position: relative; // Important for positioning the mobile menu toggle and absolute positioned nav
   }
 
   .logo-link {
-    text-decoration: none; // Already global for a, but good to be explicit for logo
-    display: inline-block; // To ensure it doesn't take full width if text is added
+    text-decoration: none;
+    display: inline-block; // Ensures proper spacing and click area
+    z-index: 1001; // Ensure logo stays above mobile menu background if menu is absolute
+                     // and below the toggle button if they overlap.
   }
 
   #logo {
-    height: 60px; // As per your original style
-    vertical-align: middle; // Good for aligning with text if you add .logo-text
+    height: 60px; // Set logo height
+    vertical-align: middle; // Aligns image nicely if there's text next to it
   }
 
-  // Optional: If you decide to add the .logo-text span next to the image
-  .logo-text {
-    font-family: var(--font-primary);
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--mri-logo-blue);
-    margin-left: 10px; // Example spacing
-    vertical-align: middle;
-  }
+  nav {
+    // Desktop navigation takes remaining space or aligns as per flex rules
+    ul {
+      display: flex; // Horizontal layout for desktop
+      align-items: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
 
-  nav ul {
-    display: flex;
-    align-items: center;
-    list-style: none; // Already global for ul
-    margin: 0;      // Reset margin
-    padding: 0;     // Reset padding
+      li {
+        margin-left: 25px; // Space between nav items
 
-    li {
-      margin-left: 25px;
-
-      a {
-        font-family: var(--font-primary);
-        color: var(--text-dark);
-        font-weight: 600;
-        padding: 5px 0;
-        position: relative;
-        text-transform: uppercase;
-        font-size: 0.9rem;
-        letter-spacing: 0.5px;
-        text-decoration: none; // Ensure no underline from global 'a' if not desired
-
-        &::after { // Underline animation
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background-color: var(--mri-logo-blue);
-          transition: width 0.3s ease;
-        }
-
-        &:hover::after,
-        &.active::after { // .active class is added by routerLinkActive
-          width: 100%;
-        }
-
-        &:hover,
-        &.active {
-          color: var(--mri-logo-blue);
+        a {
+          font-family: var(--font-primary);
+          color: var(--text-dark);
+          font-weight: 600;
+          padding: 5px 0; // Vertical padding for click area
+          position: relative; // For the ::after pseudo-element underline
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
           text-decoration: none;
+
+          &::after { // Animated underline for hover/active state
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0; // Starts with no width
+            height: 2px;
+            background-color: var(--mri-logo-blue);
+            transition: width 0.3s ease; // Animation for the underline
+          }
+
+          &:hover::after,
+          &.active::after { // .active class is added by Angular's routerLinkActive
+            width: 100%; // Full width underline on hover/active
+          }
+
+          &:hover,
+          &.active {
+            color: var(--mri-logo-blue); // Text color change on hover/active
+          }
         }
       }
     }
   }
 
-  .cta-nav { // Styles for the "Bulk Orders" button-like link
+  .cta-nav { // "Bulk Orders" button-like link
     background-color: var(--mri-logo-red);
-    color: var(--text-light) !important; // Use !important if other 'a' styles interfere
-    padding: 8px 18px !important; // Use !important if needed
+    color: var(--text-light) !important; // Important to override default 'a' color
+    padding: 8px 18px !important; // Important for consistent padding
     border-radius: 6px;
-    font-weight: bold; // Already on 'a' but can be explicit
-    // transition: background-color 0.3s ease; // From original btn, if needed
+    font-weight: bold; // From .btn styles, ensure it's applied
+    text-decoration: none; // Remove underline
 
     &:hover {
-      background-color: #AE1F1F; // Darker red from original button hover
+      background-color: #AE1F1F; // Darker red on hover
       color: var(--text-light) !important;
       text-decoration: none;
     }
@@ -109,62 +98,97 @@ header {
   }
 
   .mobile-nav-toggle {
-    display: none; // Hidden by default, shown in media query
+    display: none; // Hidden on desktop, shown via media query
     background: none;
     border: none;
     color: var(--mri-logo-blue);
-    font-size: 1.8rem; // Adjust size of the FontAwesome icon if needed
+    font-size: 1.8rem; // Size of the hamburger/close icon
     cursor: pointer;
-    padding: 5px; // Add some padding for easier clicking
+    padding: 5px; // Clickable area
+    z-index: 1002; // Must be higher than the mobile menu overlay (nav ul)
   }
 }
 
-// Responsive Styles for Header (from your original style.css)
-@media (max-width: 768px) { // Your original breakpoint was 768px
+
+// Responsive Styles for Header (Mobile View)
+@media (max-width: 768px) { // Breakpoint for mobile devices
   header {
     .container {
-      flex-direction: column; // Stack logo and nav on mobile
-      align-items: flex-start; // Align items to the start
+      // Desktop styles for .container (flex, justify-content, align-items)
+      // generally work well for keeping logo and toggle on one line.
+      // No need to change flex-direction to column here.
+    }
+
+    nav {
+      // The <nav> element itself might not need specific styles if the <ul> is positioned.
+      // It will just be a container.
     }
 
     nav ul {
-      display: none; // Initially hidden
-      flex-direction: column;
-      width: 100%;
-      margin-top: 15px;
-      background-color: var(--background-light); // Background for the mobile dropdown
-      padding: 10px 0; // Padding for the dropdown
+      display: none; // Hidden by default, shown when [data-visible="true"]
 
-      // This style is now controlled by [attr.data-visible] in the HTML
       &[data-visible="true"] {
-        display: flex; // Show when data-visible is true
+        display: flex; // Make it visible
+        flex-direction: column; // Stack items vertically
+        position: absolute;   // Take it out of normal document flow
+        top: 100%; // Position it right below the header. Assumes header is the positioning context.
+                   // If header height is dynamic, this might need adjustment or calculation.
+                   // For a header with fixed padding, 100% of its parent (the header's .container or header itself) works.
+        left: 0;
+        width: 100%; // Span full width of its positioning context
+        background-color: var(--background-light); // Solid background for the dropdown
+        padding: 10px 0; // Vertical padding for the menu block (was 20px 0)
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15); // Shadow for depth
+        z-index: 1000; // Below logo-link and mobile-nav-toggle but above page content
       }
 
       li {
-        margin: 10px 0; // Adjust spacing for vertical items
-        width: 100%;
-        text-align: center;
+        margin: 0; // Reset desktop margin
+        width: 100%; // Each list item takes full width
+        text-align: center; // Center the link text within the list item
 
-        a {
-          display: block; // Make links take full width for easier tapping
-          padding: 10px; // Add padding to links
+        a { // Styling for individual links in the mobile menu
+          display: block; // Make the entire area of 'a' clickable
+          padding: 12px 20px; // Generous padding for tap targets
+          border-bottom: 1px solid var(--mri-logo-gray); // Separator line between items
+          color: var(--text-dark); // Ensure text color is readable
+
+          &:hover,
+          &.active { // Hover and active state for mobile links
+            background-color: var(--background-subtle-gray);
+            color: var(--mri-logo-red); // Highlight color
+          }
+
+          &::after { // Hide the desktop underline animation on mobile
+            display: none;
+          }
+        }
+
+        &:last-child a {
+          border-bottom: none; // No border for the very last item in the menu
         }
       }
     }
 
-    // CTA Nav button styling for mobile if it needs to be different when stacked
+    // Styling for the "Bulk Orders" button within the mobile menu
     .cta-nav {
-        display: block; // Make it a block to center it if needed
-        margin: 10px auto; // Center the button
-        width: fit-content; // Or a specific width
+      // It's an 'a' tag within an 'li', so it inherits some styles.
+      // Override as needed to make it look like a button.
+      background-color: var(--mri-logo-red); // Keep its distinct button color
+      color: var(--text-light) !important;
+      margin: 10px 20px; // Add some horizontal margin to not be full width like other links
+      border-radius: 6px; // Keep rounded corners
+      padding: 12px 20px !important; // Ensure padding is consistent with other links or as desired for button
+      border-bottom: none; // Remove separator line if it's the last item or styled as a button
+
+      &:hover {
+        background-color: #AE1F1F; // Darker red on hover
+      }
     }
 
-
     .mobile-nav-toggle {
-      display: block; // Show the toggle button
-      position: absolute; // Position it relative to the header container
-      top: 25px;        // Adjust based on your logo height and padding
-      right: 20px;
+      display: block; // Show the hamburger/close icon button on mobile
+      // Its position is handled by the flex layout of .container (pushed to the right by justify-content: space-between)
     }
   }
 }
