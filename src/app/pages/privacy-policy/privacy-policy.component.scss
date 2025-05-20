@@ -1,0 +1,24 @@
+// src/app/pages/privacy-policy/privacy-policy.component.scss
+
+// Most styles for .legal-content-section, h1, h2, p, ul, strong, a
+// should be defined in your global src/styles.scss for consistency across legal pages.
+
+// If you need any specific overrides or additional styles ONLY for the privacy policy page,
+// they would go here. For example:
+
+// :host {
+//   // Styles for the host <app-privacy-policy> element itself
+// }
+
+// .legal-content-section {
+//   // If privacy policy section needs a slightly different padding than other legal pages
+//   padding-top: 50px;
+// }
+
+// address { // Styling for the <address> tag if not globally defined
+//   font-style: normal;
+//   line-height: 1.6;
+//   margin-top: 1em;
+// }
+
+// For now, this can likely remain empty if global styles for .legal-content-section are sufficient.
