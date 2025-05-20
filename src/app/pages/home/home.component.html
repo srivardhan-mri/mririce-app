@@ -1,0 +1,75 @@
+<section class="hero" [attr.aria-label]="hero.altText || 'Hero banner'">
+  <div class="hero-bg-image" [style.background-image]="'url(' + hero.backgroundImageUrl + ')'"></div>
+  <div class="hero-content container">
+    <h1>
+      {{ hero.titleLine1 }}
+      <span class="highlight">{{ hero.highlight }}</span>
+      {{ hero.titleLine2 }}
+    </h1>
+    <p>{{ hero.subtitle }}</p>
+    <a routerLink="/products" class="btn btn-primary">Explore Our Premium Rice</a>
+    <a routerLink="/about" class="btn btn-secondary">Learn More About Us</a>
+  </div>
+</section>
+
+<section class="usps">
+  <div class="container">
+    <h2>Why Choose Miryalaguda Rice Industries?</h2>
+    <div class="usp-grid">
+      @for (usp of usps; track usp.title) {
+        <div class="usp-item">
+          <img [src]="usp.iconUrl" [alt]="usp.altText" class="usp-icon">
+          <h3>{{ usp.title }}</h3>
+          <p>{{ usp.text }}</p>
+        </div>
+      } @empty {
+        <p>Our key benefits will be displayed here soon.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="featured-brands">
+  <div class="container">
+    <h2>Our Signature Brands: The Mark of Excellence</h2>
+    <div class="brands-grid">
+      @for (brand of featuredBrands; track brand.title) {
+        <div class="brand-card">
+          <div class="brand-visuals">
+            <img [src]="brand.imageUrl" [alt]="brand.altText" class="brand-bag-image">
+          </div>
+          <div class="brand-info">
+            <h3>{{ brand.title }}</h3>
+            <p>{{ brand.description }}</p>
+            <a [routerLink]="['/brands']" [fragment]="brand.fragment" class="btn btn-primary">{{ brand.buttonText }}</a>
+          </div>
+        </div>
+      } @empty {
+        <p>Discover our signature rice brands here soon.</p>
+      }
+    </div>
+    <div class="all-varieties-link">
+      <p>Featuring JSR Steam Rice, HMT Steam Rice, Sona Masoori, JSR Boiled Rice, HMT Boiled
+        Rice, BPT Boiled Rice, and more.</p>
+      <a routerLink="/products" class="btn btn-accent">View All Our Rice Varieties</a>
+    </div>
+  </div>
+</section>
+
+<section class="commitment" [attr.aria-label]="commitment.altText || 'Commitment section banner'">
+  <div class="commitment-bg-image" [style.background-image]="'url(' + commitment.backgroundImageUrl + ')'"></div>
+  <div class="commitment-content container">
+    <h2>{{ commitment.title }}</h2>
+    <p>{{ commitment.text }}</p>
+    <a [routerLink]="commitment.buttonLink" class="btn btn-secondary">{{ commitment.buttonText }}</a>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <h2>{{ ctaFinal.title }}</h2>
+    <p>{{ ctaFinal.text }}</p>
+    <a [routerLink]="ctaFinal.primaryButtonLink" [fragment]="ctaFinal.primaryButtonFragment" class="btn btn-primary">{{ ctaFinal.primaryButtonText }}</a>
+    <a [routerLink]="ctaFinal.secondaryButtonLink" class="btn btn-secondary">{{ ctaFinal.secondaryButtonText }}</a>
+  </div>
+</section>

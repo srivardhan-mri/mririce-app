@@ -1,0 +1,23 @@
+<header>
+  <div class="container">
+    <a routerLink="/home" class="logo-link" (click)="closeMobileNav()">
+      <img src="/assets/images/mri-logo.png" alt="Miryalaguda Rice Industries Logo" id="logo">
+      </a>
+    <nav>
+      <ul [attr.data-visible]="isMobileNavVisible">
+        <li><a routerLink="/home" routerLinkActive="active" (click)="closeMobileNav()">Home</a></li>
+        <li><a routerLink="/about" routerLinkActive="active" (click)="closeMobileNav()">About Us</a></li>
+        <li><a routerLink="/products" routerLinkActive="active" (click)="closeMobileNav()">Our Rice</a></li>
+        <li><a routerLink="/brands" routerLinkActive="active" (click)="closeMobileNav()">Our Brands</a></li>
+        <li><a routerLink="/quality" routerLinkActive="active" (click)="closeMobileNav()">Quality Assurance</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileNav()">Contact Us</a></li>
+        <li>
+          <a routerLink="/contact" fragment="bulk-enquiry" class="cta-nav" (click)="closeMobileNav()">Bulk Orders</a>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-nav-toggle" aria-label="Toggle navigation" (click)="toggleMobileNav()">
+      <fa-icon [icon]="isMobileNavVisible ? faTimes : faBars"></fa-icon>
+    </button>
+  </div>
+</header>

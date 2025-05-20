@@ -1,0 +1,53 @@
+// src/app/pages/brands/brands.component.scss
+
+// Assumes .page-header (base) and .page-header.brands-bg are styled in global styles.scss
+// If .page-header.brands-bg is not global, define its background here:
+// .page-header.brands-bg {
+//   background-image: url('/assets/images/brands-banner-packaging.jpg');
+// }
+
+.brands-intro-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--background-light); // From original style.css
+
+  h2 {
+    // Assuming global h2 styles apply or defined in styles.scss
+    color: var(--mri-logo-blue); // Was --mri-logo-blue in style.css
+    margin-bottom: 15px;
+  }
+
+  p {
+    // Assuming global p styles apply
+    max-width: 800px;
+    margin: 0 auto 1.5em auto; // style.css had 1.5em auto
+    font-size: 1.1rem;
+    color: var(--text-body); // Was #555 in style.css
+  }
+}
+
+.brand-showcase-section {
+  padding: 50px 20px; // Was 50px 0 in style.css, adding horizontal padding for consistency
+  // background-color: var(--background-offwhite); // Or default page background
+}
+
+// Specific background/border classes for .brand-profile if not handled by brand-profile-card.component.scss
+// It's often better to have these in the component consuming them or globally if truly reusable.
+// However, since brand-profile-card.scss already defines them, this might be redundant unless
+// you need to override something at the page level.
+// For example, you could define them here if you didn't want to use :host-context in the card component.
+
+// .brand-profile.super-fine-star-bg {
+//   // Styles from style.css or brand-profile-card.scss
+// }
+
+// .brand-profile.mri-brand-bg {
+//   // Styles from style.css or brand-profile-card.scss
+// }
+
+// Responsive adjustments specific to the brands page layout, if any.
+// @media (max-width: 768px) {
+//   .page-header.brands-bg h1 { // Example if global responsive wasn't enough
+//     font-size: 2.5rem;
+//   }
+// }

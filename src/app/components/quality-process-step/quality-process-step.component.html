@@ -1,0 +1,21 @@
+@if (step) {
+  <article class="process-step" [class.image-right]="step.layoutType === 'image-right'">
+    <div class="step-visuals">
+      @if (step.visualType === 'icon' && step.iconClass) {
+        <i [class]="step.iconClass"></i>
+      } @else {
+        <div class="image-placeholder-quality">{{ step.visualPlaceholderText }}</div>
+      }
+      </div>
+    <div class="step-description">
+      <h3>{{ step.stepNumber }}. {{ step.title }}</h3>
+      <p [innerHTML]="step.description"></p> @if (step.bulletPoints && step.bulletPoints.length > 0) {
+        <ul>
+          @for (point of step.bulletPoints; track point) {
+            <li>{{ point }}</li>
+          }
+        </ul>
+      }
+    </div>
+  </article>
+}

@@ -1,0 +1,42 @@
+@if (brand) {
+  <article class="brand-profile" [ngClass]="brand.profileBgClass" [id]="brand.id">
+    <div class="brand-content" [class.image-right]="brand.layoutType === 'image-right'">
+      <div class="brand-visuals">
+        @if (brand.logoUrl) {
+          <img [src]="brand.logoUrl" [alt]="brand.logoAltText" class="brand-logo-display">
+        }
+        @else {
+          <div class="image-placeholder-logo-brand">Brand Logo</div>
+        }
+
+        @if (brand.mainImageUrl) {
+          <img [src]="brand.mainImageUrl" [alt]="brand.mainImageAltText" class="brand-main-image">
+        }
+        @else {
+          <div class="image-placeholder-main-brand">Main Brand Image</div>
+        }
+      </div>
+
+      <div class="brand-details">
+        <h3>{{ brand.name }}</h3>
+        <span class="tagline">{{ brand.tagline }}</span>
+        <p [innerHTML]="brand.description"></p>
+
+        @if (brand.varieties && brand.varieties.length > 0) {
+          <div class="brand-varieties">
+            <h4>Key Varieties under {{ brand.name }}:</h4>
+            <ul>
+              @for (variety of brand.varieties; track variety.name) {
+                <li>{{ variety.name }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <a [routerLink]="brand.exploreLinkPath" [fragment]="brand.exploreLinkFragment" class="btn btn-primary">
+          Explore {{ brand.name }}
+        </a>
+      </div>
+    </div>
+  </article>
+}

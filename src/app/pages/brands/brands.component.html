@@ -1,0 +1,23 @@
+<section class="page-header brands-bg">
+  <div class="container">
+    <h1>{{ pageHeader.title }}</h1>
+    <p>{{ pageHeader.description }}</p>
+  </div>
+</section>
+
+<section class="brands-intro-section">
+  <div class="container">
+    <h2>{{ brandsIntro.title }}</h2>
+    <p>{{ brandsIntro.text }}</p>
+  </div>
+</section>
+
+<section class="brand-showcase-section">
+  <div class="container">
+    @for (brand of brands; track brand.id) {
+      <app-brand-profile-card [brand]="brand"></app-brand-profile-card>
+    } @empty {
+      <p>Information about our brands will be available here soon.</p>
+    }
+  </div>
+</section>

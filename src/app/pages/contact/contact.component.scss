@@ -1,0 +1,211 @@
+// src/app/pages/contact/contact.component.scss
+
+// Assumes .page-header (base) and .page-header.contact-bg are styled in global styles.scss
+// If .page-header.contact-bg is not global, define its background here:
+// .page-header.contact-bg {
+//   background-image: url('/assets/images/contact-banner-miryalaguda.jpg');
+// }
+
+.contact-section {
+  padding: 60px 20px; // From original style.css (was 60px 0, adding horizontal for container)
+  background-color: var(--background-light);
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+
+  h2 {
+    // Global h2 styles likely apply
+    color: var(--mri-logo-blue);
+    margin-bottom: 15px;
+  }
+
+  p {
+    // Global p styles likely apply
+    font-size: 1.1rem;
+    color: var(--text-body);
+  }
+}
+
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; // Details on left, form on right (original)
+  gap: 50px;
+}
+
+.contact-details-panel {
+  background-color: var(--background-offwhite); // From original style.css
+  padding: 30px;
+  border-radius: 8px;
+
+  h3 {
+    color: var(--mri-logo-blue); // Was --mri-logo-blue in style.css
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--mri-logo-red); // Was --mri-logo-red in style.css
+    padding-bottom: 10px;
+    text-align: left; // Ensure heading is left
+  }
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start; // Align icon with first line of text
+  margin-bottom: 20px;
+  font-size: 1.05rem;
+  text-align: left;
+
+  fa-icon { // Styling for the FontAwesome component
+    font-size: 1.5rem; // Icon size
+    color: var(--mri-logo-blue); // Icon color
+    margin-right: 15px;
+    width: 25px; // Fixed width for alignment
+    text-align: center;
+    margin-top: 3px; // Fine-tune vertical alignment
+  }
+
+  div { // Container for label and value
+    strong {
+      display: block; // Make label take its own line if needed, or keep inline
+      margin-bottom: 2px; // Small space after label
+    }
+    a, span { // For value part
+      color: var(--text-dark); // Was #333
+      word-break: break-word; // Prevent long emails/links from breaking layout
+    }
+    a:hover {
+      color: var(--mri-logo-red); // Was --mri-logo-red
+    }
+  }
+}
+
+.social-icons-contact { // From original style.css
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--mri-logo-gray); // Was --mri-logo-gray
+  text-align: left;
+
+  p {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: var(--text-dark);
+  }
+
+  a {
+    color: var(--mri-logo-blue); // Was --mri-logo-blue
+    font-size: 1.8rem; // Icon size for social links
+    margin-right: 15px;
+    transition: color 0.3s ease;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: var(--mri-logo-red); // Was --mri-logo-red
+    }
+  }
+}
+
+.contact-form-panel {
+  h3 {
+    color: var(--mri-logo-blue); // From original style.css
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    text-align: left;
+  }
+  // .form-group and input styles are global in styles.scss
+}
+
+// Styling for form validation feedback
+.form-group {
+  position: relative; // For positioning feedback messages if needed
+
+  input.is-invalid,
+  textarea.is-invalid,
+  select.is-invalid {
+    border-color: var(--mri-logo-red); // Highlight invalid fields
+    // box-shadow: 0 0 0 0.2rem rgba(217, 37, 37, 0.25); // Optional: add a glow
+  }
+}
+
+.invalid-feedback {
+  display: block; // Make it visible
+  width: 100%;
+  margin-top: .25rem;
+  font-size: .875em; // Smaller font for error messages
+  color: var(--mri-logo-red);
+  text-align: left;
+}
+
+// Form submission messages
+.form-message {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-align: center;
+
+  &.success-message {
+    background-color: #d4edda; // Light green
+    color: #155724;      // Dark green
+    border: 1px solid #c3e6cb;
+  }
+
+  &.error-message {
+    background-color: #f8d7da; // Light red
+    color: #721c24;      // Dark red
+    border: 1px solid #f5c6cb;
+  }
+}
+
+
+.map-section {
+  padding: 50px 20px; // Was 50px 0
+  background-color: var(--background-offwhite);
+
+  h2 {
+    // Global h2 styles apply
+    text-align: center;
+    color: var(--mri-logo-blue);
+    margin-bottom: 30px;
+  }
+}
+
+.map-container {
+  position: relative;
+  padding-bottom: 50%; // Adjust for desired aspect ratio, 56.25% for 16:9, 50% for 2:1
+  height: 0;
+  overflow: hidden;
+  border: 2px solid var(--mri-logo-blue);
+  border-radius: 8px;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Responsive adjustments from original style.css for Contact page
+@media (max-width: 992px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr; // Stack on smaller screens
+  }
+
+  .contact-details-panel {
+    margin-bottom: 40px; // Add space when stacked
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 15px; // From original style.css
+  }
+  // .page-header.contact-bg h1, p styles should be handled by global .page-header responsive rules
+}

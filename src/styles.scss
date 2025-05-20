@@ -1,1 +1,447 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss
+
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+    --mri-logo-blue: #0052A5;
+    /* Primary Blue from Logo - ADJUST IF YOU HAVE EXACT HEX */
+    --mri-logo-red: #D92525;
+    /* Accent Red from Logo - ADJUST IF YOU HAVE EXACT HEX */
+    --mri-logo-gray: #B0B0B0;
+    /* Gray/Silver from Logo lines */
+
+    --text-dark: #333333;
+    --text-light: #f0f0f0;
+    /* Light text for dark backgrounds */
+    --text-body: #454545;
+    /* Slightly softer dark for body text */
+
+    --background-light: #FFFFFF;
+    --background-offwhite: #F5F5DC;
+    /* Existing beige/cream */
+    --background-subtle-gray: #f7f7f7;
+    /* For very light section backgrounds */
+
+    --font-primary: 'Montserrat', 'Verdana', sans-serif;
+    /* For headings */
+    --font-secondary: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* For body text */
+}
+
+
+/* --- Global Resets & Basic Styling --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body { // Added html for height consistency if needed
+  height: 100%;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.7;
+    color: var(--text-body);
+    background-color: var(--background-offwhite);
+    // margin: 0; // Already in reset
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-primary);
+    color: var(--mri-logo-blue);
+    margin-bottom: 0.75em;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1.5em; // Default margin for h2, can be overridden in components
+    // font-weight: 700; // Already in h1-h4 block
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 1em;
+    font-size: 1.05rem;
+}
+
+a {
+    text-decoration: none;
+    color: var(--mri-logo-blue);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--mri-logo-red);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    // padding: 0; // Already in reset
+}
+
+/* --- Buttons --- */
+/* Base button styles - can be extended or overridden by components */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-family: var(--font-primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-decoration: none; // Ensure hover on button doesn't add underline if 'a' tag
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background-color: var(--mri-logo-blue);
+    color: var(--text-light);
+    border-color: var(--mri-logo-blue);
+}
+
+.btn-primary:hover {
+    background-color: #003E7E; // Darker blue
+    border-color: #003E7E;
+    color: var(--text-light);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--mri-logo-red);
+    border: 2px solid var(--mri-logo-red);
+    // font-weight: 700; // Already in .btn
+}
+
+.btn-secondary:hover {
+    background-color: var(--mri-logo-red);
+    color: var(--text-light);
+}
+
+.btn-accent {
+    background-color: var(--mri-logo-red);
+    color: var(--text-light);
+    border-color: var(--mri-logo-red);
+}
+
+.btn-accent:hover {
+    background-color: #AE1F1F; // Darker red
+    border-color: #AE1F1F;
+    color: var(--text-light);
+}
+
+.btn-outline-blue {
+    background-color: transparent;
+    color: var(--mri-logo-blue);
+    border: 2px solid var(--mri-logo-blue);
+    // font-weight: 700; // Already in .btn
+}
+
+.btn-outline-blue:hover {
+    background-color: var(--mri-logo-blue);
+    color: var(--text-light);
+}
+
+.btn-outline-red {
+    background-color: transparent;
+    color: var(--mri-logo-red);
+    border: 2px solid var(--mri-logo-red);
+    // font-weight: 700; // Already in .btn
+}
+
+.btn-outline-red:hover {
+    background-color: var(--mri-logo-red);
+    color: var(--text-light);
+}
+
+
+/* --- Page Header (for subpages) --- */
+/* This is a common element, so its base style can be global.
+   Specific background images will be handled by adding classes
+   to the element in the respective page component's HTML,
+   and those classes will be styled here or in component SCSS.
+*/
+.page-header {
+    color: var(--text-light);
+    padding: 70px 20px;
+    text-align: center;
+    margin-bottom: 0; // Default, can be overridden by specific page sections that follow
+    position: relative;
+    background-color: var(--mri-logo-blue); // Fallback color
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    &::before { // Darkening overlay
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(0, 82, 165, 0.75), rgba(0, 82, 165, 0.85)); /* Logo Blue gradient overlay */
+        z-index: 1;
+    }
+
+    .container { // Content within the page header
+        position: relative;
+        z-index: 2;
+    }
+
+    h1 {
+        color: var(--text-light); // Override global h1 color if needed
+        font-size: 3rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-light); // Override global p color if needed
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+}
+
+// Specific background images for page headers
+// Ensure these image paths are correct relative to the 'assets' folder if used directly in CSS
+// Or, preferably, apply these backgrounds dynamically in your Angular components.
+// Example: url('assets/images/about-us-banner.jpeg')
+.page-header.about-us-bg {
+    background-image: url('/assets/images/about-us-banner.jpeg');
+}
+.page-header.brands-bg {
+    background-image: url('/assets/images/brands-banner-packaging.jpg');
+}
+.page-header.quality-bg {
+    background-image: url('/assets/images/quality-banner-inspection.jpg');
+}
+.page-header.contact-bg {
+    background-image: url('/assets/images/contact-banner-miryalaguda.jpg');
+}
+.page-header.products-bg {
+    background-image: url('/assets/images/products-banner-rice-varieties.jpeg');
+}
+
+/* Other section styles (like .usps, .featured-brands, .commitment, .about-section, etc.)
+   will be moved to their respective component's SCSS files.
+   However, if there are any truly global section stylings, they could remain.
+   For this exercise, we'll assume most section-specific styles will move.
+*/
+
+
+/* === Styles for Form Elements (from Contact Page, but can be global) === */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--mri-logo-gray);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-secondary);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--mri-logo-blue);
+    box-shadow: 0 0 0 2px rgba(0, 82, 165, 0.2);
+}
+
+
+/* === Styles for Legal Pages (Privacy Policy, Terms) === */
+/* These are fairly generic and could be global if you have a common layout for them */
+.legal-content-section {
+    padding: 60px 20px;
+    background-color: var(--background-light);
+
+    .container { // Limit width for readability
+        max-width: 900px;
+        // margin: auto; // Handled by .container global rule
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        // color: var(--mri-logo-blue); // Global h1 style
+        margin-bottom: 40px; // Override global h1 margin if needed
+    }
+
+    h2 {
+        // color: var(--mri-logo-blue); // Global h2 style
+        text-align: left; // Override global h2 text-align
+        font-size: 1.8rem;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--mri-logo-gray);
+        padding-bottom: 10px;
+    }
+
+    p,
+    ul li {
+        // color: var(--text-body); // Global p style
+        // line-height: 1.8; // Example, if different from global p
+    }
+
+    ul { // Specific for lists within legal content
+        list-style: disc; // Or as needed
+        padding-left: 20px; // Indent list items
+        margin-bottom: 1em;
+    }
+
+    strong {
+        color: var(--text-dark);
+    }
+
+    // a { color: var(--mri-logo-blue); } // Global link style
+    // a:hover { color: var(--mri-logo-red); } // Global link hover
+
+    .important-disclaimer {
+        background-color: #fff3cd;
+        color: #856404;
+        border: 1px solid #ffeeba;
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-align: center;
+        font-size: 1.1rem;
+    }
+
+    .effective-date {
+        font-style: italic;
+        color: #555;
+        text-align: center;
+        margin-bottom: 30px;
+        display: block;
+    }
+}
+
+
+/* --- Global Responsive Design Adjustments --- */
+/* Keep only very general responsive rules here.
+   Component-specific responsive rules should go with the component's SCSS.
+*/
+
+/* Example: Global heading adjustments for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem; // Base adjustment for h1 on smaller screens
+    }
+    h2 {
+        font-size: 1.8rem; // Base adjustment for h2
+    }
+    h3 {
+        font-size: 1.3rem; // Base adjustment for h3
+    }
+
+    .page-header { // Adjust padding for general page headers on mobile
+        padding: 50px 15px;
+        h1 {
+            font-size: 2.5rem;
+        }
+        p {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.2rem;
+    }
+    .page-header h1 { // Further adjustment for page headers
+        font-size: 2rem;
+    }
+}
+
+/*
+  NOTE: Many specific responsive styles from your original `style.css`
+  (e.g., for .hero, .usp-grid, .brands-grid, .about-content, .process-step, .contact-main-grid, etc.)
+  should be moved into the SCSS files of their respective Angular components.
+  This makes the styles more modular and easier to manage alongside the component's template and logic.
+*/
+
+/* Styles for header and footer mobile navigation toggles, etc., will be in
+   header.component.scss and footer.component.scss respectively.
+*/

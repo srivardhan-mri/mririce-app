@@ -1,0 +1,89 @@
+// src/app/pages/products/products.component.scss
+
+// Assumes .page-header (base) and .page-header.products-bg are styled in global styles.scss
+// If .page-header.products-bg is not global, define its background here:
+// .page-header.products-bg {
+//   background-image: url('/assets/images/products-banner-rice-varieties.jpeg');
+// }
+
+.products-section {
+  padding: 50px 0; // From original style.css
+}
+
+.products-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px; // From original style.css
+
+  h2 {
+    // Assuming global h2 styles apply or defined in styles.scss
+    // color: var(--mri-logo-blue);
+    // margin-bottom: 15px;
+  }
+
+  p {
+    // Assuming global p styles apply
+    // font-size: 1.1rem;
+    // color: #555;
+  }
+}
+
+.rice-category {
+  margin-bottom: 50px; // From original style.css
+
+  .category-title-wrapper { // From original style.css
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .category-title { // Was h3.category-title in original style.css
+    // text-align: center; // Handled by wrapper
+    font-size: 2.2rem;
+    color: var(--mri-logo-blue); // From original style.css
+    margin-bottom: 0; // Wrapper handles the overall margin
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--mri-logo-red);
+    display: inline-block; // For border to fit text width
+  }
+}
+
+.product-grid-wrapper { // From original style.css
+  display: flex;
+  justify-content: center; // Centers the .product-grid if it's narrower than the wrapper
+}
+
+.product-grid { // From original style.css
+  display: grid; // Changed from inline-grid to allow it to take available width if needed
+  // For inline-grid to center, wrapper must be display:flex, justify-content:center
+  // display: inline-grid; // If you prefer the grid to only be as wide as its content
+
+  // Defines columns. Example: 3 columns on desktop, 2 on tablet, 1 on mobile.
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive columns
+  // Or more explicit:
+  // grid-template-columns: repeat(3, 1fr);
+
+  gap: 30px;
+  align-items: stretch; // Makes all cards in a row the same height
+  width: 100%; // Make the grid take up the available width of its wrapper
+  // max-width: 1200px; // Optional: Set a max-width for the grid itself
+
+  // @media (max-width: 992px) { // For tablet
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
+  // @media (max-width: 768px) { // For mobile - auto-fit should handle this by making it 1 column
+  //   grid-template-columns: 1fr;
+  // }
+}
+
+// Responsive styles from original style.css specifically for products page sections
+@media (max-width: 768px) {
+  .products-section {
+    padding: 40px 0; // Keep vertical padding, horizontal is by container
+  }
+  .product-grid {
+      grid-template-columns: 1fr; // Explicitly one column for smaller screens
+  }
+}

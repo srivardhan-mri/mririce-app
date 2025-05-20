@@ -1,0 +1,395 @@
+// src/app/pages/home/home.component.scss
+
+// --- Hero Section ---
+// Styles specific to the hero section on the homepage.
+.hero {
+  position: relative;
+  color: var(--text-light);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 85vh;
+  overflow: hidden;
+
+  // .hero-bg-image itself has its background set dynamically in the HTML.
+  // These are supporting styles for that div.
+  .hero-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2; // Ensure this is behind the overlay and content
+  }
+
+  // Overlay for text readability
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); // From original style.css
+    z-index: -1;
+  }
+
+  .hero-content {
+    position: relative; // Sits above the overlay
+    z-index: 1;
+    padding: 40px 20px;
+    max-width: 800px;
+
+    h1 {
+      color: var(--text-light); // Explicitly set for hero, might differ from global h1
+      font-size: 3.2rem;
+      margin-bottom: 0.5em;
+      font-weight: 800;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+
+      .highlight {
+        color: var(--mri-logo-red); // As per original style.css
+      }
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5em;
+      color: var(--text-light); // Explicitly set for hero
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    .btn {
+      margin: 10px; // Spacing for hero buttons
+    }
+
+    // Specific styling for .btn-secondary within the .hero context
+    .btn-secondary {
+      color: var(--text-light);
+      border-color: var(--text-light);
+
+      &:hover {
+        background-color: var(--text-light);
+        color: var(--mri-logo-blue);
+      }
+    }
+  }
+}
+
+// --- USPs Section (Homepage) ---
+.usps {
+  padding: 60px 0;
+  background-color: var(--background-light);
+
+  // h2 styling is likely global from styles.scss
+
+  .usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .usp-item { // Assuming this class is directly on the iterated item in home.component.html
+    padding: 25px;
+    border-radius: 8px;
+    text-align: center;
+
+    .usp-icon {
+      max-height: 60px;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+
+    h3 {
+      color: var(--mri-logo-blue); // From original style.css
+      font-weight: 700;
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+// --- Featured Brands Section (Homepage) ---
+.featured-brands {
+  padding: 60px 0;
+  background-color: var(--background-offwhite);
+
+  // h2 styling is likely global
+
+  .brands-grid {
+    display: grid;
+    // This was repeat(auto-fit, minmax(320px, 1fr)) in style.css for general .brands-grid.
+    // The homepage featured-brands section might have had a more specific layout in index.html if it was different.
+    // The screenshot implies a two-column layout, so let's assume that for desktop if it was different.
+    // For now, sticking to the original style.css generic rule:
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  // Styles for .brand-card as it appears on the HOMEPAGE
+  .brand-card {
+    background-color: var(--background-light);
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    // This was `flex-direction: row;` in your original style.css for this specific homepage card
+    // and `align-items: center;` which caused issues.
+    // The screenshot shows the image above the text for the featured brands.
+    // Let's use column for now as per screenshot, or adjust if the intended desktop was row.
+    flex-direction: column; // As per screenshot's visual for featured brands
+    // If it should be row on desktop and column on mobile, media queries handle that.
+    // The style.css for general .brand-card on brand.html was flex-direction: row initially.
+    // For the homepage version in style.css, it was also row. Let's stick to the original:
+    // flex-direction: row; (Original from style.css .featured-brands .brand-card)
+    // align-items: center; (Original)
+    // padding: 20px; (Original)
+    // width: 100%; (Original)
+
+    // Re-evaluating based on provided `style.css` for `.featured-brands .brand-card`
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+
+
+    .brand-visuals {
+      flex: 0 0 150px; // From style.css
+      margin-right: 25px; // From style.css
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .brand-bag-image {
+        display: block;
+        max-width: 100%;
+        max-height: 260px; // From style.css
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+      }
+    }
+
+    .brand-info {
+      text-align: left; // From style.css for homepage card
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; // From style.css for homepage card
+
+      h3 {
+        color: var(--mri-logo-blue);
+        margin-top: 0;
+        font-size: 1.8rem; // From style.css
+        // text-align: center; // This was in style.css under .brand-info h3, but the parent .brand-info is align-items: flex-start
+        // Let's make it left as per parent alignment for consistency unless specifically centered for homepage.
+        // Your style.css had: .brand-info h3 { text-align: center; }
+        // The screenshot has it left-aligned. I will follow the screenshot for this particular section.
+        text-align: left;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+        text-align: left; // from style.css
+      }
+
+      .btn {
+        margin-top: 15px; // from style.css
+        align-self: flex-start; // from style.css, makes sense with left-aligned text
+      }
+    }
+  }
+
+  .all-varieties-link {
+    text-align: center;
+    margin-top: 30px;
+
+    p {
+      font-style: italic;
+      color: #555;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// --- Commitment Section (Homepage) ---
+.commitment {
+  position: relative;
+  color: var(--text-light);
+  padding: 80px 0;
+  text-align: center;
+  overflow: hidden;
+
+  .commitment-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+
+  &::before { // Overlay
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 82, 165, 0.75); // MRI Blue overlay
+    z-index: -1;
+  }
+
+  .commitment-content {
+    position: relative;
+    z-index: 1;
+    max-width: 750px; // As in style.css
+
+    h2 {
+      color: var(--text-light);
+      font-size: 2.5rem;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    p { // Assuming general p styling applies, or add specific for commitment section
+      color: var(--text-light);
+    }
+
+    .btn-secondary { // From style.css .commitment .btn-secondary
+      color: var(--text-light);
+      border-color: var(--text-light);
+
+      &:hover {
+        background-color: var(--text-light);
+        color: var(--mri-logo-blue);
+      }
+    }
+  }
+}
+
+// --- CTA Final (Homepage) ---
+.cta-final {
+  padding: 60px 0;
+  background-color: var(--background-light);
+  text-align: center;
+
+  // h2 styling is likely global
+
+  p {
+    // Global p styling applies unless overridden for this section
+    max-width: 600px; // From your original style.css for .cta-final p (via .cta-final in inititalStyle.css)
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px; // From your original style.css for .cta-final p
+    font-size: 1.1rem; // From your original style.css for .cta-final p
+  }
+
+  .btn {
+    margin: 10px; // From original style.css for .cta-final .btn
+  }
+}
+
+
+// --- Responsive adjustments specifically for homepage sections ---
+// These are from the media queries in your style.css that targetted homepage elements.
+@media (max-width: 992px) {
+  .hero .hero-content {
+    h1 {
+      font-size: 2.8rem;
+    }
+    p {
+      font-size: 1.15rem;
+    }
+  }
+
+  .commitment .commitment-content {
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    .hero-content {
+      h1 {
+        font-size: 2.2rem;
+      }
+      p {
+        font-size: 1.05rem;
+      }
+    }
+  }
+
+  // Specific responsive for homepage sections
+  .usps .usp-grid,
+  .featured-brands .brands-grid { // This was a global rule in style.css, making it specific here
+    grid-template-columns: 1fr;
+  }
+
+  // Responsive for the .brand-card within .featured-brands (from style.css)
+  .featured-brands .brands-grid .brand-card {
+      flex-direction: column; // Stack image above text on small screens
+      align-items: center;    // Center items when stacked
+      text-align: center;     // Center text when stacked
+
+      .brand-visuals {
+          margin-right: 0;
+          margin-bottom: 20px; // Space between image and text when stacked
+          width: 100%;         // Allow visual block to be full width
+
+          .brand-bag-image { // Was img.brand-bag-image
+              margin-left: auto;   // Center image within .brand-visuals
+              margin-right: auto;
+              max-width: 60%;      // Adjust as needed for stacked view
+          }
+      }
+      .brand-info {
+          align-items: center; // Center text block items
+          text-align: center;  // Center text within info block
+          h3, p {
+              text-align: center;
+          }
+          .btn {
+              align-self: center; // Center button when stacked
+          }
+      }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero .hero-content {
+    h1 {
+      font-size: 1.8rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+    .btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+
+  .usps .usp-item { // Was .usp-item directly in style.css
+    padding: 15px;
+  }
+
+  .featured-brands .brand-card .brand-info { // More specific selector
+    padding: 15px;
+  }
+}

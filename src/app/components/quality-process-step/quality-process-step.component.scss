@@ -1,0 +1,140 @@
+// src/app/components/quality-process-step/quality-process-step.component.scss
+
+// Assumes global CSS variables are available from src/styles.scss
+
+:host {
+  display: block; // Ensures the component takes up block space
+  margin-bottom: 30px; // Space between steps, from original .process-step
+}
+
+.process-step {
+  background-color: var(--background-light); // Was --background-light in original (some were beige)
+  padding: 30px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 2fr; // Default: Visuals on left, description on right
+  gap: 40px;
+  align-items: center;
+  border-left: 5px solid var(--mri-logo-blue); // Default border
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  // Handles the case where image/visuals are on the right
+  &.image-right {
+    grid-template-columns: 2fr 1fr; // Description on left, visuals on right
+    border-left: none;
+    border-right: 5px solid var(--mri-logo-red); // Accent border from original
+    .step-visuals {
+      order: 1; // Pushes visuals to the second column in grid flow
+    }
+    .step-description {
+      order: 0; // Ensures description is in the first column
+    }
+  }
+}
+
+.step-visuals {
+  text-align: center;
+
+  .icon-placeholder, // Original CSS class
+  .image-placeholder-quality { // Original CSS class
+    width: 100%;
+    max-width: 350px;
+    height: 200px;
+    background-color: #e0e0e0; // Placeholder background
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #777;
+    margin: 0 auto; // Center the placeholder
+  }
+
+  // If using actual FontAwesome <i> tags with classes
+  i {
+    font-size: 5rem; // From original style.css
+    color: var(--mri-logo-blue); // Default icon color
+    display: block; // Ensure it takes space
+  }
+  // If using <fa-icon> component, you'd size it via its 'size' input or CSS
+}
+
+.step-description {
+  h3 {
+    font-size: 1.8rem;
+    color: var(--mri-logo-blue);
+    margin-bottom: 15px;
+    text-align: left; // Ensure heading is left-aligned
+  }
+
+  p {
+    font-size: 1.05rem; // From original style.css
+    margin-bottom: 10px;
+    line-height: 1.8;
+    text-align: left;
+  }
+
+  ul {
+    list-style: none; // Will use custom pseudo-elements for checkmarks
+    padding-left: 0; // Reset default padding
+    margin-top: 15px;
+
+    li {
+      padding-left: 25px; // Space for the custom checkmark
+      position: relative;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      text-align: left;
+
+      &::before {
+        content: "\f00c"; // Font Awesome checkmark Unicode
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Solid"; // Specify Font Awesome font family
+        font-weight: 900; // Solid icons are typically 900 weight
+        color: var(--mri-logo-blue); // Checkmark color
+        position: absolute;
+        left: 0;
+        top: 3px; // Adjust vertical alignment as needed
+      }
+    }
+  }
+}
+
+// Responsive adjustments from original style.css for process steps
+@media (max-width: 992px) {
+  .process-step,
+  .process-step.image-right {
+    grid-template-columns: 1fr; // Stack elements
+    text-align: center; // Center text content when stacked
+    border-left: 5px solid var(--mri-logo-blue); // Consistent border for stacked view
+    border-right: none; // Remove right border when stacked
+
+    .step-visuals,
+    .step-description {
+      order: initial; // Reset order for stacking
+    }
+
+    .step-visuals {
+      .icon-placeholder,
+      .image-placeholder-quality {
+        margin-bottom: 20px; // Space below visual when stacked
+      }
+      i { // Center icon if it's a block
+        margin: 0 auto 20px auto;
+      }
+    }
+    .step-description {
+      h3, p, ul {
+        text-align: center;
+      }
+      ul li {
+        // For centered text, the pseudo-element might look odd.
+        // Consider left-aligning li text or adjusting pseudo-element for centered lists.
+        text-align: left; // Keep list items left-aligned even if heading/p is centered
+        padding-left: 30px; // Adjust if needed for centered layout
+        margin-left: auto;  // Attempt to center the block of LIs
+        margin-right: auto;
+        max-width: fit-content; // So it doesn't take full width
+      }
+    }
+  }
+}

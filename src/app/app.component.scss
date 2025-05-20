@@ -1,0 +1,19 @@
+// src/app/app.component.scss
+
+// You might add styles here if your <main> element needs specific global layout rules
+// that aren't covered by individual page components. For example:
+// main {
+//   display: block; // main is block by default, but good for clarity
+//   flex-grow: 1; /* If you use flexbox for a sticky footer layout on app-root */
+//   min-height: calc(100vh - (headerHeight + footerHeight)); /* Example for min-height calculation */
+// }
+
+// If you want to ensure app-root itself takes full height for a sticky footer:
+// :host {
+//   display: flex;
+//   flex-direction: column;
+//   min-height: 100vh;
+// }
+
+// For now, you can leave this empty if you don't have specific styles for app-root.
+// Most styles will be in global styles.scss or component-specific files.

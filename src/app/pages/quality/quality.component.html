@@ -1,0 +1,29 @@
+<section class="page-header quality-bg"> <div class="container">
+    <h1>{{ pageHeader.title }}</h1>
+    <p>{{ pageHeader.description }}</p>
+  </div>
+</section>
+
+<section class="quality-intro-section">
+  <div class="container">
+    <h2>{{ qualityIntro.title }}</h2>
+    <p [innerHTML]="qualityIntro.text"></p> </div>
+</section>
+
+<section class="quality-process-section">
+  <div class="container">
+    @for (step of processSteps; track step.stepNumber) {
+      <app-quality-process-step [step]="step"></app-quality-process-step>
+    } @empty {
+      <p>Our quality assurance process details will be available soon.</p>
+    }
+  </div>
+</section>
+
+<section class="quality-conclusion">
+  <div class="container">
+    <h3>{{ qualityConclusion.title }}</h3>
+    <p [innerHTML]="qualityConclusion.text"></p>
+    <a [routerLink]="qualityConclusion.buttonLink" class="btn btn-primary">{{ qualityConclusion.buttonText }}</a>
+  </div>
+</section>

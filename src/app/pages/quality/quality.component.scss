@@ -1,0 +1,96 @@
+// src/app/pages/quality/quality.component.scss
+
+// Assumes .page-header (base) and .page-header.quality-bg are styled in global styles.scss
+// If .page-header.quality-bg is not global, define its background here:
+// .page-header.quality-bg {
+//   background-image: url('/assets/images/quality-banner-inspection.jpg');
+// }
+
+.quality-intro-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--background-light); // From original style.css
+
+  h2 {
+    // Assuming global h2 styles apply
+    color: var(--mri-logo-blue); // From original style.css
+    margin-bottom: 15px;
+  }
+
+  p {
+    // Assuming global p styles apply
+    max-width: 800px;
+    margin: 0 auto 1.5em auto;
+    font-size: 1.1rem;
+    color: var(--text-body); // Was #555 in style.css
+  }
+}
+
+.quality-process-section {
+  padding: 50px 20px; // Was 50px 0 in style.css, adding horizontal padding for container consistency
+  // background-color: var(--background-offwhite); // Or page default
+}
+
+// Styles for .process-step and its children are now in quality-process-step.component.scss
+
+.certifications-section { // Styles from original style.css if you use this section
+  padding: 40px 20px;
+  text-align: center;
+  background-color: var(--background-light);
+
+  h3 { // Original had h3, not h2
+    color: var(--mri-logo-blue); // Assuming consistency with other h3s
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+  }
+
+  .certifications-placeholder {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .cert-item-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    color: #777;
+  }
+}
+
+.quality-conclusion {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: var(--background-offwhite); // From original style.css
+
+  h3 { // Original had h3
+    color: var(--mri-logo-blue); // Assuming consistency
+    margin-bottom: 1em; // Added for spacing
+    text-align: center;
+  }
+
+  p {
+    max-width: 750px;
+    margin: 0 auto 25px auto;
+    font-size: 1.15rem; // From original style.css
+  }
+  // .btn .btn-primary styling is global
+}
+
+// Responsive adjustments specific to Quality page elements if any, beyond component styles
+@media (max-width: 768px) {
+  .quality-process-section { // From original style.css
+    padding: 40px 15px;
+  }
+}

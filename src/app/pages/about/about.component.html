@@ -1,0 +1,88 @@
+<section class="page-header about-us-bg"> <div class="container">
+    <h1>{{ pageHeader.title }}</h1>
+    <p>{{ pageHeader.description }}</p>
+  </div>
+</section>
+
+<section class="about-section intro-section"> <div class="container">
+    <div class="about-content" [class.text-first]="introSection.layoutType === 'text-first'" [class.image-first]="introSection.layoutType === 'image-first'">
+      <div class="about-text">
+        <h2>{{ introSection.title }}</h2>
+        @for(paragraph of introSection.paragraphs; track $index) {
+          <p [innerHTML]="paragraph"></p> }
+      </div>
+      <div class="about-image">
+        <img [src]="introSection.imageUrl" [alt]="introSection.imageAlt">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section legacy-section"> <div class="container">
+    <div class="about-content" [class.text-first]="legacySection.layoutType === 'text-first'" [class.image-first]="legacySection.layoutType === 'image-first'">
+      <div class="about-text">
+        <h2>{{ legacySection.title }}</h2>
+        @for(paragraph of legacySection.paragraphs; track $index) {
+          <p [innerHTML]="paragraph"></p> }
+      </div>
+      <div class="about-image">
+        <img [src]="legacySection.imageUrl" [alt]="legacySection.imageAlt">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section community-section">
+  <div class="container">
+    <div class="about-content" [class.text-first]="communitySection.layoutType === 'text-first'" [class.image-first]="communitySection.layoutType === 'image-first'">
+      <div class="about-text">
+        <h2>{{ communitySection.title }}</h2>
+        @for(paragraph of communitySection.paragraphs; track $index) {
+          <p [innerHTML]="paragraph"></p> }
+      </div>
+      <div class="about-image">
+        <img [src]="communitySection.imageUrl" [alt]="communitySection.imageAlt">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about-section expertise-section">
+  <div class="container">
+    <div class="about-content" [class.text-first]="expertiseSection.layoutType === 'text-first'" [class.image-first]="expertiseSection.layoutType === 'image-first'">
+      <div class="about-text">
+        <h2>{{ expertiseSection.title }}</h2>
+        @for(paragraph of expertiseSection.paragraphs; track $index) {
+          <p [innerHTML]="paragraph"></p> }
+      </div>
+      <div class="about-image">
+        <img [src]="expertiseSection.imageUrl" [alt]="expertiseSection.imageAlt">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values-section">
+  <div class="container">
+    <h2 class="section-title">{{ coreValuesTitle }}</h2>
+    <div class="values-grid">
+      @for (value of coreValues; track value.title) {
+        <div class="value-item">
+          <i [class]="value.iconClass"></i> <h3>{{ value.title }}</h3>
+          <p>{{ value.text }}</p>
+        </div>
+      } @empty {
+        <p>Our core values will be listed here soon.</p>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="cta-about">
+  <div class="container">
+    <h2>{{ ctaAbout.title }}</h2>
+    <p>{{ ctaAbout.text }}</p>
+    <a [routerLink]="ctaAbout.primaryButtonLink" class="btn btn-primary">{{ ctaAbout.primaryButtonText }}</a>
+    <a [routerLink]="ctaAbout.secondaryButtonLink" class="btn btn-secondary">{{ ctaAbout.secondaryButtonText }}</a>
+  </div>
+</section>

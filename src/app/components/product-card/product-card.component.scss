@@ -1,0 +1,113 @@
+// src/app/components/product-card/product-card.component.scss
+
+// Assumes global CSS variables (like --background-light, --mri-logo-blue, etc.)
+// and base .btn styles are defined in src/styles.scss.
+
+:host { // Styles the host element (<app-product-card>) of this component
+  display: block; // Ensures the component takes up block space in the grid
+  height: 100%;   // Important for grid items to stretch to the same height
+}
+
+.product-card {
+  background-color: var(--background-light);
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+  overflow: hidden; // Important if images are larger than their container
+  display: flex;
+  flex-direction: column; // Stacks image above info
+  width: 100%;    // Take full width of the grid cell
+  height: 100%;   // Take full height of the grid cell (works with align-items: stretch on grid)
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 82, 165, 0.15); // MRI Blue shadow tint from original
+  }
+
+  // Styling for the image tag (which has class .product-image-placeholder in the template)
+  .product-image-placeholder {
+    width: 100%;
+    height: 220px; // Fixed height for consistency; adjust as needed or use aspect-ratio
+    object-fit: cover; // Or 'contain' if you don't want cropping
+    background-color: #e9e9e9; // Fallback color while image loads
+    // display: flex; // Not needed for <img> tag as much as for a div placeholder
+    // align-items: center;
+    // justify-content: center;
+    // font-style: italic;
+    // color: #888;
+    flex-shrink: 0; // Prevents image from shrinking if info text is long
+  }
+
+  .product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column; // Stack main content above button
+    flex-grow: 1;           // Allows the .product-info-main-content to take available space
+                            // and pushes the button to the bottom.
+    text-align: center; // Center-aligns inline or inline-block children like brand-tag, button by default
+
+    .product-info-main-content {
+      flex-grow: 1; // This part will expand, pushing the button down
+      width: 100%;  // To allow text-align to work as expected on children
+    }
+
+    .product-name { // This was h4.product-name in original CSS
+      font-size: 1.6rem;
+      color: var(--mri-logo-blue);
+      margin-bottom: 10px;
+      // text-align: center; // Inherits from .product-info
+    }
+
+    .brand-tag {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: var(--text-light);
+      background-color: var(--mri-logo-blue); // Default for MRI Brand
+      padding: 3px 8px;
+      border-radius: 12px;
+      display: inline-block; // To be centered by parent's text-align
+      margin-bottom: 10px;
+      text-transform: uppercase;
+
+      &.superfine {
+        background-color: var(--mri-logo-red); // For Super Fine Star
+        color: var(--text-light);
+      }
+    }
+
+    .description { // This was p.description
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      color: var(--text-body);
+      line-height: 1.6;
+      text-align: left; // Explicitly left-align description
+    }
+
+    .product-attributes {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 10px;
+      line-height: 1.5;
+      text-align: left; // Explicitly left-align attributes
+
+      // Strong tags within attributes are already bold by browser default.
+      // If specific styling needed:
+      // strong {
+      //   color: var(--text-dark);
+      // }
+    }
+
+    .product-pack-sizes {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--mri-logo-blue);
+      margin-bottom: 20px;
+      // text-align: center; // Inherits from .product-info
+    }
+
+    .btn { // Button at the bottom of the card
+      margin-top: auto;  // This is key for pushing it to the bottom when .product-info is flex-column
+      // align-self: center; // Already centered due to text-align on .product-info for inline-block button
+    }
+  }
+}

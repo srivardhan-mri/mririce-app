@@ -1,0 +1,142 @@
+// src/app/layout/footer/footer.component.scss
+
+// Assuming your CSS variables (--mri-logo-blue, --text-light, etc.) are in global src/styles.scss
+
+footer {
+  background-color: var(--mri-logo-blue);
+  color: var(--text-light); // Default text color for footer content
+  padding: 50px 20px 30px; // Padding from original style
+  font-size: 0.95rem; // Base font size for footer
+  line-height: 1.6;
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 30px;
+  }
+
+  .footer-col {
+    display: flex;
+    flex-direction: column; // Align items vertically in a column
+
+    h4 {
+      color: var(--text-light); // Original style used var(--text-light)
+                               // inititalStyle.css used var(--gold), ensure consistency
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+      font-family: var(--font-primary);
+      font-weight: 600;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--mri-logo-gray); // Using a var from your list
+    }
+
+    .footer-logo {
+      max-height: 60px;
+      width: auto;
+      margin-bottom: 20px;
+      background-color: var(--background-light); // From original style
+      padding: 5px;
+      border-radius: 4px;
+      align-self: flex-start; // Align logo to the start of the column
+    }
+
+    p {
+      font-size: 0.95rem; // Consistent with base footer font-size
+      margin-bottom: 12px;
+      color: var(--text-light); // Ensure paragraph text is light
+
+      fa-icon { // Styles for FontAwesome icons within paragraphs
+        margin-right: 10px;
+        // color: var(--text-light); // Inherits color, or can be specific
+        width: 1em; // For alignment
+        text-align: center;
+      }
+
+      a { // Links within paragraphs like phone/email
+        color: var(--text-light);
+        text-decoration: none; // Remove underline by default if desired
+
+        &:hover {
+          color: var(--mri-logo-red); // Hover color from original
+          text-decoration: underline;
+        }
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 15px;
+
+      li {
+        margin-bottom: 10px;
+
+        a {
+          color: var(--text-light);
+          display: inline-block; // For better hover interaction
+          text-decoration: none;
+
+          &:hover {
+            color: var(--mri-logo-red);
+            text-decoration: underline;
+          }
+          &.active { // If you want active styling for footer links
+            font-weight: bold; // Example
+            color: var(--mri-logo-red); // Example
+          }
+        }
+      }
+    }
+  }
+
+  .social-icons {
+    margin-top: 15px;
+
+    a {
+      color: var(--text-light);
+      font-size: 1.6rem; // Size of the social icons
+      margin-right: 18px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      text-decoration: none;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: var(--mri-logo-red); // Hover color from original
+        transform: scale(1.1);
+        text-decoration: none;
+      }
+    }
+  }
+
+  .copyright {
+    text-align: center;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.25); // Lighter border
+    font-size: 0.9rem;
+    color: #dddddd; // Slightly lighter than main footer text for subtlety
+
+    a {
+      color: #dddddd; // Match copyright text color
+      text-decoration: underline; // Make links clear
+
+      &:hover {
+        color: var(--text-light); // Brighter on hover
+      }
+    }
+  }
+}
+
+// Responsive Styles for Footer (from your original style.css, if any specific ones were there)
+// Most global responsive rules for grid stacking should apply automatically
+// to .footer-grid if it uses repeat(auto-fit, ...).
+// @media (max-width: 768px) {
+//   footer {
+//     .footer-grid {
+//       // grid-template-columns: 1fr; // Already handled by auto-fit generally
+//     }
+//   }
+// }

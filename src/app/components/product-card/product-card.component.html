@@ -1,0 +1,27 @@
+@if (product) {
+  <div class="product-card">
+    <img [src]="product.imageUrl" [alt]="product.altText" class="product-image-placeholder">
+
+    <div class="product-info">
+      <div class="product-info-main-content"> <h4 class="product-name">{{ product.name }}</h4>
+
+        <span class="brand-tag" [class.superfine]="product.brandTagClass === 'superfine'">
+          {{ product.brandTag }}
+        </span>
+
+        <p class="description">{{ product.description }}</p>
+
+        <p class="product-attributes" [innerHTML]="product.attributes"></p>
+
+        <p class="product-pack-sizes">{{ product.packSizes }}</p>
+      </div>
+
+      <a [routerLink]="[product.enquiryLinkPath]"
+         [queryParams]="{ product: product.enquiryLinkQueryParam }"
+         class="btn btn-primary">
+        Enquire Now
+      </a>
+    </div>
+  </div>
+} @else {
+  <p>Product data is not available.</p> }
