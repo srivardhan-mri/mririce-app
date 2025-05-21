@@ -1,8 +1,9 @@
 // src/app/pages/brands/brands.component.ts
 import { Component, OnInit, inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser'; // Import Meta service
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
-// Ensure this import path is correct and that BrandService exports 'Brand' and 'BrandService'
 import { Brand, BrandService } from '../../services/brand.service';
 import { BrandProfileCardComponent } from '../../components/brand-profile-card/brand-profile-card.component';
 
@@ -21,31 +22,43 @@ interface BrandsIntroData {
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
     BrandProfileCardComponent
   ],
   templateUrl: './brands.component.html',
   styleUrls: ['./brands.component.scss']
 })
-export class BrandsComponent implements OnInit {
+export class BrandsComponent implements OnInit { // Implement OnInit
 
   pageHeader: PageHeaderData = {
-    title: "Our Signature Brands",
-    description: "Discover the distinct qualities of Super Fine Star and MRI Brand – each crafted with the hallmark of Miryalaguda Rice Industries' commitment to excellence."
+    title: "Our Signature Rice Brands",
+    description: "Discover the mark of excellence with Miryalaguda Rice Industries' trusted brands. Each brand represents our commitment to quality, taste, and the rich agricultural heritage of Telangana."
   };
 
   brandsIntro: BrandsIntroData = {
-    title: "Two Brands, One Promise: Unmatched Quality",
-    text: "At Miryalaguda Rice Industries, we understand that different needs and occasions call for different types of rice. That's why we've cultivated two distinct brands, Super Fine Star and MRI Brand. While each has its unique focus, both are unified by our unwavering commitment to superior quality, local sourcing from Miryalaguda's finest fields, and the trust we've built over decades."
+    title: "The Names You Can Trust for Quality Rice",
+    text: "At Miryalaguda Rice Industries, our brands like Super Fine Star and MRI Gold are more than just names; they are a promise of premium quality, consistent excellence, and the authentic taste of rice cultivated in the fertile lands of Miryalaguda. Explore our signature brands, each crafted to meet the diverse preferences of our valued customers."
   };
 
   brands: Brand[] = [];
-
   private brandService = inject(BrandService);
+  private meta = inject(Meta); // Inject Meta service
 
   constructor() {}
 
   ngOnInit(): void {
-    // This line relies on 'getBrands()' existing in BrandService
+    // Set the meta description for the Brands page
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Explore signature rice brands from Miryalaguda Rice Industries (MRI Rice) like Super Fine Star and MRI Gold. Discover premium quality Sona Masoori, JSR, and HMT rice brands from Miryalaguda, Telangana.'
+    });
+    // Set Open Graph tags for the Brands page
+    this.meta.updateTag({ property: 'og:title', content: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalaguda' }); // Matches title from app.routes.ts
+    this.meta.updateTag({ property: 'og:description', content: 'Discover trusted rice brands like Super Fine Star by MRI Rice, offering premium quality and taste from Miryalaguda.' });
+    // Consider a specific OG image for this page, e.g., a collage of your brand logos or packaging
+    // this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/brands-social-banner.jpg' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/brands' }); // Canonical URL for this page
+
     this.brands = this.brandService.getBrands();
   }
 }

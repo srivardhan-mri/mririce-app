@@ -17,17 +17,53 @@ export const routes: Routes = [
   // Redirect empty path to '/home'
   { path: '', redirectTo: '/home', pathMatch: 'full' },
 
-  // Define routes for each page
-  { path: 'home', component: HomeComponent, title: 'Miryalaguda Rice Industries - Home' },
-  { path: 'about', component: AboutComponent, title: 'About Us - Miryalaguda Rice Industries' },
-  { path: 'products', component: ProductsComponent, title: 'Our Rice - Miryalaguda Rice Industries' },
-  { path: 'brands', component: BrandsComponent, title: 'Our Brands - Miryalaguda Rice Industries' },
-  { path: 'quality', component: QualityComponent, title: 'Quality Assurance - Miryalaguda Rice Industries' },
-  { path: 'contact', component: ContactComponent, title: 'Contact Us - Miryalaguda Rice Industries' },
-  { path: 'privacy-policy', component: PrivacyPolicyComponent, title: 'Privacy Policy - Miryalaguda Rice Industries' },
-  { path: 'terms-conditions', component: TermsConditionsComponent, title: 'Terms & Conditions - Miryalaguda Rice Industries' },
+  // Define routes for each page with SEO-optimized titles
+  {
+    path: 'home',
+    component: HomeComponent,
+    title: 'Miryalaguda Rice Industries (MRI) - Trusted Rice Mill in Telangana'  // SEO Optimized
+  },
+  {
+    path: 'about',
+    component: AboutComponent,
+    title: 'About MRI Rice - Our Legacy & Quality Commitment | Miryalaguda' // SEO Optimized
+  },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    title: 'Premium Rice Products | JSR, HMT, Sona Masoori | MRI Rice' // SEO Optimized
+  },
+  {
+    path: 'brands',
+    component: BrandsComponent,
+    title: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalaguda' // SEO Optimized
+  },
+  {
+    path: 'quality',
+    component: QualityComponent,
+    title: 'Quality Assurance & Rice Milling Process | MRI Rice Telangana' // SEO Optimized
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    title: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalaguda' // SEO Optimized
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyComponent,
+    title: 'Privacy Policy | Miryalaguda Rice Industries Pvt Ltd' // SEO Optimized
+  },
+  {
+    path: 'terms-conditions',
+    component: TermsConditionsComponent,
+    title: 'Terms & Conditions | Miryalaguda Rice Industries Pvt Ltd' // SEO Optimized
+  },
 
   // Optional: Wildcard route for a 404 Page Not Found component
   // Make sure this is the LAST route in the array
-  { path: '**', component: NotFoundComponent, title: 'Page Not Found - Miryalaguda Rice Industries' }
+  {
+    path: '**',
+    component: NotFoundComponent,
+    title: '404 - Page Not Found | Miryalaguda Rice Industries' // SEO Optimized
+  }
 ];

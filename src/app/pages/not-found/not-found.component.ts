@@ -1,7 +1,8 @@
 // src/app/pages/not-found/not-found.component.ts
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core'; // Import OnInit and inject
+import { Meta } from '@angular/platform-browser';      // Import Meta service
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router'; // To link back to home
+import { RouterLink } from '@angular/router';           // For routerLink directive
 
 @Component({
   selector: 'app-not-found',
@@ -10,14 +11,28 @@ import { RouterLink } from '@angular/router'; // To link back to home
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.scss']
 })
-export class NotFoundComponent {
-  // You can inject ActivatedRoute here if you want to display the path that was not found
-  // import { ActivatedRoute } from '@angular/router';
-  // constructor(private route: ActivatedRoute) {}
-  // pathNotFound: string = '';
-  // ngOnInit() {
-  //   this.pathNotFound = this.route.snapshot.url.join('/');
-  // }
+export class NotFoundComponent implements OnInit { // Implement OnInit
 
-  constructor() { }
+  private meta = inject(Meta); // Inject Meta service
+
+  constructor() {}
+
+  ngOnInit(): void {
+    // Set the meta description for the 404 Not Found page
+    this.meta.updateTag({
+      name: 'description',
+      content: 'The page you are looking for could not be found at Miryalaguda Rice Industries Pvt Ltd (MRI Rice). Please check the URL or return to our homepage.'
+    });
+    // Set Open Graph tags for the 404 Not Found page
+    this.meta.updateTag({ property: 'og:title', content: '404 - Page Not Found | Miryalaguda Rice Industries' }); // Matches title from app.routes.ts
+    this.meta.updateTag({ property: 'og:description', content: 'Sorry, the requested page was not found on the Miryalaguda Rice Industries (MRI Rice) website.' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/404' }); // Or simply your base URL if you don't have a specific 404 route URL you want to share
+    // For 404 pages, the main site logo is appropriate for og:image
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' });
+  }
+
+  // You can add properties here if your not-found.component.html needs them,
+  // e.g., title: string = "404 - Page Not Found";
+  //      message: string = "Oops! The page you're looking for doesn't exist.";
+  //      homeLinkText: string = "Go to Homepage";
 }

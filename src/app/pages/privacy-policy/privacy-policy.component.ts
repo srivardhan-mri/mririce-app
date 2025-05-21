@@ -1,22 +1,46 @@
 // src/app/pages/privacy-policy/privacy-policy.component.ts
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // For common directives if needed
-import { RouterLink } from '@angular/router';   // For any internal links
+import { Component, OnInit, inject } from '@angular/core'; // Import OnInit and inject
+import { Meta } from '@angular/platform-browser';      // Import Meta service
+import { CommonModule } from '@angular/common';
+
+interface PageHeaderData {
+  title: string;
+  description: string;
+}
 
 @Component({
   selector: 'app-privacy-policy',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './privacy-policy.component.html',
   styleUrls: ['./privacy-policy.component.scss']
 })
-export class PrivacyPolicyComponent {
-  // Data for the page, if any dynamic parts are needed.
-  // For a static privacy policy, most content will be in the HTML.
+export class PrivacyPolicyComponent implements OnInit { // Implement OnInit
 
-  // Example: if you had a dynamic effective date or page title managed here
-  // effectiveDate: string = "TBD [Will be Updated]"; // From original HTML
-  // pageTitle: string = "Privacy Policy for Miryalaguda Rice Industries";
+  private meta = inject(Meta); // Inject Meta service
 
-  constructor() { }
+  constructor() {}
+
+  ngOnInit(): void {
+    // Set the meta description for the Privacy Policy page
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Read the Privacy Policy for Miryalaguda Rice Industries Pvt Ltd (MRI Rice). Understand how we collect, use, and protect your personal information on our website.'
+    });
+    // Set Open Graph tags for the Privacy Policy page
+    this.meta.updateTag({ property: 'og:title', content: 'Privacy Policy | Miryalaguda Rice Industries Pvt Ltd' }); // Matches title from app.routes.ts
+    this.meta.updateTag({ property: 'og:description', content: 'Our commitment to your privacy. Review the Privacy Policy of Miryalaguda Rice Industries (MRI Rice).' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/privacy-policy' }); // Canonical URL for this page
+    // For static pages like this, the main site logo is often sufficient for og:image
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' });
+  }
+
+  pageHeader: PageHeaderData = {
+    title: "Privacy Policy",
+    description: "Your privacy is important to us. This policy outlines how Miryalaguda Rice Industries collects, uses, discloses, and safeguards your information."
+  };
+
+  // The actual privacy policy content will be in privacy-policy.component.html
+  // For SEO, ensure that HTML content is well-structured with headings (h2, h3 etc.)
+  // and that the text itself is clear and comprehensive.
 }
