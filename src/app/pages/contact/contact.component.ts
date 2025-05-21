@@ -1,19 +1,16 @@
 // src/app/pages/contact/contact.component.ts
-import { Component, OnInit, inject } from '@angular/core'; // Added inject
+import { Component, OnInit, inject } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { RouterLink, ActivatedRoute } from '@angular/router'; // ActivatedRoute to read query params
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms'; // For reactive forms
-
-// Import Font Awesome icons if you use them for contact details
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faMapMarkerAlt, faPhoneAlt, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
-import { faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faMapMarkerAlt, faPhone, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
-// Optional: Contact Service for form submission logic
-// import { ContactService } from '../../services/contact.service';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 
-import { SafeUrlPipe } from '../../pipes/safe-url.pipe'; // Adjust path if needed
- 
+// Interfaces
 interface PageHeaderData {
   title: string;
   description: string;
@@ -25,17 +22,17 @@ interface ContactIntroData {
 }
 
 interface ContactDetailItem {
-  icon: any; // Font Awesome IconDefinition
+  icon: any;
   label: string;
   value: string;
   isLink: boolean;
-  linkType?: 'tel' | 'mailto' | 'url';
+  linkType?: 'tel' | 'mailto';
 }
 
 interface SocialLink {
-  ariaLabel: string;
-  icon: any; // Font Awesome IconDefinition
+  icon: any;
   url: string;
+  ariaLabel: string;
 }
 
 @Component({
@@ -43,8 +40,8 @@ interface SocialLink {
   standalone: true,
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterLink,
-    ReactiveFormsModule, // Add ReactiveFormsModule for the contact form
     FontAwesomeModule,
     SafeUrlPipe
   ],
@@ -53,103 +50,95 @@ interface SocialLink {
 })
 export class ContactComponent implements OnInit {
 
+  private meta = inject(Meta);
+  private formBuilder = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
+
+  contactForm!: FormGroup;
+  formSubmitted = false;
+  formSuccess = false;
+  formError = false;
+
+  faMapMarkerAlt = faMapMarkerAlt;
+  faPhone = faPhone;
+  faEnvelope = faEnvelope;
+  faClock = faClock;
+  faWhatsapp = faWhatsapp;
+
   pageHeader: PageHeaderData = {
-    title: "Get In Touch With Us",
-    description: "We're here to help! Whether you have a question about our premium rice varieties, need support, or want to discuss bulk orders, our team at Miryalaguda Rice Industries is ready to assist."
+    title: "Contact Miryalaguda Rice Industries (MRI Rice)", // SEO: Added brand
+    description: "We're here to help. Contact Miryalaguda Rice Industries for inquiries on JSR, HMT, Sona Masoori rice, bulk orders, or any information you need about our premium rice products from Telangana." // SEO: Added rice types and location
   };
 
   contactIntro: ContactIntroData = {
-    title: "We'd Love to Hear From You",
-    text: "Your inquiries are important to us. Please use the form below or contact us directly through phone, email, or by visiting our mill. We are committed to providing reliable support and fostering long-term relationships."
+    title: "We'd Love to Hear From You - Your Trusted Telangana Rice Mill", // SEO: Added positioning
+    text: "Whether you have a question about our diverse rice varieties like <strong>JSR Steam Rice, HMT Deluxe, or Super Fine Star Sona Masoori</strong>, need assistance with a <strong>bulk rice order</strong>, or want to learn more about partnering with Miryalaguda Rice Industries, our dedicated team is ready to assist you. Reach out to your <strong>Miryalaguda rice suppliers</strong> through any of the methods below, or use our inquiry form for a quick response." // SEO: Bolder product names, keywords
   };
 
   contactDetails: ContactDetailItem[] = [
-    {
-      icon: faMapMarkerAlt,
-      label: "Address:",
-      value: "VG4X+8Q5, Miryalaguda Industrial Area,<br>Miryalaguda, Telangana 508207, India",
-      isLink: false
-    },
-    {
-      icon: faPhoneAlt,
-      label: "Phone:",
-      value: "+91 98663 98337",
-      isLink: true,
-      linkType: 'tel'
-    },
-    {
-      icon: faEnvelope,
-      label: "Email:",
-      value: "info@mririce.com",
-      isLink: true,
-      linkType: 'mailto'
-    },
-    {
-      icon: faClock,
-      label: "Business Hours:",
-      value: "Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday: Closed",
-      isLink: false
-    }
+    { icon: faMapMarkerAlt, label: 'Our Mill Address:', value: '<strong>Miryalaguda Rice Industries Pvt Ltd (MRI)</strong>,<br>Miryalaguda Industrial Area,<br>Miryalaguda, Telangana 508207, India', isLink: false }, // SEO: Ensure exact GMB Name & Address
+    { icon: faPhone, label: 'Phone (Sales & Enquiries):', value: '+91 98663 98337', isLink: true, linkType: 'tel' },
+    { icon: faEnvelope, label: 'Email Us for Rice Enquiries:', value: 'info@mririce.com', isLink: true, linkType: 'mailto' }, // SEO: Clarified purpose
+    { icon: faClock, label: 'Business Hours:', value: 'Monday - Saturday: 9:00 AM - 6:00 PM IST<br>Sunday: Closed (Online inquiries welcome 24/7)', isLink: false } // SEO: Added IST, clarified online inquiries
   ];
 
   socialLinks: SocialLink[] = [
-    { ariaLabel: "Facebook", icon: faFacebookF, url: "#" }, // Replace # with actual URL
-    { ariaLabel: "Instagram", icon: faInstagram, url: "#" }, // Replace # with actual URL
-    { ariaLabel: "LinkedIn", icon: faLinkedinIn, url: "#" }  // Replace # with actual URL
+    // Add actual social media links here when available and update ariaLabel for SEO
+    // { icon: faFacebookF, url: 'https://facebook.com/MRIRiceIndustries', ariaLabel: 'Miryalaguda Rice Industries on Facebook' },
+    // { icon: faInstagram, url: 'https://instagram.com/MRIRice', ariaLabel: 'Miryalaguda Rice Industries on Instagram' },
+    // { icon: faLinkedinIn, url: 'https://linkedin.com/company/miryalaguda-rice-industries', ariaLabel: 'Miryalaguda Rice Industries on LinkedIn' }
   ];
-
-  mapSectionTitle: string = "Visit Us in Miryalaguda";
-  // IMPORTANT: Replace this iframeSrc with your actual Google Maps embed URL.
-  // The one from your original HTML was a placeholder/internal URL.
-  // Go to Google Maps, find your location, click "Share", then "Embed a map", and copy the src value.
-  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15273.627374794723!2d79.53042728715816!3d16.855757199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a352f752fd6d37f%3A0x32ddc6df66cb678!2sMiryalaguda%20Rice%20Industries%20Pvt%20Ltd%20(MRI)!5e0!3m2!1sen!2sin!4v1747810194023!5m2!1sen!2sin"; // Replace with actual embed SRC
-
-  contactForm!: FormGroup; // Definite assignment assertion, will be initialized in constructor/ngOnInit
-  formSubmitted: boolean = false;
-  formSuccess: boolean = false;
-  formError: boolean = false;
-
-  // Inject FormBuilder and ActivatedRoute
-  private fb = inject(FormBuilder);
-  private route = inject(ActivatedRoute);
-  // private contactService = inject(ContactService); // Optional: if using a service for submission
 
   inquiryTypes: string[] = [
-    "General Question",
-    "Product Information",
-    "Bulk Order / Wholesale",
-    "Export Enquiry",
-    "Feedback",
-    "Other"
+    'General Inquiry about MRI Rice', // SEO: Added brand
+    'Bulk Order Quotation (JSR, HMT, Sona Masoori, etc.)', // SEO: Added examples
+    'Product Information Request (Steam Rice, Boiled Rice)', // SEO: Added examples
+    'Distributorship/Partnership with Miryalaguda Rice Industries', // SEO: Added company name
+    'Feedback/Suggestion',
+    'Other Rice Related Questions' // SEO: Clarified
   ];
+
+  mapSectionTitle: string = "Visit Our Rice Mill in Miryalaguda, Telangana"; // SEO: Added location
+  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15273.627374794723!2d79.53042728715816!3d16.855757199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a352f752fd6d37f%3A0x32ddc6df66cb678!2sMiryalaguda%20Rice%20Industries%20Pvt%20Ltd%20(MRI)!5e0!3m2!1sen!2sin!4v1747810194023!5m2!1sen!2sin"; // IMPORTANT: Replace YOUR_API_KEY and ensure query 'q' accurately points to your GMB listing. Using a direct embed link from Google Maps is better if no API key.
 
   constructor() {}
 
   ngOnInit(): void {
-    this.contactForm = this.fb.group({
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Contact Miryalaguda Rice Industries (MRI Rice) for premium rice supplies. Inquire about JSR, HMT, Sona Masoori, bulk orders, or visit our rice mill in Miryalaguda, Telangana.'
+    });
+    this.meta.updateTag({ property: 'og:title', content: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalaguda' });
+    this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Miryalaguda Rice Industries for your bulk rice needs. Find our address, phone, and email for inquiries.' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/contact' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' }); // Default logo, consider a map snippet or contact banner
+
+    this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required], // Add more specific phone validation if needed
-      inquiry_type: [this.inquiryTypes[0], Validators.required], // Default to first option
+      phone: ['', Validators.required],
+      inquiry_type: [this.inquiryTypes[0], Validators.required],
       message: ['', Validators.required]
     });
 
-    // Check for 'product' query parameter to prefill inquiry type or message
-    this.route.queryParamMap.subscribe(params => {
-      const productInquiry = params.get('product');
-      if (productInquiry) {
-        this.contactForm.patchValue({
-          inquiry_type: 'Product Information', // Or "Bulk Order / Wholesale"
-          message: `I am interested in your product: ${productInquiry}. Please provide more details.`
-        });
-      }
+    this.route.queryParams.subscribe(params => {
+      const product = params['product'];
+      const source = params['source'];
 
-      // Check for 'bulk-enquiry' fragment (though this is usually for scrolling, not form prefill)
-      // The fragment "bulk-enquiry" is handled by anchor scrolling in app.config.ts
+      if (product) {
+        const currentMessage = this.contactForm.get('message')?.value || '';
+        const prefillText = `I am interested in your product: ${product} (from ${source || 'website'}). `; // Added source for context
+        this.contactForm.get('message')?.setValue(prefillText + currentMessage);
+
+        if (this.inquiryTypes.includes('Product Information Request (Steam Rice, Boiled Rice)')) {
+            this.contactForm.get('inquiry_type')?.setValue('Product Information Request (Steam Rice, Boiled Rice)');
+        } else if (this.inquiryTypes.includes('Bulk Order Quotation (JSR, HMT, Sona Masoori, etc.)')) {
+             this.contactForm.get('inquiry_type')?.setValue('Bulk Order Quotation (JSR, HMT, Sona Masoori, etc.)');
+        }
+      }
     });
   }
 
-  // Getter for easy access to form controls in the template
   get f() { return this.contactForm.controls; }
 
   onSubmit(): void {
@@ -159,38 +148,17 @@ export class ContactComponent implements OnInit {
 
     if (this.contactForm.invalid) {
       this.formError = true;
-      // Mark all fields as touched to display validation errors
-      Object.values(this.contactForm.controls).forEach(control => {
-        control.markAsTouched();
-      });
+      console.log("Contact form is invalid:", this.contactForm.value);
       return;
     }
 
-    // Process form submission
-    console.log("Contact Form Submitted:", this.contactForm.value);
-    // Here you would typically send the data to a backend service
-    // For example:
-    // this.contactService.submitEnquiry(this.contactForm.value).subscribe({
-    //   next: (response) => {
-    //     this.formSuccess = true;
-    //     this.contactForm.reset({ inquiry_type: this.inquiryTypes[0] }); // Reset form with default inquiry type
-    //     this.formSubmitted = false; // Reset submitted flag
-    //   },
-    //   error: (error) => {
-    //     this.formError = true;
-    //     console.error("Error submitting form:", error);
-    //   }
-    // });
-
-    // For now, just simulate success:
+    console.log("Contact form submitted successfully (simulated):", this.contactForm.value);
     this.formSuccess = true;
-    this.contactForm.reset({ inquiry_type: this.inquiryTypes[0] });
+    const defaultInquiryType = this.inquiryTypes[0];
+    this.contactForm.reset({
+        inquiry_type: defaultInquiryType,
+        name: '', email: '', phone: '', message: '' // Ensure all fields are explicitly reset
+    });
     this.formSubmitted = false;
-
-    // Hide success/error message after some time
-    setTimeout(() => {
-      this.formSuccess = false;
-      this.formError = false;
-    }, 5000);
   }
 }

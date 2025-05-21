@@ -1,140 +1,143 @@
 // src/app/pages/home/home.component.ts
+import { Component, OnInit } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // For @for, @if, etc.
-import { RouterLink } from '@angular/router'; // For routerLink directive
-
-// Import sub-components IF you decide to create them now or later.
-// For now, we'll assume they are not created yet, and the HTML will be directly in home.component.html.
-// import { UspItemComponent } from '../../components/usp-item/usp-item.component';
-// import { HomeBrandCardComponent } from '../../components/home-brand-card/home-brand-card.component';
-
-// Define interfaces for your data structures for better type safety
+// Interfaces
 interface HeroData {
   titleLine1: string;
   highlight: string;
   titleLine2: string;
   subtitle: string;
   backgroundImageUrl: string;
-  altText?: string; // For background image, if needed for context
+  altText?: string;
 }
 
 interface UspData {
   iconUrl: string;
+  altText: string;
   title: string;
   text: string;
-  altText: string;
 }
 
 interface FeaturedBrandData {
   imageUrl: string;
+  altText: string;
   title: string;
   description: string;
-  fragment: string;
   buttonText: string;
-  altText: string;
+  fragment: string;
 }
 
 interface CommitmentData {
-  backgroundImageUrl: string;
   title: string;
   text: string;
-  buttonLink: string;
   buttonText: string;
-  altText?: string; // For background image
+  buttonLink: string;
+  backgroundImageUrl: string;
+  altText?: string;
 }
 
 interface CtaFinalData {
   title: string;
   text: string;
+  primaryButtonText: string;
   primaryButtonLink: string;
   primaryButtonFragment?: string;
-  primaryButtonText: string;
-  secondaryButtonLink: string;
   secondaryButtonText: string;
+  secondaryButtonLink: string;
 }
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    // UspItemComponent, // Add if/when created
-    // HomeBrandCardComponent, // Add if/when created
-  ],
+  imports: [CommonModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  constructor(private meta: Meta) {}
+
+  ngOnInit(): void {
+    this.meta.updateTag({
+      name: 'description',
+      content: 'Welcome to Miryalaguda Rice Industries (MRI), your trusted rice mill in Telangana. Discover premium quality JSR, HMT, Sona Masoori, and boiled rice. Reliable suppliers for bulk orders.'
+    });
+    this.meta.updateTag({ property: 'og:title', content: 'Miryalaguda Rice Industries (MRI) - Trusted Rice Mill in Telangana' });
+    this.meta.updateTag({ property: 'og:description', content: 'Explore premium rice varieties from MRI Rice, your reliable partner in Miryalaguda for quality and bulk supply.' });
+    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/home' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' }); // Default logo, consider a specific home banner
+  }
 
   hero: HeroData = {
-    titleLine1: "Miryalaguda Rice Industries:",
-    highlight: "Uncompromising Quality",
-    titleLine2: "Decades of Trust.",
-    subtitle: "Your premier, reliable source for the finest JSR Steam, HMT, Sona Masoori, and expertly Boiled Rice varieties. Experience the exceptional difference with our Super Fine Star and MRI brands.",
+    titleLine1: 'Miryalaguda Rice Industries:',
+    highlight: 'Quality Rice,',
+    titleLine2: 'Trusted Supply',
+    subtitle: 'Your premier partner for the finest Sona Masoori, JSR steam, and boiled rice varieties, cultivated with care and milled to perfection in the heart of Telangana.', // SEO: Added specific rice types
     backgroundImageUrl: 'assets/images/hero-banner-miryalaguda.jpeg',
-    altText: 'Lush green paddy fields in Miryalaguda'
+    altText: 'Lush green paddy fields under a blue sky, illustrating rice cultivation at Miryalaguda Rice Industries.' // SEO: Enhanced alt text
   };
 
   usps: UspData[] = [
     {
       iconUrl: 'assets/images/usp-quality-grains.png',
-      title: 'Unmatched Quality',
-      text: 'From fertile local fields to your table, every grain undergoes rigorous quality checks. We guarantee purity, perfect texture, and exceptional taste that sets the standard in Miryalaguda.',
-      altText: 'Quality Grains Icon'
+      altText: 'Icon representing Uncompromising Quality Rice from MRI Rice', // SEO: Enhanced alt text
+      title: 'Uncompromising Quality',
+      text: 'From paddy procurement from Telangana farms to final packaging, we ensure the highest standards for every premium rice grain, including popular varieties like JSR Steam Rice and Sona Masoori.' // SEO: Enhanced text
     },
     {
       iconUrl: 'assets/images/usp-trust-handshake.png',
-      title: 'Built on Trust',
-      text: 'For years, businesses and families across the region have relied on our integrity. Our transparent practices and consistent excellence make us the partner you can depend on.',
-      altText: 'Trust Handshake Icon'
+      altText: 'Icon for Decades of Rice Milling Expertise at MRI Rice in Miryalaguda', // SEO: Enhanced alt text
+      title: 'Decades of Expertise',
+      text: 'With over 30 years as a leading rice mill in Miryalaguda, our experience guarantees excellence and reliability as trusted rice suppliers in Telangana.' // SEO: Enhanced text
     },
     {
       iconUrl: 'assets/images/usp-reliable-supply.png',
-      title: 'Reliable Supply & Support',
-      text: 'Count on MRI for consistent, on-time delivery of all your rice needs, backed by our dedicated and responsive customer support team. Your satisfaction is our priority.',
-      altText: 'Reliable Supply Icon'
+      altText: 'Icon for Trusted & Timely Rice Supply by MRI for bulk orders', // SEO: Enhanced alt text
+      title: 'Trusted & Timely Supply',
+      text: 'Efficient supply chain management to meet your bulk rice supplier requirements in Telangana and across India on schedule.' // SEO: Enhanced text
     }
   ];
 
   featuredBrands: FeaturedBrandData[] = [
     {
       imageUrl: 'assets/images/SuperFineStarMRI_WadaKolamJeeraRice_DarkGreen.jpg',
+      altText: 'Bag of Super Fine Star Sona Masoori Rice by Miryalaguda Rice Industries', // SEO: Enhanced alt text
       title: 'Super Fine Star',
-      description: "Experience the pinnacle of taste and texture. Our premier brand featuring exceptional varieties like JSR Steam Rice and Sona Masoori, meticulously selected for discerning palates that demand the best.",
-      fragment: 'super-fine-star',
+      description: 'Our flagship brand from Miryalaguda Rice Industries, known for its aromatic, long-grain Sona Masoori steam rice. Perfect for daily meals and special occasions, Super Fine Star Rice is a mark of quality.', // SEO: Enhanced text
       buttonText: 'Discover Super Fine Star',
-      altText: 'Super Fine Star Wada Kolam Jeera Rice bag'
+      fragment: 'super-fine-star'
     },
     {
       imageUrl: 'assets/images/MRI_JSR_Purple.jpg',
-      title: 'MRI Brand',
-      description: "MRI brand rice delivers consistent quality and outstanding value for everyday culinary excellence. Home to popular choices like HMT Steam Rice and a range of nutritious Boiled Rice (JSR, HMT, BPT).",
-      fragment: 'mri-brand',
-      buttonText: 'Explore MRI Varieties',
-      altText: 'MRI Brand JSR Purple rice bag'
+      altText: 'MRI Gold JSR Steam Rice from Miryalaguda Rice Industries', // SEO: Enhanced alt text
+      title: 'MRI Gold (JSR Steam)',
+      description: 'Premium JSR steam rice from our Miryalaguda rice mill, offering excellent cooking quality, taste, and texture. MRI Gold is a preferred choice for households and caterers seeking top-tier rice.', // SEO: Enhanced text
+      buttonText: 'Explore MRI Gold JSR',
+      fragment: 'mri-gold-jsr'
     }
   ];
 
   commitment: CommitmentData = {
+    title: 'Our Commitment to Excellence & Sustainability in Rice Milling', // SEO: Enhanced title
+    text: 'At Miryalaguda Rice Industries, we are dedicated to not only providing superior quality rice like JSR and Sona Masoori, but also to fostering sustainable agricultural practices and supporting our local farming communities in Telangana.', // SEO: Enhanced text
+    buttonText: 'Learn About Our Values',
+    buttonLink: '/about',
     backgroundImageUrl: 'assets/images/commitment-collage.jpg',
-    title: "More Than Just Rice – It's Our Promise from Miryalaguda",
-    text: "At Miryalaguda Rice Industries, we're not just milling rice; we're cultivating lasting relationships built on a foundation of quality you can taste and trust you can measure. Our strategic location in the heart of Miryalaguda's fertile rice belt, combined with advanced milling technology and an unwavering passion for excellence, ensures that every bag we deliver meets and exceeds your highest expectations. Choose MRI for reliable supply, steadfast support, and rice that truly stands apart.",
-    buttonLink: "/quality",
-    buttonText: "Our Quality Standards",
-    altText: "Collage representing MRI's commitment to quality rice"
+    altText: 'Hands holding freshly harvested rice grains, symbolizing Miryalaguda Rice Industries commitment to quality and sustainability.' // SEO: Enhanced alt text
   };
 
   ctaFinal: CtaFinalData = {
-    title: "Ready to Experience the Best Rice Miryalaguda Has to Offer?",
-    text: "Whether you're a wholesaler, retailer, restaurateur, or seeking premium rice for your family, Miryalaguda Rice Industries provides unparalleled quality and service. Let's connect!",
-    primaryButtonLink: "/contact",
-    primaryButtonFragment: "bulk-enquiry",
-    primaryButtonText: "Enquire for Bulk Orders",
-    secondaryButtonLink: "/contact",
-    secondaryButtonText: "Get in Touch"
+    title: 'Partner with Miryalaguda’s Leading Rice Supplier for Bulk Orders', // SEO: Enhanced title
+    text: 'Whether you are a wholesaler, distributor, or require bulk rice for your business in Telangana or India, MRI Rice is your trusted source for consistent quality Sona Masoori, JSR, and HMT rice. Get in touch to discuss your requirements.', // SEO: Enhanced text
+    primaryButtonText: 'Enquire for Bulk Orders',
+    primaryButtonLink: '/contact',
+    primaryButtonFragment: 'bulk-enquiry',
+    secondaryButtonText: 'View All Our Rice Varieties',
+    secondaryButtonLink: '/products'
   };
 
-  constructor() {}
 }
