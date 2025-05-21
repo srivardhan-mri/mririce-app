@@ -1,0 +1,78 @@
+// src/app/pages/not-found/not-found.component.scss
+
+// Assumes global CSS variables and .btn styles are available from src/styles.scss
+:host {
+  display: block; // Ensures the component takes up space
+  text-align: center;
+  padding: 40px 20px; // Add some padding around the content
+  min-height: calc(100vh - 200px); // Example: Try to make it take up decent screen height (adjust 200px based on header/footer)
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-light); // Or a subtle background
+}
+
+.not-found-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.not-found-content {
+  h1 {
+    font-size: 6rem; // Large "404"
+    color: var(--mri-logo-red); // Use an accent color
+    margin-bottom: 0.2em;
+    font-weight: 800;
+  }
+
+  h2 {
+    font-size: 2rem; // From global h2 styles or override
+    color: var(--mri-logo-blue);
+    margin-bottom: 0.5em;
+    text-align: center; // Ensure it's centered
+  }
+
+  p {
+    font-size: 1.1rem; // From global p styles or override
+    color: var(--text-body);
+    margin-bottom: 1.5em;
+    line-height: 1.7;
+  }
+
+  code {
+    background-color: var(--background-subtle-gray);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+  }
+
+  .actions {
+    margin-top: 30px;
+
+    .btn {
+      margin: 0 10px 10px 10px; // Spacing for buttons
+    }
+  }
+
+  .not-found-image {
+    max-width: 300px;
+    margin-top: 30px;
+    opacity: 0.7;
+  }
+}
+
+// Responsive adjustments if needed
+@media (max-width: 768px) {
+  .not-found-content {
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+}
