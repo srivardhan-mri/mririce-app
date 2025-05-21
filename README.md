@@ -134,14 +134,3 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 The `3rdpartylicenses.txt` file in the `docs` directory contains license information for the third-party libraries used in this project.
 
 ---
-
-**Note to User:**
-
-* **Replace Placeholders:** Please replace placeholders like `https://github.com/mririce/mririce-app.git` with your actual repository URL if it's different.
-* **License Section:** Make sure to update the "License" section with your project's license.
-* **Tech Stack/Prerequisites:** You might want to add specific Node.js/npm version requirements if your project has them.
-* **Project Structure & Key Dependencies:** I've made some educated guesses based on common Angular project structures and the files provided. You can refine these sections to be more specific to your actual codebase.
-* **Empty Files:** Files like `brand.model.ts` and `usp.model.ts` were empty. You might want to define interfaces or classes in them and update the README accordingly if they become important.
-* **Screenshots/GIFs:** Consider adding a screenshot of the application or a GIF showing its functionality for a more engaging README.
-* **Deployment:** If you have a deployment process, add a section for that.
-* **Contributing:** If you're open to contributions, add a "Contributing" section.
