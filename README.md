@@ -1,59 +1,147 @@
 # MririceApp
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+This project is the official web application for Miryalaguda Rice Industries. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
-## Development server
+## Project Overview
 
-To start a local development server, run:
+**Miryalaguda Rice Industries - Quality Rice, Trusted Supply**
 
-```bash
-ng serve
-```
+This application serves as the main informational and contact hub for Miryalaguda Rice Industries. It showcases our products, company history, quality assurance processes, and provides contact information for inquiries.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Table of Contents
 
-## Code scaffolding
+- [Project Overview](#project-overview)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Development Server](#development-server)
+- [Code Scaffolding](#code-scaffolding)
+- [Building](#building)
+- [Running Unit Tests](#running-unit-tests)
+- [Running End-to-End Tests](#running-end-to-end-tests)
+- [Project Structure](#project-structure)
+- [Key Dependencies](#key-dependencies)
+- [Further Help](#further-help)
+- [License](#license)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tech Stack
 
-```bash
-ng generate component component-name
-```
+* **Angular:** ^19.2.0
+* **RxJS:** ~7.8.0
+* **Zone.js:** ~0.15.0
+* **Font Awesome:** Angular FontAwesome for icons.
+    * Core: ^6.7.2
+    * Brands SVG Icons: ^6.7.2
+    * Solid SVG Icons: ^6.7.2
+* **TypeScript:** ~5.7.2
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Prerequisites
 
-```bash
-ng generate --help
-```
+Before you begin, ensure you have the following installed:
+* Node.js (which includes npm) - Check `engines` in `package.json` if specified, otherwise use a recent LTS version.
+* Angular CLI: `npm install -g @angular/cli` (globally, or use `npx ng`)
+
+## Installation
+
+1.  Clone the repository:
+    ```bash
+    git clone [https://github.com/mririce/mririce-app.git](https://github.com/mririce/mririce-app.git)
+    cd mririce-app
+    ```
+2.  Install NPM packages:
+    ```bash
+    npm install
+    ```
+
+## Development Server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+The VS Code launch configuration `ng serve` is also available, which starts the npm script `npm: start` and opens Chrome at `http://localhost:4200/`.
+
+## Code Scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`. By default, components will be generated with SCSS for styling.
 
 ## Building
 
-To build the project run:
+Run `ng build` to build the project. The build artifacts will be stored in the `doc/` directory.
+Make sure all the files are in the root directory of doc/
 
-```bash
-ng build
-```
+### Build Configurations:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* **Production (default):** `ng build` or `ng build --configuration production --output-path docs`
+    * Output hashing: all
+    * Budgets:
+        * Initial: Max warning 500kB, Max error 1MB
+        * Any Component Style: Max warning 4kB, Max error 8kB
+* **Development:** `ng build --configuration development`
+    * Optimization: false
+    * Extract Licenses: false
+    * Source Map: true
 
-## Running unit tests
+## Running Unit Tests
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The VS Code launch configuration `ng test` is also available, which starts the npm script `npm: test` and opens Chrome for debugging at `http://localhost:9876/debug.html`.
 
-```bash
-ng test
-```
+## Running End-to-End Tests
 
-## Running end-to-end tests
+Run `ng e2e` to execute the end-to-end tests. (Note: The project does not come with an e2e testing framework by default; one needs to be added).
 
-For end-to-end (e2e) testing, run:
+## Project Structure
 
-```bash
-ng e2e
-```
+* `src/`: Main application code.
+    * `app/`: Core application module and components.
+        * `components/`: Shared UI components (e.g., `brand-profile-card`, `product-card`).
+        * `layout/`: Layout components like header and footer.
+        * `pages/`: Page-level components (e.g., `home`, `about`, `products`).
+        * `pipes/`: Custom pipes (e.g., `safe-url.pipe.ts`).
+        * `services/`: Application services (e.g., `product.service.ts`, `brand.service.ts`).
+        * `app.component.ts`: Root application component.
+        * `app.config.ts`: Application configuration, including routing.
+        * `app.routes.ts`: Main application routes.
+    * `assets/`: Static assets like images and fonts.
+    * `styles.scss`: Global stylesheets.
+    * `index.html`: Main HTML page.
+    * `main.ts`: Main entry point of the application.
+* `docs/`: Contains the deployed/built version of the application.
+* `angular.json`: Angular CLI configuration file.
+* `package.json`: NPM package manager file, lists dependencies and scripts.
+* `tsconfig.json`: TypeScript compiler configuration.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Key Dependencies
 
-## Additional Resources
+* **@angular/common, @angular/core, @angular/compiler, @angular/forms, @angular/platform-browser, @angular/platform-browser-dynamic, @angular/router**: Core Angular framework modules.
+* **@fortawesome/angular-fontawesome, @fortawesome/fontawesome-svg-core, @fortawesome/free-brands-svg-icons, @fortawesome/free-solid-svg-icons**: For using Font Awesome icons.
+* **rxjs**: Reactive Extensions for JavaScript.
+* **tslib**: Runtime library for TypeScript.
+* **zone.js**: Angular's change detection mechanism.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Development Dependencies
+
+* **@angular-devkit/build-angular, @angular/cli, @angular/compiler-cli**: Angular development tools.
+* **Jasmine, Karma**: Testing frameworks.
+* **TypeScript**: Superset of JavaScript.
+
+## Further Help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## License
+
+(You should add your project's license information here. If you haven't chosen one, common choices are MIT, Apache 2.0, etc.)
+The `3rdpartylicenses.txt` file in the `docs` directory contains license information for the third-party libraries used in this project.
+
+---
+
+**Note to User:**
+
+* **Replace Placeholders:** Please replace placeholders like `https://github.com/mririce/mririce-app.git` with your actual repository URL if it's different.
+* **License Section:** Make sure to update the "License" section with your project's license.
+* **Tech Stack/Prerequisites:** You might want to add specific Node.js/npm version requirements if your project has them.
+* **Project Structure & Key Dependencies:** I've made some educated guesses based on common Angular project structures and the files provided. You can refine these sections to be more specific to your actual codebase.
+* **Empty Files:** Files like `brand.model.ts` and `usp.model.ts` were empty. You might want to define interfaces or classes in them and update the README accordingly if they become important.
+* **Screenshots/GIFs:** Consider adding a screenshot of the application or a GIF showing its functionality for a more engaging README.
+* **Deployment:** If you have a deployment process, add a section for that.
+* **Contributing:** If you're open to contributions, add a "Contributing" section.
