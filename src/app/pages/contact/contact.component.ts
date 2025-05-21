@@ -102,7 +102,7 @@ export class ContactComponent implements OnInit {
   // IMPORTANT: Replace this iframeSrc with your actual Google Maps embed URL.
   // The one from your original HTML was a placeholder/internal URL.
   // Go to Google Maps, find your location, click "Share", then "Embed a map", and copy the src value.
-  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.709478205764!2d79.59858067590719!3d16.87826088398674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb02d8aaaaaaab%3A0x1c8ed899a3294788!2sMiryalaguda%20Rice%20Industries!5e0!3m2!1sen!2sin!4v1716200000000!5m2!1sen!2sin"; // Replace with actual embed SRC
+  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15273.627374794723!2d79.53042728715816!3d16.855757199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a352f752fd6d37f%3A0x32ddc6df66cb678!2sMiryalaguda%20Rice%20Industries%20Pvt%20Ltd%20(MRI)!5e0!3m2!1sen!2sin!4v1747810194023!5m2!1sen!2sin"; // Replace with actual embed SRC
 
   contactForm!: FormGroup; // Definite assignment assertion, will be initialized in constructor/ngOnInit
   formSubmitted: boolean = false;
