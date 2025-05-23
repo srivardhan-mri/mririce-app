@@ -28,7 +28,7 @@ export class NotFoundComponent implements OnInit { // Implement OnInit
     this.meta.updateTag({ property: 'og:description', content: 'Sorry, the requested page was not found on the Miryalaguda Rice Industries (MRI Rice) website.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/404' }); // Or simply your base URL if you don't have a specific 404 route URL you want to share
     // For 404 pages, the main site logo is appropriate for og:image
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });
   }
 
   // You can add properties here if your not-found.component.html needs them,

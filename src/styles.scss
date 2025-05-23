@@ -261,21 +261,21 @@ ul {
 // Specific background images for page headers
 // Ensure these image paths are correct relative to the 'assets' folder if used directly in CSS
 // Or, preferably, apply these backgrounds dynamically in your Angular components.
-// Example: url('assets/images/about-us-banner.jpeg')
+// Example: url('assets/images/about-us-banner.webp')
 .page-header.about-us-bg {
-    background-image: url('assets/images/about-us-banner.jpeg');
+    background-image: url('assets/images/about-us-banner.webp');
 }
 .page-header.brands-bg {
-    background-image: url('assets/images/brands-banner-packaging.jpg');
+    background-image: url('assets/images/brands-banner-packaging.webp');
 }
 .page-header.quality-bg {
-    background-image: url('assets/images/quality-banner-inspection.jpg');
+    background-image: url('assets/images/quality-banner-inspection.webp');
 }
 .page-header.contact-bg {
-    background-image: url('assets/images/contact-banner-miryalaguda.jpg');
+    background-image: url('assets/images/contact-banner-miryalaguda.webp');
 }
 .page-header.products-bg {
-    background-image: url('assets/images/products-banner-rice-varieties.jpeg');
+    background-image: url('assets/images/products-banner-rice-varieties.webp');
 }
 
 /* Other section styles (like .usps, .featured-brands, .commitment, .about-section, etc.)

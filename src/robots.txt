@@ -12,6 +12,7 @@ Allow: /*.jpg$
 Allow: /*.jpeg$
 Allow: /*.svg$
 Allow: /*.gif$
+Allow: /*.webp$
 
 # Disallow any specific paths if you have them (examples, adjust as needed)
 # Disallow: /admin/

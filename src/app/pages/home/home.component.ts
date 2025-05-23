@@ -69,7 +69,7 @@ export class HomeComponent implements OnInit {
     this.meta.updateTag({ property: 'og:title', content: 'Miryalaguda Rice Industries (MRI) - Trusted Rice Mill in Telangana' });
     this.meta.updateTag({ property: 'og:description', content: 'Explore premium rice varieties from MRI Rice, your reliable partner in Miryalaguda for quality and bulk supply.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/home' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' }); // Default logo, consider a specific home banner
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' }); // Default logo, consider a specific home banner
   }
 
   hero: HeroData = {
@@ -77,25 +77,25 @@ export class HomeComponent implements OnInit {
     highlight: 'Quality Rice,',
     titleLine2: 'Trusted Supply',
     subtitle: 'Your premier partner for the finest Sona Masoori, JSR steam, and boiled rice varieties, cultivated with care and milled to perfection in the heart of Telangana.', // SEO: Added specific rice types
-    backgroundImageUrl: 'assets/images/hero-banner-miryalaguda.jpeg',
+    backgroundImageUrl: 'assets/images/hero-banner-miryalaguda.webp',
     altText: 'Lush green paddy fields under a blue sky, illustrating rice cultivation at Miryalaguda Rice Industries.' // SEO: Enhanced alt text
   };
 
   usps: UspData[] = [
     {
-      iconUrl: 'assets/images/usp-quality-grains.png',
+      iconUrl: 'assets/images/usp-quality-grains.webp',
       altText: 'Icon representing Uncompromising Quality Rice from MRI Rice', // SEO: Enhanced alt text
       title: 'Uncompromising Quality',
       text: 'From paddy procurement from Telangana farms to final packaging, we ensure the highest standards for every premium rice grain, including popular varieties like JSR Steam Rice and Sona Masoori.' // SEO: Enhanced text
     },
     {
-      iconUrl: 'assets/images/usp-trust-handshake.png',
+      iconUrl: 'assets/images/usp-trust-handshake.webp',
       altText: 'Icon for Decades of Rice Milling Expertise at MRI Rice in Miryalaguda', // SEO: Enhanced alt text
       title: 'Decades of Expertise',
       text: 'With over 30 years as a leading rice mill in Miryalaguda, our experience guarantees excellence and reliability as trusted rice suppliers in Telangana.' // SEO: Enhanced text
     },
     {
-      iconUrl: 'assets/images/usp-reliable-supply.png',
+      iconUrl: 'assets/images/usp-reliable-supply.webp',
       altText: 'Icon for Trusted & Timely Rice Supply by MRI for bulk orders', // SEO: Enhanced alt text
       title: 'Trusted & Timely Supply',
       text: 'Efficient supply chain management to meet your bulk rice supplier requirements in Telangana and across India on schedule.' // SEO: Enhanced text
@@ -104,7 +104,7 @@ export class HomeComponent implements OnInit {
 
   featuredBrands: FeaturedBrandData[] = [
     {
-      imageUrl: 'assets/images/SuperFineStarMRI_WadaKolamJeeraRice_DarkGreen.jpg',
+      imageUrl: 'assets/images/SuperFineStarMRI_WadaKolamJeeraRice_DarkGreen.webp',
       altText: 'Bag of Super Fine Star Sona Masoori Rice by Miryalaguda Rice Industries', // SEO: Enhanced alt text
       title: 'Super Fine Star',
       description: 'Our flagship brand from Miryalaguda Rice Industries, known for its aromatic, long-grain Sona Masoori steam rice. Perfect for daily meals and special occasions, Super Fine Star Rice is a mark of quality.', // SEO: Enhanced text
@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
       fragment: 'super-fine-star'
     },
     {
-      imageUrl: 'assets/images/MRI_JSR_Purple.jpg',
+      imageUrl: 'assets/images/MRI_JSR_Purple.webp',
       altText: 'MRI Gold JSR Steam Rice from Miryalaguda Rice Industries', // SEO: Enhanced alt text
       title: 'MRI Gold (JSR Steam)',
       description: 'Premium JSR steam rice from our Miryalaguda rice mill, offering excellent cooking quality, taste, and texture. MRI Gold is a preferred choice for households and caterers seeking top-tier rice.', // SEO: Enhanced text
@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
     text: 'At Miryalaguda Rice Industries, we are dedicated to not only providing superior quality rice like JSR and Sona Masoori, but also to fostering sustainable agricultural practices and supporting our local farming communities in Telangana.', // SEO: Enhanced text
     buttonText: 'Learn About Our Values',
     buttonLink: '/about',
-    backgroundImageUrl: 'assets/images/commitment-collage.jpg',
+    backgroundImageUrl: 'assets/images/commitment-collage.webp',
     altText: 'Hands holding freshly harvested rice grains, symbolizing Miryalaguda Rice Industries commitment to quality and sustainability.' // SEO: Enhanced alt text
   };
 

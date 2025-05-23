@@ -10,7 +10,7 @@ export interface Product {
   description: string;
   attributes: string; // e.g., "Grain: Long | Texture: Fluffy..."
   packSizes: string;
-  imageUrl: string; // Path to the product image, e.g., "assets/images/product.jpg"
+  imageUrl: string; // Path to the product image, e.g., "assets/images/product.webp"
   altText: string; // Alt text for the product image
   category: 'Steam Rice Varieties' | 'Nutritious Boiled Rice'; // Product category
   enquiryLinkPath: string; // Base path for the enquiry button (e.g., '/contact')
@@ -34,7 +34,7 @@ export class ProductService {
       description: "Celebrated for its long, slender grains and wonderfully fluffy texture when cooked. Our JSR Steam Rice is expertly processed to retain its delightful natural aroma and essential nutrients, making it an outstanding choice for daily meals and celebratory dishes.",
       attributes: "<strong>Grain:</strong> Long | <strong>Texture:</strong> Fluffy, Non-Sticky | <strong>Best For:</strong> Everyday Meals, Pulao, Fried Rice",
       packSizes: "Available in: 5kg, 10kg, 26kg bags",
-      imageUrl: "assets/images/SuperFineStarMRI_JSR_Black.jpg",
+      imageUrl: "assets/images/SuperFineStarMRI_JSR_Black.webp",
       altText: "Super Fine Star JSR Steam Rice bag",
       category: 'Steam Rice Varieties',
       enquiryLinkPath: '/contact',
@@ -48,7 +48,7 @@ export class ProductService {
       description: "A cherished favorite, MRI's HMT Steam Rice offers a harmonious blend of delightful taste and consistent, superior quality. Its medium grains cook to perfection, offering versatility for a wide array of regional specialties and everyday cooking.",
       attributes: "<strong>Grain:</strong> Medium | <strong>Texture:</strong> Soft, Versatile | <strong>Best For:</strong> Daily Meals, Regional Cuisines",
       packSizes: "Available in: 5kg, 10kg, 26kg bags",
-      imageUrl: "assets/images/SuperFineStarMRI_WadaKolamJeeraRice_DarkGreen.jpg",
+      imageUrl: "assets/images/SuperFineStarMRI_WadaKolamJeeraRice_DarkGreen.webp",
       altText: "Super Fine Star HMT Steam Wada Kolam Jeera Rice bag",
       category: 'Steam Rice Varieties',
       enquiryLinkPath: '/contact',
@@ -62,7 +62,7 @@ export class ProductService {
       description: "Experience the light, aromatic elegance of our premium Sona Masoori. These fine, medium-short grains are renowned for their fluffy texture and distinct, delightful flavor. An ideal choice for exquisite biryanis, flavorful pulaos, or as a perfect complement to any curry.",
       attributes: "<strong>Grain:</strong> Medium-Short | <strong>Texture:</strong> Lightweight, Fluffy, Aromatic | <strong>Best For:</strong> Biryani, Pulao, Curries, Daily Consumption",
       packSizes: "Available in: 5kg, 10kg, 25kg, 26kg bags",
-      imageUrl: "assets/images/SuperFineStar_SonaMasoori_Blue.jpg",
+      imageUrl: "assets/images/SuperFineStar_SonaMasoori_Blue.webp",
       altText: "Super Fine Star Sona Masoori Rice bag",
       category: 'Steam Rice Varieties',
       enquiryLinkPath: '/contact',
@@ -77,7 +77,7 @@ export class ProductService {
       description: "MRI's JSR Boiled Rice offers superior nutritional value and a consistently satisfying texture. Ideal for those seeking a wholesome, easily digestible rice variety, it’s a staple for daily consumption and robust meals.",
       attributes: "<strong>Grain:</strong> Medium/Long | <strong>Texture:</strong> Wholesome, Firm | <strong>Best For:</strong> Everyday Meals, Porridge",
       packSizes: "Available in: 10kg, 26kg bags",
-      imageUrl: "assets/images/MRI_JSR_Purple.jpg",
+      imageUrl: "assets/images/MRI_JSR_Purple.webp",
       altText: "MRI Brand JSR Boiled Rice bag",
       category: 'Nutritious Boiled Rice',
       enquiryLinkPath: '/contact',
@@ -91,7 +91,7 @@ export class ProductService {
       description: "A robust and highly nutritious option, our HMT Boiled Rice is processed with utmost care to maintain its integrity. Its grains remain separate and pleasantly fluffy after cooking, making it a preferred staple in many discerning households.",
       attributes: "<strong>Grain:</strong> Medium | <strong>Texture:</strong> Fluffy, Separate Grains | <strong>Best For:</strong> Staple Meals, Variety Dishes",
       packSizes: "Available in: 10kg, 26kg bags",
-      imageUrl: "assets/images/MRI_HMT_Brown.png",
+      imageUrl: "assets/images/MRI_HMT_Brown.webp",
       altText: "MRI Brand HMT Boiled Rice bag",
       category: 'Nutritious Boiled Rice',
       enquiryLinkPath: '/contact',
@@ -105,7 +105,7 @@ export class ProductService {
       description: "Our BPT Boiled Rice (often cherished like Sona Masoori) provides a wholesome, satisfying meal. Its characteristic taste and texture are a testament to the rich agricultural heritage of Miryalaguda, parboiled for added nutritional benefits.",
       attributes: "<strong>Grain:</strong> Medium-Short | <strong>Texture:</strong> Nutrient-Rich, Good for Digestion | <strong>Best For:</strong> Daily Consumption, Health-focused Meals",
       packSizes: "Available in: 10kg, 26kg",
-      imageUrl: "assets/images/MRI_BPT_Red.jpg",
+      imageUrl: "assets/images/MRI_BPT_Red.webp",
       altText: "MRI Brand BPT Boiled Rice bag",
       category: 'Nutritious Boiled Rice',
       enquiryLinkPath: '/contact',
