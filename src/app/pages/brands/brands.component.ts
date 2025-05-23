@@ -56,7 +56,7 @@ export class BrandsComponent implements OnInit { // Implement OnInit
     this.meta.updateTag({ property: 'og:title', content: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalaguda' }); // Matches title from app.routes.ts
     this.meta.updateTag({ property: 'og:description', content: 'Discover trusted rice brands like Super Fine Star by MRI Rice, offering premium quality and taste from Miryalaguda.' });
     // Consider a specific OG image for this page, e.g., a collage of your brand logos or packaging
-    // this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/brands-social-banner.jpg' });
+    // this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/brands-social-banner.webp' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/brands' }); // Canonical URL for this page
 
     this.brands = this.brandService.getBrands();

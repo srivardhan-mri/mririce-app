@@ -111,7 +111,7 @@ export class ContactComponent implements OnInit {
     this.meta.updateTag({ property: 'og:title', content: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalaguda' });
     this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Miryalaguda Rice Industries for your bulk rice needs. Find our address, phone, and email for inquiries.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/contact' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' }); // Default logo, consider a map snippet or contact banner
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' }); // Default logo, consider a map snippet or contact banner
 
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],

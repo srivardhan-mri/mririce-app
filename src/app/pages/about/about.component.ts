@@ -58,7 +58,7 @@ export class AboutComponent implements OnInit { // Ensure OnInit is implemented
     this.meta.updateTag({ property: 'og:title', content: 'About MRI Rice - Our Legacy & Quality Commitment | Miryalaguda' });
     this.meta.updateTag({ property: 'og:description', content: 'Discover the rich history and values of Miryalaguda Rice Industries, a leading rice mill in Telangana with a commitment to quality and community.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/about' });
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' }); // Default logo, consider specific About Us banner
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' }); // Default logo, consider specific About Us banner
   }
 
   pageHeader: PageHeaderData = {
@@ -72,7 +72,7 @@ export class AboutComponent implements OnInit { // Ensure OnInit is implemented
       "Nestled in the heart of Telangana's renowned rice belt, Miryalaguda Rice Industries (MRI) stands as a testament to enduring quality and unwavering trust. For decades, we have dedicated ourselves to milling the finest rice, including popular varieties like <strong>JSR Steam Rice and Sona Masoori</strong>, fostering long-term relationships with our valued customers and the local farming community in Miryalaguda that sustains us.", // SEO: Added specific rice types
       "Our journey as a premier <strong>Telangana rice mill</strong> is one of passion, precision, and a deep-seated commitment to delivering rice that not only nourishes but also delights with its superior taste and texture." // SEO: Added "Telangana rice mill"
     ],
-    imageUrl: "assets/images/mri-logo.png",
+    imageUrl: "assets/images/mri-logo.webp",
     imageAlt: "Miryalaguda Rice Industries (MRI) Logo - Trusted Rice Mill in Telangana", // SEO: Enhanced alt text
     layoutType: 'text-first'
   };
@@ -83,7 +83,7 @@ export class AboutComponent implements OnInit { // Ensure OnInit is implemented
       "The story of Miryalaguda Rice Industries began in <strong>1984</strong>. What started as a very small-scale <strong>rice mill in Miryalaguda</strong>, driven by a family's passion for quality, has blossomed into a leading name for <strong>premium rice in the region</strong>. This is a <strong>family legacy</strong>, built on hard work, integrity, and a relentless pursuit of excellence that has been passed down through generations.", // SEO: Added "rice mill in Miryalaguda", "premium rice"
       "Today, we are proud to operate with a milling capacity of <strong>400 tons per day</strong>, a significant milestone that reflects our growth, the trust our customers as <strong>rice wholesalers in Miryalaguda</strong> place in us, and our capability to meet large-scale demands for <strong>steam rice and boiled rice</strong> without compromising the meticulous care we dedicate to every grain." // SEO: Added "rice wholesalers in Miryalaguda", "steam rice and boiled rice"
     ],
-    imageUrl: "assets/images/mri-growth-legacy.png",
+    imageUrl: "assets/images/mri-growth-legacy.webp",
     imageAlt: "Illustrated Legacy of Miryalaguda Rice Industries - Growth since 1984 as a Telangana Rice Mill", // SEO: Enhanced alt text
     layoutType: 'image-first'
   };
@@ -94,7 +94,7 @@ export class AboutComponent implements OnInit { // Ensure OnInit is implemented
       "Miryalaguda is not just our location; it's our home and the heart of our operations as leading <strong>rice suppliers in Telangana</strong>. We are immensely proud of our strong ties with the local community. The <strong>majority of our paddy is procured directly from local farmers</strong> in this renowned rice-growing region, ensuring fair prices and supporting local agriculture.", // SEO: Added "rice suppliers in Telangana"
       "This close partnership with <strong>Miryalaguda farmers</strong> allows us to ensure the freshest, highest-quality paddy (like Sona Masuri and HMT) for our mills while also supporting their livelihoods. It's a partnership that enriches our rice and strengthens our community commitment as a <strong>trusted rice mill</strong>." // SEO: Added "Miryalaguda farmers", rice types, "trusted rice mill"
     ],
-    imageUrl: "assets/images/mri-local-farmers-miryalaguda.png",
+    imageUrl: "assets/images/mri-local-farmers-miryalaguda.webp",
     imageAlt: "Miryalaguda Rice Industries supporting Local Paddy Procurement from Miryalaguda Farmers", // SEO: Enhanced alt text
     layoutType: 'text-first'
   };
@@ -105,7 +105,7 @@ export class AboutComponent implements OnInit { // Ensure OnInit is implemented
       "What truly sets Miryalaguda Rice Industries apart? It's the <strong>highly appreciated quality and finish</strong> of our rice. Our decades of experience as <strong>rice manufacturers in India</strong>, combined with <strong>modern rice milling</strong> techniques and a meticulous eye for detail, result in grains that are consistently perfect in texture, aroma, and appearance.", // SEO: Added "rice manufacturers in India", "modern rice milling"
       "Whether it's our renowned <strong>JSR Steam Rice</strong>, the popular <strong>HMT Steam Rice</strong> varieties, our nutritious <strong>Sona Masoori Rice</strong>, or various <strong>Boiled Rice</strong> types (JSR Boiled, HMT Boiled, BPT Boiled), the MRI seal guarantees a product that enhances every meal. This commitment to superior finish is a hallmark of our expertise and a promise to our customers looking for <strong>quality rice suppliers</strong>." // SEO: Bolder product names, added "quality rice suppliers"
     ],
-    imageUrl: "assets/images/mri-rice-quality-finish.png",
+    imageUrl: "assets/images/mri-rice-quality-finish.webp",
     imageAlt: "Superior Quality and Finish of MRI Rice - JSR, HMT, Sona Masoori from our Telangana Rice Mill", // SEO: Enhanced alt text
     layoutType: 'image-first'
   };

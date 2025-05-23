@@ -32,7 +32,7 @@ export class TermsConditionsComponent implements OnInit { // Implement OnInit
     this.meta.updateTag({ property: 'og:description', content: 'Please read our Terms & Conditions carefully before using the Miryalaguda Rice Industries (MRI Rice) website.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/terms-conditions' }); // Canonical URL for this page
     // For static pages like this, the main site logo is often sufficient for og:image
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });
   }
 
   pageHeader: PageHeaderData = {

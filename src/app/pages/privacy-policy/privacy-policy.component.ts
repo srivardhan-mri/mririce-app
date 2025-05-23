@@ -32,7 +32,7 @@ export class PrivacyPolicyComponent implements OnInit { // Implement OnInit
     this.meta.updateTag({ property: 'og:description', content: 'Our commitment to your privacy. Review the Privacy Policy of Miryalaguda Rice Industries (MRI Rice).' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/privacy-policy' }); // Canonical URL for this page
     // For static pages like this, the main site logo is often sufficient for og:image
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.png' });
+    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });
   }
 
   pageHeader: PageHeaderData = {
