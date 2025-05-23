@@ -1,0 +1,22 @@
+# robots.txt for Miryalaguda Rice Industries (www.mririce.com)
+
+User-agent: *
+Allow: /
+
+# Allow crawling of all assets (CSS, JS, Images)
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.svg$
+Allow: /*.gif$
+Allow: /*.webp$
+
+# Disallow any specific paths if you have them (examples, adjust as needed)
+# Disallow: /admin/
+# Disallow: /private-area/
+
+# Sitemap location (update if your sitemap URL is different)
+Sitemap: https://www.mririce.com/sitemap.xml
