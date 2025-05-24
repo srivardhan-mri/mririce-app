@@ -21,12 +21,12 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Miryalaguda Rice Industries (MRI) - Trusted Rice Mill in Telangana'  // SEO Optimized
+    title: 'Miryalguda Rice Industries (MRI) - Trusted Rice Mill in Telangana'  // SEO Optimized
   },
   {
     path: 'about',
     component: AboutComponent,
-    title: 'About MRI Rice - Our Legacy & Quality Commitment | Miryalaguda' // SEO Optimized
+    title: 'About MRI Rice - Our Legacy & Quality Commitment | Miryalguda' // SEO Optimized
   },
   {
     path: 'products',
@@ -36,7 +36,7 @@ export const routes: Routes = [
   {
     path: 'brands',
     component: BrandsComponent,
-    title: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalaguda' // SEO Optimized
+    title: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalguda' // SEO Optimized
   },
   {
     path: 'quality',
@@ -46,17 +46,17 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalaguda' // SEO Optimized
+    title: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalguda' // SEO Optimized
   },
   {
     path: 'privacy-policy',
     component: PrivacyPolicyComponent,
-    title: 'Privacy Policy | Miryalaguda Rice Industries Pvt Ltd' // SEO Optimized
+    title: 'Privacy Policy | Miryalguda Rice Industries Pvt Ltd' // SEO Optimized
   },
   {
     path: 'terms-conditions',
     component: TermsConditionsComponent,
-    title: 'Terms & Conditions | Miryalaguda Rice Industries Pvt Ltd' // SEO Optimized
+    title: 'Terms & Conditions | Miryalguda Rice Industries Pvt Ltd' // SEO Optimized
   },
 
   // Optional: Wildcard route for a 404 Page Not Found component
@@ -64,6 +64,6 @@ export const routes: Routes = [
   {
     path: '**',
     component: NotFoundComponent,
-    title: '404 - Page Not Found | Miryalaguda Rice Industries' // SEO Optimized
+    title: '404 - Page Not Found | Miryalguda Rice Industries' // SEO Optimized
   }
 ];

@@ -25,11 +25,11 @@ export class TermsConditionsComponent implements OnInit { // Implement OnInit
     // Set the meta description for the Terms & Conditions page
     this.meta.updateTag({
       name: 'description',
-      content: 'Review the Terms & Conditions for using the Miryalaguda Rice Industries Pvt Ltd (MRI Rice) website and services. Understand your rights and obligations.'
+      content: 'Review the Terms & Conditions for using the Miryalguda Rice Industries Pvt Ltd (MRI Rice) website and services. Understand your rights and obligations.'
     });
     // Set Open Graph tags for the Terms & Conditions page
-    this.meta.updateTag({ property: 'og:title', content: 'Terms & Conditions | Miryalaguda Rice Industries Pvt Ltd' }); // Matches title from app.routes.ts
-    this.meta.updateTag({ property: 'og:description', content: 'Please read our Terms & Conditions carefully before using the Miryalaguda Rice Industries (MRI Rice) website.' });
+    this.meta.updateTag({ property: 'og:title', content: 'Terms & Conditions | Miryalguda Rice Industries Pvt Ltd' }); // Matches title from app.routes.ts
+    this.meta.updateTag({ property: 'og:description', content: 'Please read our Terms & Conditions carefully before using the Miryalguda Rice Industries (MRI Rice) website.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/terms-conditions' }); // Canonical URL for this page
     // For static pages like this, the main site logo is often sufficient for og:image
     this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });

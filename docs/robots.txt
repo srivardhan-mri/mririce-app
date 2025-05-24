@@ -1,4 +1,4 @@
-# robots.txt for Miryalaguda Rice Industries (www.mririce.com)
+# robots.txt for Miryalguda Rice Industries (www.mririce.com)
 
 User-agent: *
 Allow: /

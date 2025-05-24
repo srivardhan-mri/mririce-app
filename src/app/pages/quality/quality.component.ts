@@ -38,19 +38,19 @@ export class QualityComponent {
 
   pageHeader: PageHeaderData = {
     title: "Our Unwavering Commitment to Quality",
-    description: "At Miryalaguda Rice Industries, quality isn't just a promise; it's the foundation of everything we do. Discover how we ensure excellence in every grain, from paddy to plate."
+    description: "At Miryalguda Rice Industries, quality isn't just a promise; it's the foundation of everything we do. Discover how we ensure excellence in every grain, from paddy to plate."
   };
 
   qualityIntro: QualityIntroData = {
     title: "The MRI Standard: Perfection in Every Grain",
-    text: "The \"appreciated quality and finish\" of MRI rice, recognized by our valued customers, is no accident. It is the result of a meticulous, multi-stage quality assurance process that governs every aspect of our operations. We believe that exceptional rice begins with an uncompromising commitment to excellence, leveraging both time-honored practices of Miryalaguda and modern technological precision."
+    text: "The \"appreciated quality and finish\" of MRI rice, recognized by our valued customers, is no accident. It is the result of a meticulous, multi-stage quality assurance process that governs every aspect of our operations. We believe that exceptional rice begins with an uncompromising commitment to excellence, leveraging both time-honored practices of Miryalguda and modern technological precision."
   };
 
   processSteps: ProcessStepData[] = [
     {
       stepNumber: 1,
       title: "Superior Paddy Sourcing: The Foundation of Quality",
-      description: "Our quest for quality starts at the very source. We partner closely with trusted local farmers in the fertile Miryalaguda region, ensuring that only the finest, healthiest paddy is selected. Each batch undergoes initial inspection for:",
+      description: "Our quest for quality starts at the very source. We partner closely with trusted local farmers in the fertile Miryalguda region, ensuring that only the finest, healthiest paddy is selected. Each batch undergoes initial inspection for:",
       bulletPoints: [
         "Grain maturity and integrity",
         "Moisture content",
@@ -78,7 +78,7 @@ export class QualityComponent {
     {
       stepNumber: 3,
       title: "Rigorous Quality Control: Our Guarantee of Excellence",
-      description: "Every grain of rice that carries the Miryalaguda Rice Industries name passes through a stringent, multi-stage quality control protocol. Our dedicated QC team monitors key parameters at every critical point:",
+      description: "Every grain of rice that carries the Miryalguda Rice Industries name passes through a stringent, multi-stage quality control protocol. Our dedicated QC team monitors key parameters at every critical point:",
       bulletPoints: [
         "<strong>Pre-Milling Analysis:</strong> Verifying paddy quality before processing.",
         "<strong>In-Process Monitoring:</strong> Continuous checks during milling for consistency in grain length, broken percentage, and color.",
@@ -107,7 +107,7 @@ export class QualityComponent {
 
   qualityConclusion: QualityConclusionData = {
     title: "Your Assurance of Superior Rice",
-    text: "The \"appreciated quality and finish\" of MRI rice is a direct result of this comprehensive quality assurance system. When you choose Miryalaguda Rice Industries, you choose rice that has been cultivated, milled, and packaged with an unwavering dedication to excellence. We invite you to experience the MRI difference.",
+    text: "The \"appreciated quality and finish\" of MRI rice is a direct result of this comprehensive quality assurance system. When you choose Miryalguda Rice Industries, you choose rice that has been cultivated, milled, and packaged with an unwavering dedication to excellence. We invite you to experience the MRI difference.",
     buttonLink: "/products",
     buttonText: "View Our Quality Rice Selection"
   };
