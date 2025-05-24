@@ -21,11 +21,11 @@ export class NotFoundComponent implements OnInit { // Implement OnInit
     // Set the meta description for the 404 Not Found page
     this.meta.updateTag({
       name: 'description',
-      content: 'The page you are looking for could not be found at Miryalaguda Rice Industries Pvt Ltd (MRI Rice). Please check the URL or return to our homepage.'
+      content: 'The page you are looking for could not be found at Miryalguda Rice Industries Pvt Ltd (MRI Rice). Please check the URL or return to our homepage.'
     });
     // Set Open Graph tags for the 404 Not Found page
-    this.meta.updateTag({ property: 'og:title', content: '404 - Page Not Found | Miryalaguda Rice Industries' }); // Matches title from app.routes.ts
-    this.meta.updateTag({ property: 'og:description', content: 'Sorry, the requested page was not found on the Miryalaguda Rice Industries (MRI Rice) website.' });
+    this.meta.updateTag({ property: 'og:title', content: '404 - Page Not Found | Miryalguda Rice Industries' }); // Matches title from app.routes.ts
+    this.meta.updateTag({ property: 'og:description', content: 'Sorry, the requested page was not found on the Miryalguda Rice Industries (MRI Rice) website.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/404' }); // Or simply your base URL if you don't have a specific 404 route URL you want to share
     // For 404 pages, the main site logo is appropriate for og:image
     this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });

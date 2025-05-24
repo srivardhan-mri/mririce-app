@@ -1,12 +1,12 @@
 # MririceApp
 
-This project is the official web application for Miryalaguda Rice Industries. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+This project is the official web application for Miryalguda Rice Industries. It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
 ## Project Overview
 
-**Miryalaguda Rice Industries - Quality Rice, Trusted Supply**
+**Miryalguda Rice Industries - Quality Rice, Trusted Supply**
 
-This application serves as the main informational and contact hub for Miryalaguda Rice Industries. It showcases our products, company history, quality assurance processes, and provides contact information for inquiries.
+This application serves as the main informational and contact hub for Miryalguda Rice Industries. It showcases our products, company history, quality assurance processes, and provides contact information for inquiries.
 
 ## Table of Contents
 

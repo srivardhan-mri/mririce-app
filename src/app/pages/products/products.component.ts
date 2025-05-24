@@ -38,12 +38,12 @@ export class ProductsComponent implements OnInit {
 
   pageHeader: PageHeaderData = {
     title: "Our Premium Rice Selection",
-    description: "Explore the diverse range of high-quality rice varieties from Miryalaguda Rice Industries, meticulously processed to bring the best of Telangana's fields to your table."
+    description: "Explore the diverse range of high-quality rice varieties from Miryalguda Rice Industries, meticulously processed to bring the best of Telangana's fields to your table."
   };
 
   productsIntro: ProductsIntroData = {
     title: "The MRI Standard of Excellence in Every Grain",
-    text: "At Miryalaguda Rice Industries, we offer a comprehensive selection of rice to meet every culinary need. Each variety is a product of our commitment to quality, from sourcing the finest paddy from local Miryalaguda farmers to employing advanced milling techniques. Discover the perfect rice for your home or business under our trusted brands, Super Fine Star and MRI."
+    text: "At Miryalguda Rice Industries, we offer a comprehensive selection of rice to meet every culinary need. Each variety is a product of our commitment to quality, from sourcing the finest paddy from local Miryalguda farmers to employing advanced milling techniques. Discover the perfect rice for your home or business under our trusted brands, Super Fine Star and MRI."
   };
 
   productGroups: ProductCategoryGroup[] = [];

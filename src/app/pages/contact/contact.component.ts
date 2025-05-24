@@ -66,17 +66,17 @@ export class ContactComponent implements OnInit {
   faWhatsapp = faWhatsapp;
 
   pageHeader: PageHeaderData = {
-    title: "Contact Miryalaguda Rice Industries (MRI Rice)", // SEO: Added brand
-    description: "We're here to help. Contact Miryalaguda Rice Industries for inquiries on JSR, HMT, Sona Masoori rice, bulk orders, or any information you need about our premium rice products from Telangana." // SEO: Added rice types and location
+    title: "Contact Miryalguda Rice Industries (MRI Rice)", // SEO: Added brand
+    description: "We're here to help. Contact Miryalguda Rice Industries for inquiries on JSR, HMT, Sona Masoori rice, bulk orders, or any information you need about our premium rice products from Telangana." // SEO: Added rice types and location
   };
 
   contactIntro: ContactIntroData = {
     title: "We'd Love to Hear From You - Your Trusted Telangana Rice Mill", // SEO: Added positioning
-    text: "Whether you have a question about our diverse rice varieties like <strong>JSR Steam Rice, HMT Deluxe, or Super Fine Star Sona Masoori</strong>, need assistance with a <strong>bulk rice order</strong>, or want to learn more about partnering with Miryalaguda Rice Industries, our dedicated team is ready to assist you. Reach out to your <strong>Miryalaguda rice suppliers</strong> through any of the methods below, or use our inquiry form for a quick response." // SEO: Bolder product names, keywords
+    text: "Whether you have a question about our diverse rice varieties like <strong>JSR Steam Rice, HMT Deluxe, or Super Fine Star Sona Masoori</strong>, need assistance with a <strong>bulk rice order</strong>, or want to learn more about partnering with Miryalguda Rice Industries, our dedicated team is ready to assist you. Reach out to your <strong>Miryalguda rice suppliers</strong> through any of the methods below, or use our inquiry form for a quick response." // SEO: Bolder product names, keywords
   };
 
   contactDetails: ContactDetailItem[] = [
-    { icon: faMapMarkerAlt, label: 'Our Mill Address:', value: '<strong>Miryalaguda Rice Industries Pvt Ltd (MRI)</strong>,<br>Miryalaguda Industrial Area,<br>Miryalaguda, Telangana 508207, India', isLink: false }, // SEO: Ensure exact GMB Name & Address
+    { icon: faMapMarkerAlt, label: 'Our Mill Address:', value: '<strong>Miryalguda Rice Industries Pvt Ltd (MRI)</strong>,<br>Miryalguda Industrial Area,<br>Miryalguda, Telangana 508207, India', isLink: false }, // SEO: Ensure exact GMB Name & Address
     { icon: faPhone, label: 'Phone (Sales & Enquiries):', value: '+91 98663 98337', isLink: true, linkType: 'tel' },
     { icon: faEnvelope, label: 'Email Us for Rice Enquiries:', value: 'info@mririce.com', isLink: true, linkType: 'mailto' }, // SEO: Clarified purpose
     { icon: faClock, label: 'Business Hours:', value: 'Monday - Saturday: 9:00 AM - 6:00 PM IST<br>Sunday: Closed (Online inquiries welcome 24/7)', isLink: false } // SEO: Added IST, clarified online inquiries
@@ -84,32 +84,32 @@ export class ContactComponent implements OnInit {
 
   socialLinks: SocialLink[] = [
     // Add actual social media links here when available and update ariaLabel for SEO
-    // { icon: faFacebookF, url: 'https://facebook.com/MRIRiceIndustries', ariaLabel: 'Miryalaguda Rice Industries on Facebook' },
-    // { icon: faInstagram, url: 'https://instagram.com/MRIRice', ariaLabel: 'Miryalaguda Rice Industries on Instagram' },
-    // { icon: faLinkedinIn, url: 'https://linkedin.com/company/miryalaguda-rice-industries', ariaLabel: 'Miryalaguda Rice Industries on LinkedIn' }
+    // { icon: faFacebookF, url: 'https://facebook.com/MRIRiceIndustries', ariaLabel: 'Miryalguda Rice Industries on Facebook' },
+    // { icon: faInstagram, url: 'https://instagram.com/MRIRice', ariaLabel: 'Miryalguda Rice Industries on Instagram' },
+    // { icon: faLinkedinIn, url: 'https://linkedin.com/company/Miryalguda-rice-industries', ariaLabel: 'Miryalguda Rice Industries on LinkedIn' }
   ];
 
   inquiryTypes: string[] = [
     'General Inquiry about MRI Rice', // SEO: Added brand
     'Bulk Order Quotation (JSR, HMT, Sona Masoori, etc.)', // SEO: Added examples
     'Product Information Request (Steam Rice, Boiled Rice)', // SEO: Added examples
-    'Distributorship/Partnership with Miryalaguda Rice Industries', // SEO: Added company name
+    'Distributorship/Partnership with Miryalguda Rice Industries', // SEO: Added company name
     'Feedback/Suggestion',
     'Other Rice Related Questions' // SEO: Clarified
   ];
 
-  mapSectionTitle: string = "Visit Our Rice Mill in Miryalaguda, Telangana"; // SEO: Added location
-  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15273.627374794723!2d79.53042728715816!3d16.855757199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a352f752fd6d37f%3A0x32ddc6df66cb678!2sMiryalaguda%20Rice%20Industries%20Pvt%20Ltd%20(MRI)!5e0!3m2!1sen!2sin!4v1747810194023!5m2!1sen!2sin"; // IMPORTANT: Replace YOUR_API_KEY and ensure query 'q' accurately points to your GMB listing. Using a direct embed link from Google Maps is better if no API key.
+  mapSectionTitle: string = "Visit Our Rice Mill in Miryalguda, Telangana"; // SEO: Added location
+  mapIframeSrc: string = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15273.627374794723!2d79.53042728715816!3d16.855757199999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a352f752fd6d37f%3A0x32ddc6df66cb678!2sMiryalguda%20Rice%20Industries%20Pvt%20Ltd%20(MRI)!5e0!3m2!1sen!2sin!4v1747810194023!5m2!1sen!2sin"; // IMPORTANT: Replace YOUR_API_KEY and ensure query 'q' accurately points to your GMB listing. Using a direct embed link from Google Maps is better if no API key.
 
   constructor() {}
 
   ngOnInit(): void {
     this.meta.updateTag({
       name: 'description',
-      content: 'Contact Miryalaguda Rice Industries (MRI Rice) for premium rice supplies. Inquire about JSR, HMT, Sona Masoori, bulk orders, or visit our rice mill in Miryalaguda, Telangana.'
+      content: 'Contact Miryalguda Rice Industries (MRI Rice) for premium rice supplies. Inquire about JSR, HMT, Sona Masoori, bulk orders, or visit our rice mill in Miryalguda, Telangana.'
     });
-    this.meta.updateTag({ property: 'og:title', content: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalaguda' });
-    this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Miryalaguda Rice Industries for your bulk rice needs. Find our address, phone, and email for inquiries.' });
+    this.meta.updateTag({ property: 'og:title', content: 'Contact MRI Rice - Bulk Rice Suppliers in Miryalguda' });
+    this.meta.updateTag({ property: 'og:description', content: 'Get in touch with Miryalguda Rice Industries for your bulk rice needs. Find our address, phone, and email for inquiries.' });
     this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/contact' });
     this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' }); // Default logo, consider a map snippet or contact banner
 

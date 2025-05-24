@@ -20,5 +20,5 @@ import { FooterComponent } from './layout/footer/footer.component';
 export class AppComponent {
   // You can have a title property, but it's not strictly necessary for the app shell.
   // The page titles are being set by the router configuration.
-  title = 'Miryalaguda Rice Industries'; // Or 'mririce-app' or any other app title
+  title = 'Miryalguda Rice Industries'; // Or 'mririce-app' or any other app title
 }
