@@ -102,7 +102,7 @@ export class ProductService {
       name: 'BPT Boiled Rice',
       brandTag: 'MRI Brand',
       brandTagClass: '',
-      description: "Our BPT Boiled Rice (often cherished like Sona Masoori) provides a wholesome, satisfying meal. Its characteristic taste and texture are a testament to the rich agricultural heritage of Miryalaguda, parboiled for added nutritional benefits.",
+      description: "Our BPT Boiled Rice (often cherished like Sona Masoori) provides a wholesome, satisfying meal. Its characteristic taste and texture are a testament to the rich agricultural heritage of Miryalguda, parboiled for added nutritional benefits.",
       attributes: "<strong>Grain:</strong> Medium-Short | <strong>Texture:</strong> Nutrient-Rich, Good for Digestion | <strong>Best For:</strong> Daily Consumption, Health-focused Meals",
       packSizes: "Available in: 10kg, 26kg",
       imageUrl: "assets/images/MRI_BPT_Red.webp",

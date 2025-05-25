@@ -4,7 +4,7 @@ Welcome to the Mririce-App project! This document serves as a wiki to understand
 
 ## 1. Project Overview
 
-Mririce-App is the official web application for Miryalaguda Rice Industries. It serves as an informational hub, showcasing products, company details, quality standards, and providing contact methods. The application is built using Angular CLI version 19.2.3.
+Mririce-App is the official web application for Miryalguda Rice Industries. It serves as an informational hub, showcasing products, company details, quality standards, and providing contact methods. The application is built using Angular CLI version 19.2.3.
 
 ## 2. Tech Stack
 
@@ -101,7 +101,7 @@ These are the main content views for each route. All page components are standal
 
 ### `about/about.component.ts`
 * **Route:** `/about`
-* **Purpose:** Provides information about Miryalaguda Rice Industries.
+* **Purpose:** Provides information about Miryalguda Rice Industries.
 * **Data:** Structured content for page header, introduction, legacy, community involvement, expertise, core values, and a CTA. Uses interfaces like `PageHeaderData`, `AboutSectionContent`, `ValueData`.
 
 ### `products/products.component.ts`
