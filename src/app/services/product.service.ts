@@ -77,7 +77,7 @@ export class ProductService {
       description: "MRI's JSR Boiled Rice offers superior nutritional value and a consistently satisfying texture. Ideal for those seeking a wholesome, easily digestible rice variety, it’s a staple for daily consumption and robust meals.",
       attributes: "<strong>Grain:</strong> Medium/Long | <strong>Texture:</strong> Wholesome, Firm | <strong>Best For:</strong> Everyday Meals, Porridge",
       packSizes: "Available in: 10kg, 26kg bags",
-      imageUrl: "assets/images/MRI_JSR_Purple.webp",
+      imageUrl: "assets/images/MRI_JSR_Green.webp",
       altText: "MRI Brand JSR Boiled Rice bag",
       category: 'Nutritious Boiled Rice',
       enquiryLinkPath: '/contact',

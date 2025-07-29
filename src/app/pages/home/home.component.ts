@@ -112,12 +112,12 @@ export class HomeComponent implements OnInit {
       fragment: 'super-fine-star'
     },
     {
-      imageUrl: 'assets/images/MRI_JSR_Purple.webp',
-      altText: 'MRI Gold JSR Steam Rice from Miryalguda Rice Industries', // SEO: Enhanced alt text
-      title: 'MRI Gold (JSR Steam)',
-      description: 'Premium JSR steam rice from our Miryalguda rice mill, offering excellent cooking quality, taste, and texture. MRI Gold is a preferred choice for households and caterers seeking top-tier rice.', // SEO: Enhanced text
-      buttonText: 'Explore MRI Gold JSR',
-      fragment: 'mri-gold-jsr'
+      imageUrl: 'assets/images/MRI_BPT_Red.webp',
+      altText: 'MRI Rice from Miryalguda Rice Industries', // SEO: Enhanced alt text
+      title: 'MRI Brand',
+      description: 'Premium JSR, HMT, and BPT Boiled rice from our Miryalguda rice mill, offering excellent cooking quality, taste, and texture. MRI Gold is a preferred choice for households and caterers seeking top-tier rice.', // SEO: Enhanced text
+      buttonText: 'Explore our MRI Rice Range',
+      fragment: 'mri-rice'
     }
   ];
 
