@@ -1,6 +1,6 @@
 // src/app/app.config.ts
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter, withComponentInputBinding, withHashLocation, withInMemoryScrolling, withRouterConfig } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling, withRouterConfig } from '@angular/router';
 
 import { routes } from './app.routes';
 // import { provideClientHydration, withNoHttpTransferCache } from '@angular/platform-browser'; // Uncomment if you chose SSR
@@ -17,7 +17,6 @@ export const appConfig: ApplicationConfig = {
       routes,
       // Enables binding route parameters to component inputs.
       withComponentInputBinding(),
-      withHashLocation(),
       // Configures router features like scroll position restoration.
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled', // Restores scroll position on back/forward navigation

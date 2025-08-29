@@ -1,24 +1,47 @@
 // src/app/app.component.ts
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router'; // For displaying routed components
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { filter, map, mergeMap } from 'rxjs/operators';
+import { SeoService } from './services/seo.service';
+import { RouterOutlet } from '@angular/router'; 
 
-// Import your layout components
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 
 @Component({
-  selector: 'app-root', // This selector is used in src/index.html
+  selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,     // Make RouterOutlet available in the template
-    HeaderComponent,  // Make HeaderComponent available
-    FooterComponent   // Make FooterComponent available
+    RouterOutlet,    
+    HeaderComponent,  
+    FooterComponent   
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  // You can have a title property, but it's not strictly necessary for the app shell.
-  // The page titles are being set by the router configuration.
-  title = 'Miryalguda Rice Industries'; // Or 'mririce-app' or any other app title
+export class AppComponent implements OnInit {
+  title = 'Miryalguda Rice Industries';
+
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private seoService: SeoService
+  ) {}
+
+  ngOnInit() {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map(() => this.activatedRoute),
+      map(route => {
+        while (route.firstChild) route = route.firstChild;
+        return route;
+      }),
+      filter(route => route.outlet === 'primary'),
+      mergeMap(route => route.data)
+    ).subscribe(event => {
+      if (event['description']) {
+        this.seoService.updateMetaDescription(event['description']);
+      }
+    });
+  }
 }

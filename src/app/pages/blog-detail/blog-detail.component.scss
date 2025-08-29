@@ -1,0 +1,41 @@
+.blog-detail-header {
+  background-color: #f8f8f8;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.blog-detail-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.blog-detail-header .blog-meta {
+  color: #666;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.blog-detail-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.blog-detail-content {
+  padding: 40px 0;
+}
+
+.blog-detail-content p {
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.blog-not-found {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.blog-not-found h2 {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,21 @@
+<section class="blog-detail-header" *ngIf="blogPost">
+  <div class="container">
+    <h1>{{ blogPost.title }}</h1>
+    <p class="blog-meta">By {{ blogPost.author }} on {{ blogPost.publishDate }}</p>
+    <img [src]="blogPost.imageUrl" [alt]="blogPost.altText" class="blog-detail-image">
+  </div>
+</section>
+
+<section class="blog-detail-content" *ngIf="blogPost">
+  <div class="container">
+    <div [innerHTML]="blogPost.content"></div>
+  </div>
+</section>
+
+<section class="blog-not-found" *ngIf="!blogPost">
+  <div class="container">
+    <h2>Blog Post Not Found</h2>
+    <p>The blog post you are looking for does not exist or has been moved.</p>
+    <a routerLink="/blog" class="btn btn-primary">Back to Blog List</a>
+  </div>
+</section>
