@@ -65,20 +65,15 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Building
 
-Run `ng build` to build the project. The build artifacts will be stored in the `doc/` directory.
-Make sure all the files are in the root directory of doc/
+Run `npm run build` to build the project for production. The build artifacts will be stored in the `docs/` directory, which is the required folder for GitHub Pages deployment.
 
-### Build Configurations:
+The build process is configured to automatically handle the following:
+*   The output is generated directly in the `docs/` folder.
+*   Important files for deployment and SEO, such as `CNAME`, `robots.txt`, and `sitemap.xml`, are automatically copied from the `src/` directory to the `docs/` directory.
 
-* **Production (default):** `ng build` or `ng build --configuration production --output-path docs`
-    * Output hashing: all
-    * Budgets:
-        * Initial: Max warning 500kB, Max error 1MB
-        * Any Component Style: Max warning 4kB, Max error 8kB
-* **Development:** `ng build --configuration development`
-    * Optimization: false
-    * Extract Licenses: false
-    * Source Map: true
+### Build Command
+
+*   `npm run build`: Builds the application for production.
 
 ## Running Unit Tests
 
