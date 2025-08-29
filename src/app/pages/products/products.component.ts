@@ -1,7 +1,6 @@
 // src/app/pages/products/products.component.ts
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 import { Product, ProductService } from '../../services/product.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
@@ -28,7 +27,6 @@ interface ProductCategoryGroup {
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
     ProductCardComponent
   ],
   templateUrl: './products.component.html',
