@@ -2,7 +2,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Meta } from '@angular/platform-browser'; // Import Meta service
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 import { Brand, BrandService } from '../../services/brand.service';
 import { BrandProfileCardComponent } from '../../components/brand-profile-card/brand-profile-card.component';
@@ -22,7 +21,6 @@ interface BrandsIntroData {
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
     BrandProfileCardComponent
   ],
   templateUrl: './brands.component.html',

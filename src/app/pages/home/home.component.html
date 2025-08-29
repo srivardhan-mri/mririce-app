@@ -1,5 +1,5 @@
 <section class="hero" [attr.aria-label]="hero.altText || 'Hero banner'">
-  <div class="hero-bg-image" [style.background-image]="'url(' + hero.backgroundImageUrl + ')'"></div>
+  <img class="hero-bg-image" [src]="hero.backgroundImageUrl" [alt]="hero.altText || 'Hero banner'" fetchpriority="high" width="1920" height="1080">
   <div class="hero-content container">
     <h1>
       {{ hero.titleLine1 }}
@@ -18,7 +18,7 @@
     <div class="usp-grid">
       @for (usp of usps; track usp.title) {
         <div class="usp-item">
-          <img [src]="usp.iconUrl" [alt]="usp.altText" class="usp-icon">
+          <img [src]="usp.iconUrl" [alt]="usp.altText" class="usp-icon" width="60" height="60">
           <h3>{{ usp.title }}</h3>
           <p>{{ usp.text }}</p>
         </div>
@@ -36,7 +36,7 @@
       @for (brand of featuredBrands; track brand.title) {
         <div class="brand-card">
           <div class="brand-visuals">
-            <img [src]="brand.imageUrl" [alt]="brand.altText" class="brand-bag-image">
+            <img [src]="brand.imageUrl" [alt]="brand.altText" class="brand-bag-image" width="150" height="225">
           </div>
           <div class="brand-info">
             <h3>{{ brand.title }}</h3>
@@ -57,7 +57,7 @@
 </section>
 
 <section class="commitment" [attr.aria-label]="commitment.altText || 'Commitment section banner'">
-  <div class="commitment-bg-image" [style.background-image]="'url(' + commitment.backgroundImageUrl + ')'"></div>
+  <img class="commitment-bg-image" [src]="commitment.backgroundImageUrl" [alt]="commitment.altText || 'Commitment section banner'" loading="lazy" width="1920" height="1080">
   <div class="commitment-content container">
     <h2>{{ commitment.title }}</h2>
     <p>{{ commitment.text }}</p>

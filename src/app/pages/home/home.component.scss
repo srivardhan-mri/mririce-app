@@ -12,16 +12,15 @@
   min-height: 85vh;
   overflow: hidden;
 
-  // .hero-bg-image itself has its background set dynamically in the HTML.
-  // These are supporting styles for that div.
+  // .hero-bg-image is now an <img> tag for performance.
   .hero-bg-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
     z-index: -2; // Ensure this is behind the overlay and content
   }
 
@@ -237,8 +236,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
     z-index: -2;
   }
 

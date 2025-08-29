@@ -7,7 +7,7 @@
 :root {
     --mri-logo-blue: #0052A5;
     /* Primary Blue from Logo - ADJUST IF YOU HAVE EXACT HEX */
-    --mri-logo-red: #D92525;
+    --mri-logo-red: #C00000;
     /* Accent Red from Logo - ADJUST IF YOU HAVE EXACT HEX */
     --mri-logo-gray: #B0B0B0;
     /* Gray/Silver from Logo lines */
@@ -179,8 +179,8 @@ ul {
 }
 
 .btn-accent:hover {
-    background-color: #AE1F1F; // Darker red
-    border-color: #AE1F1F;
+    background-color: #A00000; // Darker red
+    border-color: #A00000;
     color: var(--text-light);
 }
 
