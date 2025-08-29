@@ -1,9 +1,6 @@
-// src/app/pages/quality/quality.component.ts
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
-// Import the reusable step component and its data interface
 import { QualityProcessStepComponent, ProcessStepData } from '../../components/quality-process-step/quality-process-step.component';
 
 interface PageHeaderData {
@@ -17,7 +14,7 @@ interface QualityIntroData {
 }
 
 interface QualityConclusionData {
-  title: string; // Original HTML had <h3>, making it a title here
+  title: string;
   text: string;
   buttonLink: string;
   buttonText: string;
@@ -29,7 +26,7 @@ interface QualityConclusionData {
   imports: [
     CommonModule,
     RouterLink,
-    QualityProcessStepComponent // Import the step component
+    QualityProcessStepComponent
   ],
   templateUrl: './quality.component.html',
   styleUrls: ['./quality.component.scss']
@@ -37,79 +34,79 @@ interface QualityConclusionData {
 export class QualityComponent {
 
   pageHeader: PageHeaderData = {
-    title: "Our Unwavering Commitment to Quality",
-    description: "At Miryalguda Rice Industries, quality isn't just a promise; it's the foundation of everything we do. Discover how we ensure excellence in every grain, from paddy to plate."
+    title: "Our Commitment to Consistent, High-Quality Rice",
+    description: "For wholesalers and distributors, consistent quality means fewer returns and happier customers. Discover the rigorous process that makes MRI a trusted name in non-basmati rice across India."
   };
 
   qualityIntro: QualityIntroData = {
-    title: "The MRI Standard: Perfection in Every Grain",
-    text: "The \"appreciated quality and finish\" of MRI rice, recognized by our valued customers, is no accident. It is the result of a meticulous, multi-stage quality assurance process that governs every aspect of our operations. We believe that exceptional rice begins with an uncompromising commitment to excellence, leveraging both time-honored practices of Miryalguda and modern technological precision."
+    title: "The MRI Standard: Your Guarantee of Excellence",
+    text: "In the wholesale rice market, consistency is key. At Miryalguda Rice Industries, our multi-stage quality assurance process is designed to deliver a uniform, high-quality product in every single bag. This commitment to excellence is why our partners in <strong>Kerala, Maharashtra, Tamil Nadu, and Karnataka</strong> trust us for their bulk rice needs."
   };
 
   processSteps: ProcessStepData[] = [
     {
       stepNumber: 1,
-      title: "Superior Paddy Sourcing: The Foundation of Quality",
-      description: "Our quest for quality starts at the very source. We partner closely with trusted local farmers in the fertile Miryalguda region, ensuring that only the finest, healthiest paddy is selected. Each batch undergoes initial inspection for:",
+      title: "Strategic Paddy Sourcing for Uniformity",
+      description: "Our process begins with sourcing the best paddy from a network of trusted farmers in the Miryalguda region. This ensures a consistent raw material, which is the foundation of a uniform final product.",
       bulletPoints: [
-        "Grain maturity and integrity",
-        "Moisture content",
-        "Freedom from impurities",
-        "Overall crop health"
+        "Consistent grain maturity and size",
+        "Optimal moisture content for milling",
+        "Reduced impurities and foreign matter",
+        "Traceability to the farm level"
       ],
-      visualPlaceholderText: "Image: Premium Paddy Sourcing",
-      visualType: 'image', // 'icon' if you use an icon
-      layoutType: 'image-left' // Original HTML had visual first for step 1
+      visualPlaceholderText: "Image: Sourcing high-quality paddy",
+      visualType: 'image',
+      layoutType: 'image-left'
     },
     {
       stepNumber: 2,
-      title: "State-of-the-Art Milling: Precision and Purity",
-      description: "Our milling facility combines decades of family expertise with advanced technology. We employ sophisticated machinery and processes to ensure:",
+      title: "Advanced Milling for a Superior Finish",
+      description: "Our state-of-the-art milling facility is equipped with modern machinery that allows us to produce a product with a superior finish and minimal broken grains. This means a more appealing product for your customers.",
       bulletPoints: [
-        "<strong>Gentle Dehusking:</strong> Preserving the bran layer for boiled rice or carefully removing it for raw and steam varieties.",
-        "<strong>Precision Polishing:</strong> Achieving the perfect texture and sheen that our customers appreciate, without damaging the grain.",
-        "<strong>Hygienic Environment:</strong> Maintaining the highest standards of cleanliness throughout the mill to prevent contamination.",
-        "<strong>Specialized Processing:</strong> Dedicated lines and fine-tuned processes for Steam Rice (to retain aroma and texture) and Boiled Rice (to enhance nutritional value and cooking characteristics)."
+        "Gentle dehusking to prevent grain damage",
+        "Precision polishing for a uniform texture",
+        "Automated sorting to remove imperfections",
+        "Hygienic processing to ensure food safety"
       ],
-      visualPlaceholderText: "Image: Advanced Milling Technology",
+      visualPlaceholderText: "Image: Modern rice milling machinery",
       visualType: 'image',
-      layoutType: 'image-right' // Original HTML had visual second for step 2
+      layoutType: 'image-right'
     },
     {
       stepNumber: 3,
-      title: "Rigorous Quality Control: Our Guarantee of Excellence",
-      description: "Every grain of rice that carries the Miryalguda Rice Industries name passes through a stringent, multi-stage quality control protocol. Our dedicated QC team monitors key parameters at every critical point:",
+      title: "Rigorous, Multi-Point Quality Control",
+      description: "Our dedicated quality control team inspects the rice at every stage of the milling process. This ensures that every batch meets our exacting standards for quality and consistency.",
       bulletPoints: [
-        "<strong>Pre-Milling Analysis:</strong> Verifying paddy quality before processing.",
-        "<strong>In-Process Monitoring:</strong> Continuous checks during milling for consistency in grain length, broken percentage, and color.",
-        "<strong>Post-Milling Inspection:</strong> Final assessment of aroma, texture, purity, and cooking characteristics (through sample testing).",
-        "<strong>Pre-Packaging Verification:</strong> Ensuring only the best rice makes it into our \"Super Fine Star\" and \"MRI Brand\" bags."
+        "Pre-milling analysis of paddy",
+        "In-process monitoring of milling parameters",
+        "Post-milling inspection of the final product",
+        "Pre-packaging verification of quality"
       ],
-      visualPlaceholderText: "Image: Multi-Stage QC Checks",
+      visualPlaceholderText: "Image: Quality control inspection",
       visualType: 'image',
       layoutType: 'image-left'
     },
     {
       stepNumber: 4,
-      title: "Optimal Storage & Hygienic Packaging",
-      description: "To preserve the freshness, aroma, and nutritional integrity of our rice, we adhere to best practices in storage and packaging:",
+      title: "Durable Packaging for a Longer Shelf Life",
+      description: "We use high-quality, durable packaging materials to protect the rice during transit and storage. This ensures that the product reaches your customers in the best possible condition.",
       bulletPoints: [
-        "<strong>Climate-Controlled Storage:</strong> Our warehouses maintain optimal conditions to protect against pests and moisture.",
-        "<strong>Durable, Food-Grade Packaging:</strong> We use high-quality packaging materials that safeguard the rice during transit and storage.",
-        "<strong>Automated & Hygienic Packing Lines:</strong> Minimizing human contact to ensure product purity right up to dispatch.",
-        "<strong>Clear Product Information:</strong> All bags are clearly labeled with variety, grade, and manufacturing details for complete traceability."
+        "Food-grade packaging materials",
+        "Protection against moisture and pests",
+        "Clear labeling for easy identification",
+        "Customizable packaging options available"
       ],
-      visualPlaceholderText: "Image: Hygienic Storage & Packaging",
+      visualPlaceholderText: "Image: Packaged rice ready for dispatch",
       visualType: 'image',
       layoutType: 'image-right'
     }
   ];
 
   qualityConclusion: QualityConclusionData = {
-    title: "Your Assurance of Superior Rice",
-    text: "The \"appreciated quality and finish\" of MRI rice is a direct result of this comprehensive quality assurance system. When you choose Miryalguda Rice Industries, you choose rice that has been cultivated, milled, and packaged with an unwavering dedication to excellence. We invite you to experience the MRI difference.",
-    buttonLink: "/products",
-    buttonText: "View Our Quality Rice Selection"
+    title: "Partner with a Supplier You Can Trust",
+    text: "Our commitment to quality is a commitment to your success. When you partner with Miryalguda Rice Industries, you can be confident that you are getting a consistent, high-quality product that will satisfy your customers and grow your business.",
+    buttonLink: "/contact",
+    buttonText: "Request a Wholesale Quote"
   };
 
   constructor() {}
