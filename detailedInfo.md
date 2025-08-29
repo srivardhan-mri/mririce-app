@@ -229,8 +229,7 @@ The primary data structures are defined as interfaces directly within the servic
 
 Common scripts are defined in `package.json`:
 * `npm start` (or `ng serve`): Starts the development server.
-* `ng build --configuration production --output-path docs` (or `npm run build`): Builds the application for production. Output is typically in `docs/`.
-    * Production builds include optimizations like output hashing and budget checks.
+* `npm run build`: Builds the application for production. The build artifacts are stored in the `docs/` directory, ready for deployment to GitHub Pages. The build is configured to automatically copy `CNAME`, `robots.txt`, and `sitemap.xml` from `src/` to `docs/`.
 * `npm test` (or `ng test`): Runs unit tests via Karma.
 * `ng generate component <name>`: Scaffolds new components (and other Angular schematics).
 

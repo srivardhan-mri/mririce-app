@@ -17,7 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mririce-app",
+            "outputPath": {
+              "base": "docs",
+              "browser": ""
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -31,7 +34,10 @@
                 "input": "public"
               },
               "src/favicon.ico", 
-              "src/assets"
+              "src/assets",
+              "src/robots.txt",
+              "src/sitemap.xml",
+              "src/CNAME"
             ],
             "styles": [
               "src/styles.scss"
