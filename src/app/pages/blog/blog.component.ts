@@ -12,12 +12,17 @@ import { RouterLink } from '@angular/router';
 })
 export class BlogComponent implements OnInit {
 
-  blogPosts: BlogPost[] = [];
+  featuredPost: BlogPost | undefined;
+  otherPosts: BlogPost[] = [];
   private blogService = inject(BlogService);
 
   constructor() { }
 
   ngOnInit(): void {
-    this.blogPosts = this.blogService.getBlogPosts();
+    const allPosts = this.blogService.getBlogPosts();
+    if (allPosts.length > 0) {
+      this.featuredPost = allPosts[0];
+      this.otherPosts = allPosts.slice(1);
+    }
   }
 }

@@ -1,16 +1,45 @@
-<section class="blog-detail-header" *ngIf="blogPost">
-  <div class="container">
-    <h1>{{ blogPost.title }}</h1>
-    <p class="blog-meta">By {{ blogPost.author }} on {{ blogPost.publishDate }}</p>
-    <img [src]="blogPost.imageUrl" [alt]="blogPost.altText" class="blog-detail-image">
-  </div>
-</section>
+<div class="blog-detail-page" *ngIf="blogPost">
+  <section class="blog-detail-header">
+    <div class="container">
+      <div class="header-content">
+        <p class="blog-meta">
+          <span>By {{ blogPost.author }}</span>
+          <span>{{ blogPost.publishDate }}</span>
+        </p>
+        <h1>{{ blogPost.title }}</h1>
+      </div>
+    </div>
+    <div class="header-image-container">
+      <img [src]="blogPost.imageUrl" [alt]="blogPost.altText" class="header-image">
+    </div>
+  </section>
 
-<section class="blog-detail-content" *ngIf="blogPost">
-  <div class="container">
-    <div [innerHTML]="blogPost.content"></div>
-  </div>
-</section>
+  <section class="blog-detail-body">
+    <div class="container">
+      <div class="main-content" [innerHTML]="blogPost.content">
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3>Share This Post</h3>
+          <div class="share-buttons">
+            <a href="#" class="share-btn facebook"><fa-icon [icon]="faFacebookF"></fa-icon></a>
+            <a href="#" class="share-btn twitter"><fa-icon [icon]="faTwitter"></fa-icon></a>
+            <a href="#" class="share-btn linkedin"><fa-icon [icon]="faLinkedinIn"></fa-icon></a>
+            <a href="#" class="share-btn whatsapp"><fa-icon [icon]="faWhatsapp"></fa-icon></a>
+          </div>
+        </div>
+        <div class="sidebar-widget">
+          <h3>Related Posts</h3>
+          <ul>
+            <li><a href="#">The Art of Rice Milling</a></li>
+            <li><a href="#">Sona Masoori vs. Basmati</a></li>
+            <li><a href="#">A Guide to Telangana's Rice Varieties</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
 
 <section class="blog-not-found" *ngIf="!blogPost">
   <div class="container">
