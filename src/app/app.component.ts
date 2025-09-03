@@ -29,6 +29,8 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.handleRedirect();
+
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => this.activatedRoute),
@@ -43,5 +45,16 @@ export class AppComponent implements OnInit {
         this.seoService.updateMetaDescription(event['description']);
       }
     });
+  }
+
+  private handleRedirect() {
+    const redirect = sessionStorage.getItem('redirect');
+    if (redirect) {
+      sessionStorage.removeItem('redirect');
+      const url = new URL(redirect);
+      if (url.pathname !== '/') {
+        this.router.navigateByUrl(url.pathname);
+      }
+    }
   }
 }
