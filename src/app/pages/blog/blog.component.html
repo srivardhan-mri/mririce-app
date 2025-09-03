@@ -1,0 +1,51 @@
+<section class="page-header blog-bg">
+  <div class="container">
+    <h1>Our Blog</h1>
+    <p>Insights, news, and stories from Miryalguda Rice Industries.</p>
+  </div>
+</section>
+
+<div class="blog-page-content">
+  <div class="container">
+    <!-- Featured Post Section -->
+    <section class="featured-post" *ngIf="featuredPost">
+      <div class="featured-card">
+        <div class="featured-image">
+          <img [src]="featuredPost.imageUrl" [alt]="featuredPost.altText">
+        </div>
+        <div class="featured-content">
+          <p class="featured-tag">Featured Article</p>
+          <h2>{{ featuredPost.title }}</h2>
+          <p class="featured-excerpt">{{ featuredPost.excerpt }}</p>
+          <p class="blog-meta">By {{ featuredPost.author }} on {{ featuredPost.publishDate }}</p>
+          <a [routerLink]="['/blog', featuredPost.slug]" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Regular Blog Grid -->
+    <section class="blog-grid-section">
+      <div class="blog-grid">
+        @for (post of otherPosts; track post.id) {
+          <div class="blog-card">
+            <div class="card-image">
+              <a [routerLink]="['/blog', post.slug]">
+                <img [src]="post.imageUrl" [alt]="post.altText">
+              </a>
+            </div>
+            <div class="card-content">
+              <p class="blog-meta">By {{ post.author }} on {{ post.publishDate }}</p>
+              <h3>
+                <a [routerLink]="['/blog', post.slug]">{{ post.title }}</a>
+              </h3>
+              <p class="card-excerpt">{{ post.excerpt }}</p>
+              <a [routerLink]="['/blog', post.slug]" class="read-more-link">Read More →</a>
+            </div>
+          </div>
+        } @empty {
+          <p class="no-posts-message">No other blog posts available yet. Please check back soon!</p>
+        }
+      </div>
+    </section>
+  </div>
+</div>
