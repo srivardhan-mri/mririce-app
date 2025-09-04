@@ -8,6 +8,7 @@ import { faWhatsapp, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome
 
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 import { StructuredDataService } from '../../services/structured-data.service';
+import { ContactService } from '../../services/contact.service';
 
 // Interfaces
 interface PageHeaderData {
@@ -51,6 +52,7 @@ export class ContactComponent implements OnInit {
   private structuredDataService = inject(StructuredDataService);
   private formBuilder = inject(FormBuilder);
   private route = inject(ActivatedRoute);
+  private contactService = inject(ContactService);
 
   contactForm!: FormGroup;
   formSubmitted = false;
@@ -182,17 +184,23 @@ export class ContactComponent implements OnInit {
 
     if (this.contactForm.invalid) {
       this.formError = true;
-      console.log("Contact form is invalid:", this.contactForm.value);
       return;
     }
 
-    console.log("Contact form submitted successfully (simulated):", this.contactForm.value);
-    this.formSuccess = true;
-    const defaultInquiryType = this.inquiryTypes[0];
-    this.contactForm.reset({
-        inquiry_type: defaultInquiryType,
-        name: '', email: '', phone: '', message: ''
+    this.contactService.send(this.contactForm.value).subscribe({
+      next: () => {
+        this.formSuccess = true;
+        const defaultInquiryType = this.inquiryTypes[0];
+        this.contactForm.reset({
+            inquiry_type: defaultInquiryType,
+            name: '', email: '', phone: '', message: ''
+        });
+        this.formSubmitted = false;
+      },
+      error: (err) => {
+        this.formError = true;
+        console.error('Error sending contact form', err);
+      }
     });
-    this.formSubmitted = false;
   }
 }
