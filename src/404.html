@@ -6,13 +6,13 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <script>
-    // Store the full path in session storage
-    sessionStorage.redirect = location.href;
-  </script>
-  <meta http-equiv="refresh" content="0;url=/">
 </head>
 <body>
   <p>If you are not redirected automatically, follow this <a href="/">link to the homepage</a>.</p>
+  <script>
+    // Store the full path in session storage and then redirect.
+    sessionStorage.redirect = location.href;
+    window.location.href = '/';
+  </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+const path = require('path');
 
 const urls = [
   { loc: 'https://mririce.com/home', changefreq: 'daily', priority: '1.0' },
@@ -26,6 +27,7 @@ ${urls.map(url => `
   </url>`).join('')}
 </urlset>`;
 
-fs.writeFileSync('/Users/srivardhanranga/Desktop/mririce-app/src/sitemap.xml', sitemapContent);
+const sitemapPath = path.join(__dirname, 'src', 'sitemap.xml');
+fs.writeFileSync(sitemapPath, sitemapContent);
 
 console.log('sitemap.xml generated successfully.');
