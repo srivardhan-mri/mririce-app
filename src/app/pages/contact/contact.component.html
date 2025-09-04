@@ -38,7 +38,7 @@
 
       <div class="contact-form-panel" id="bulk-enquiry">
         <h3>Send Us a Message or Enquiry</h3>
-        <form name="contact" class="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="name">Full Name:</label>
             <input type="text" id="name" formControlName="name" required
