@@ -27,10 +27,10 @@ The application is a **standalone Angular single-page application (SPA)**. It ut
 
 ### 1.3. Build & Deployment
 
-The build process is configured in `angular.json` and is optimized for GitHub Pages deployment.
+The build process is configured in `angular.json` and is optimized for Netlify deployment.
 
-*   **Output Path:** The build output is directed to the `docs/` directory, which is the standard for GitHub Pages.
-*   **Asset Management:** The build process correctly copies static assets, including SEO-critical files like `robots.txt`, `sitemap.xml`, and `CNAME`, to the output directory.
+*   **Output Path:** The build output is directed to the `docs/` directory, as specified in `netlify.toml`.
+*   **Asset Management:** The build process correctly copies static assets, including SEO-critical files like `robots.txt` and `sitemap.xml`, to the output directory.
 *   **Production Build:** The production configuration enables `outputHashing` for cache busting and sets budget limits to monitor application size.
 
 ## 2. Core Features & Implementation

@@ -63,7 +63,7 @@ To build the project for production, run:
 npm run build
 ```
 
-The build artifacts will be stored in the `docs/` directory, which is configured for deployment on GitHub Pages. The build process automatically includes essential files like `CNAME`, `robots.txt`, and `sitemap.xml`.
+The build artifacts will be stored in the `docs/` directory. This project is configured for continuous deployment on Netlify. The build process automatically includes essential files like `robots.txt`, and `sitemap.xml`.
 
 ## built-with-angular
 * **Angular:** ^19.2.0
