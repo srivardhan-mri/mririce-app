@@ -20,6 +20,6 @@ export class ContactService {
       body.set(key, data[key]);
     });
 
-    return this.http.post('/', body.toString(), { headers: headers });
+    return this.http.post('/', body.toString(), { headers: headers, responseType: 'text' });
   }
 }
