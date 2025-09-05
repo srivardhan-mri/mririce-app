@@ -75,3 +75,10 @@ The build artifacts will be stored in the `docs/` directory. This project is con
 ## 📄 License
 
 This project is proprietary to Miryalguda Rice Industries. For license information regarding third-party libraries, please see the `3rdpartylicenses.txt` file in the `docs` directory.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/7e24eaa8-856c-469b-b162-7521a35faca9/deploy-status)](https://app.netlify.com/projects/flourishing-licorice-09db53/deploys)
+![Angular](https://img.shields.io/badge/Angular-v19.2.0-DD0031?logo=angular)
+![RxJS](https://img.shields.io/badge/RxJS-v7.8.0-B7178C?logo=reactivex)
+![Zone.js](https://img.shields.io/badge/Zone.js-v0.15.0-5A6978)
+![Font Awesome](https://img.shields.io/badge/Font%20Awesome-Icons-528DD7?logo=fontawesome)
+![TypeScript](https://img.shields.io/badge/TypeScript-v5.7.2-3178C6?logo=typescript)
