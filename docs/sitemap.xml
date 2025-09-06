@@ -2,56 +2,56 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://mririce.com/home</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/home</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://mririce.com/about</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/about</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://mririce.com/products</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/products</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mririce.com/brands</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/brands</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mririce.com/quality</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/quality</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://mririce.com/contact</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/contact</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://mririce.com/privacy-policy</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/privacy-policy</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mririce.com/terms-conditions</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/terms-conditions</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://mririce.com/blog</loc>
-    <lastmod>2025-09-04</lastmod>
+    <loc>https://www.mririce.com/blog</loc>
+    <lastmod>2025-09-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
