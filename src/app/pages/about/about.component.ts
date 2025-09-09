@@ -1,6 +1,7 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../services/structured-data.service';
 
 // Interfaces for data structures
@@ -45,48 +46,20 @@ interface CtaAboutData {
 })
 export class AboutComponent implements OnInit {
 
-  private structuredDataService = inject(StructuredDataService);
-
-  constructor() {}
+  constructor(
+    private seoService: SeoService,
+    private structuredDataService: StructuredDataService
+  ) {}
 
   ngOnInit(): void {
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Miryalguda Rice Industries",
-      "image": "https://www.mririce.com/assets/images/mri-logo.webp",
-      "@id": "",
-      "url": "https://www.mririce.com/about",
-      "telephone": "+91-984-816-4333",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Sagar Road, Beside HP Petrol Bunk,",
-        "addressLocality": "Miryalaguda",
-        "postalCode": "508207",
-        "addressRegion": "Telangana",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 16.8752,
-        "longitude": 79.5885
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      } 
-    };
-    this.structuredDataService.addStructuredData(structuredData);
+    this.seoService.setTitle('About MRI Rice - Our Legacy & Quality Commitment | Miryalguda');
+    this.seoService.updateMetaDescription('With over 40 years of experience, Miryalguda Rice Industries is built on a legacy of trust and quality. Learn about our commitment to providing the finest non-basmati rice.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/about');
+    this.seoService.updateOgUrl('https://www.mririce.com/about');
+    this.seoService.updateOgTitle('About MRI Rice - Our Legacy & Quality Commitment | Miryalguda');
+    this.seoService.updateOgDescription('With over 40 years of experience, Miryalguda Rice Industries is built on a legacy of trust and quality. Learn about our commitment to providing the finest non-basmati rice.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/mri-logo.webp');
+    this.structuredDataService.generateAboutPageSchema();
   }
 
   pageHeader: PageHeaderData = {

@@ -1,10 +1,11 @@
 // src/app/pages/brands/brands.component.ts
 import { Component, OnInit, inject } from '@angular/core';
-import { Meta } from '@angular/platform-browser'; // Import Meta service
 import { CommonModule } from '@angular/common';
 
 import { Brand, BrandService } from '../../services/brand.service';
 import { BrandProfileCardComponent } from '../../components/brand-profile-card/brand-profile-card.component';
+import { SeoService } from '../../services/seo.service';
+import { StructuredDataService } from '../../services/structured-data.service';
 
 interface PageHeaderData {
   title: string;
@@ -40,23 +41,23 @@ export class BrandsComponent implements OnInit { // Implement OnInit
 
   brands: Brand[] = [];
   private brandService = inject(BrandService);
-  private meta = inject(Meta); // Inject Meta service
+  private seoService = inject(SeoService);
+  private structuredDataService = inject(StructuredDataService);
 
   constructor() {}
 
   ngOnInit(): void {
-    // Set the meta description for the Brands page
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Explore signature rice brands from Miryalguda Rice Industries (MRI Rice) like Super Fine Star and MRI Gold. Discover premium quality Sona Masoori, JSR, and HMT rice brands from Miryalguda, Telangana.'
-    });
-    // Set Open Graph tags for the Brands page
-    this.meta.updateTag({ property: 'og:title', content: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalguda' }); // Matches title from app.routes.ts
-    this.meta.updateTag({ property: 'og:description', content: 'Discover trusted rice brands like Super Fine Star by MRI Rice, offering premium quality and taste from Miryalguda.' });
-    // Consider a specific OG image for this page, e.g., a collage of your brand logos or packaging
-    // this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/brands-social-banner.webp' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/brands' }); // Canonical URL for this page
+    this.seoService.setTitle('Our Rice Brands - Super Fine Star & More | MRI Rice Miryalguda');
+    this.seoService.updateMetaDescription('Explore signature rice brands from Miryalguda Rice Industries (MRI Rice) like Super Fine Star and MRI Gold. Discover premium quality Sona Masoori, JSR, and HMT rice brands from Miryalguda, Telangana.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/brands');
+    this.seoService.updateOgUrl('https://www.mririce.com/brands');
+    this.seoService.updateOgTitle('Our Rice Brands - Super Fine Star & More | MRI Rice Miryalguda');
+    this.seoService.updateOgDescription('Discover trusted rice brands like Super Fine Star by MRI Rice, offering premium quality and taste from Miryalguda.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/brands-banner-packaging.webp');
 
     this.brands = this.brandService.getBrands();
+    this.brands.forEach(brand => {
+      this.structuredDataService.generateBrandSchema(brand);
+    });
   }
 }

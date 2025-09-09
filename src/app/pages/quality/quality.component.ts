@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { QualityProcessStepComponent, ProcessStepData } from '../../components/quality-process-step/quality-process-step.component';
+import { SeoService } from '../../services/seo.service';
 
 interface PageHeaderData {
   title: string;
@@ -31,7 +32,7 @@ interface QualityConclusionData {
   templateUrl: './quality.component.html',
   styleUrls: ['./quality.component.scss']
 })
-export class QualityComponent {
+export class QualityComponent implements OnInit {
 
   pageHeader: PageHeaderData = {
     title: "Our Commitment to Consistent, High-Quality Rice",
@@ -109,5 +110,15 @@ export class QualityComponent {
     buttonText: "Request a Wholesale Quote"
   };
 
-  constructor() {}
+  constructor(private seoService: SeoService) {}
+
+  ngOnInit(): void {
+    this.seoService.setTitle('Quality Assurance & Rice Milling Process | MRI Rice Telangana');
+    this.seoService.updateMetaDescription('Our state-of-the-art milling process and rigorous quality checks ensure that you receive only the best rice. Trust MRI for purity, taste, and reliable supply.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/quality');
+    this.seoService.updateOgUrl('https://www.mririce.com/quality');
+    this.seoService.updateOgTitle('Quality Assurance & Rice Milling Process | MRI Rice Telangana');
+    this.seoService.updateOgDescription('Our state-of-the-art milling process and rigorous quality checks ensure that you receive only the best rice. Trust MRI for purity, taste, and reliable supply.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/quality-banner-inspection.webp');
+  }
 }

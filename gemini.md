@@ -10,7 +10,6 @@ The application is a **standalone Angular single-page application (SPA)**. It ut
 
 *   **Standalone Components:** The project has fully embraced standalone components, which simplifies the architecture by removing the need for `NgModule`s. This is evident in all page, layout, and UI components.
 *   **Service-Oriented:** Application logic and data are encapsulated within injectable services (`ProductService`, `BrandService`, `SeoService`). This promotes reusability and separation of concerns.
-*   **Component-Based UI:** The UI is built using a hierarchy of components, with clear distinctions between layout components, page components, and reusable UI components.
 
 ### 1.2. Technology Stack
 
@@ -47,9 +46,9 @@ The application uses the Angular Router with a clean URL structure.
 
 ### 2.2. Data Management
 
-Data is managed through services, which act as a single source of truth for their respective domains.
+Data is now managed through services that load data from local JSON files, acting as a single source of truth for their respective domains. This approach enhances maintainability and allows for dynamic sitemap generation.
 
-*   **`ProductService` & `BrandService`:** These services contain hardcoded data for products and brands. For a larger application, this data would typically be fetched from a backend API.
+*   **`ProductService`, `BrandService`, & `BlogService`:** These services now load product, brand, and blog post data from `products.json`, `brands.json`, and `blogs.json` respectively, located in `src/app/services/data/`.
 *   **State Management:** The application does not use a dedicated state management library like NgRx or Akita. State is managed implicitly within services and components, which is appropriate for an application of this size and complexity.
 
 ### 2.3. Contact Form
@@ -67,17 +66,31 @@ The application has a strong focus on SEO, with several key features implemented
 
 ### 3.1. `SeoService`
 
-This service is responsible for dynamically updating the meta description of each page. It injects the `DOCUMENT` and directly manipulates the `<meta name="description">` tag in the document head. This is a simple yet effective way to provide unique, relevant descriptions for each page.
+This service has been significantly enhanced to provide comprehensive SEO management. It is now responsible for dynamically updating:
+*   **Page Title:** Sets the `<title>` tag of each page.
+*   **Meta Description:** Updates the `<meta name="description">` tag.
+*   **Canonical URL:** Manages the `<link rel="canonical">` tag to prevent duplicate content issues.
+*   **Open Graph (OG) Tags:** Sets `og:title`, `og:description`, `og:image`, and `og:url` for better social media sharing.
+*   **Twitter Card Tags:** Sets `twitter:title`, `twitter:description`, and `twitter:image` for optimized Twitter sharing.
 
 ### 3.2. `StructuredDataService`
 
-This service injects structured data (JSON-LD) into the application. This is a powerful SEO technique that helps search engines understand the content of a page and display it in rich snippets.
+This service injects structured data (JSON-LD) into the application, helping search engines understand the content and display rich snippets. It has been expanded to support various schema types:
+*   **Base Schemas:** `LocalBusiness` and `WebSite` schemas are now consistently added on all pages via `app.component.ts`.
+*   **Page-Specific Schemas:**
+    *   `Product` schema for product pages.
+    *   `BlogPosting` schema for individual blog posts.
+    *   `AboutPage` schema for the About Us page.
+    *   `ContactPage` schema for the Contact page.
 
-*   **Implementation:** The service creates a `<script type="application/ld+json">` tag in the document head and populates it with the provided data.
-*   **Usage:** The `ContactComponent`, for example, uses this service to add `LocalBusiness` schema markup, which is excellent for local SEO.
+### 3.3. Sitemap Generation
 
-### 3.3. Performance
+The `sitemap.xml` is now dynamically generated using the `generate-sitemap.js` script. This script reads data directly from the `products.json`, `brands.json`, and `blogs.json` files, ensuring that all relevant URLs (including individual product, brand, and blog post pages) are automatically included and kept up-to-date with accurate `lastmod` dates.
 
+### 3.4. Performance Optimizations
+
+*   **Font Loading:** Redundant Google Fonts `<link>` tags have been removed from `index.html`. Font imports are now handled efficiently via `@import` rules in `styles.scss`, ensuring only necessary font weights are loaded.
+*   **Netlify Configuration:** The `netlify.toml` file has been adjusted to include a 301 redirect from the non-www domain to the www domain, improving canonicalization. A `_headers` file has also been added to control caching behavior, promoting better revalidation by browsers and CDNs.
 *   **Lazy Loading:** While not explicitly configured in the provided file snippets, the use of standalone components and the `loadComponent` syntax in the routes file strongly suggests that the application is using lazy loading for its routes. This is a critical performance optimization that reduces the initial bundle size.
 *   **Build Optimization:** The production build configuration includes optimizations like code minification and tree-shaking (by default with the Angular CLI).
 

@@ -1,7 +1,7 @@
 // src/app/pages/terms-conditions/terms-conditions.component.ts
-import { Component, OnInit, inject } from '@angular/core'; // Import OnInit and inject
-import { Meta } from '@angular/platform-browser';      // Import Meta service
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SeoService } from '../../services/seo.service';
 
 interface PageHeaderData {
   title: string;
@@ -15,24 +15,18 @@ interface PageHeaderData {
   templateUrl: './terms-conditions.component.html',
   styleUrls: ['./terms-conditions.component.scss']
 })
-export class TermsConditionsComponent implements OnInit { // Implement OnInit
+export class TermsConditionsComponent implements OnInit {
 
-  private meta = inject(Meta); // Inject Meta service
-
-  constructor() {}
+  constructor(private seoService: SeoService) {}
 
   ngOnInit(): void {
-    // Set the meta description for the Terms & Conditions page
-    this.meta.updateTag({
-      name: 'description',
-      content: 'Review the Terms & Conditions for using the Miryalguda Rice Industries Pvt Ltd (MRI Rice) website and services. Understand your rights and obligations.'
-    });
-    // Set Open Graph tags for the Terms & Conditions page
-    this.meta.updateTag({ property: 'og:title', content: 'Terms & Conditions | Miryalguda Rice Industries Pvt Ltd' }); // Matches title from app.routes.ts
-    this.meta.updateTag({ property: 'og:description', content: 'Please read our Terms & Conditions carefully before using the Miryalguda Rice Industries (MRI Rice) website.' });
-    this.meta.updateTag({ property: 'og:url', content: 'https://www.mririce.com/terms-conditions' }); // Canonical URL for this page
-    // For static pages like this, the main site logo is often sufficient for og:image
-    this.meta.updateTag({ property: 'og:image', content: 'https://www.mririce.com/assets/images/mri-logo.webp' });
+    this.seoService.setTitle('Terms & Conditions | Miryalguda Rice Industries Pvt Ltd');
+    this.seoService.updateMetaDescription('Review the Terms & Conditions for using the Miryalguda Rice Industries Pvt Ltd (MRI Rice) website and services. Understand your rights and obligations.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/terms-conditions');
+    this.seoService.updateOgUrl('https://www.mririce.com/terms-conditions');
+    this.seoService.updateOgTitle('Terms & Conditions | Miryalguda Rice Industries Pvt Ltd');
+    this.seoService.updateOgDescription('Please read our Terms & Conditions carefully before using the Miryalguda Rice Industries (MRI Rice) website.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/mri-logo.webp');
   }
 
   pageHeader: PageHeaderData = {

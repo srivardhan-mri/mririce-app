@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Product, ProductService } from '../../services/product.service';
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../services/structured-data.service';
 
 interface PageHeaderData {
@@ -44,40 +45,26 @@ export class ProductsComponent implements OnInit {
 
   productGroups: ProductCategoryGroup[] = [];
   private productService = inject(ProductService);
+  private seoService = inject(SeoService);
   private structuredDataService = inject(StructuredDataService);
 
   constructor() {}
 
   ngOnInit(): void {
+    this.seoService.setTitle('Premium Rice Products | JSR, HMT, Sona Masoori | MRI Rice');
+    this.seoService.updateMetaDescription('Explore our wide range of high-quality non-basmati rice varieties, including JSR, HMT, and Sona Masoori. We provide reliable supply for bulk and wholesale orders.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/products');
+    this.seoService.updateOgUrl('https://www.mririce.com/products');
+    this.seoService.updateOgTitle('Premium Rice Products | JSR, HMT, Sona Masoori | MRI Rice');
+    this.seoService.updateOgDescription('Explore our wide range of high-quality non-basmati rice varieties, including JSR, HMT, and Sona Masoori. We provide reliable supply for bulk and wholesale orders.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/products-banner-rice-varieties.webp');
+
     const categories = this.productService.getCategories();
     this.productGroups = categories.map(catName => {
       const products = this.productService.getProductsByCategory(catName);
-      const productSchema = products.map(product => ({
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": product.name,
-        "image": `https://www.mririce.com${product.imageUrl}`,
-        "description": product.description,
-        "brand": {
-          "@type": "Brand",
-          "name": product.brandTag
-        },
-        "sku": `${product.brandTag}-${product.name}`,
-        "mpn": `${product.brandTag}-${product.name}`,
-        "offers": {
-          "@type": "Offer",
-          "url": `https://www.mririce.com/products#${this.generateCategoryId(catName)}`,
-          "priceCurrency": "INR",
-          "price": "0",
-          "priceValidUntil": "2029-12-31",
-          "availability": "https://schema.org/InStock",
-          "seller": {
-            "@type": "Organization",
-            "name": "Miryalguda Rice Industries"
-          }
-        }
-      }));
-      this.structuredDataService.addStructuredData(productSchema);
+      products.forEach(product => {
+        this.structuredDataService.generateProductSchema(product);
+      });
 
       return {
         categoryName: catName,

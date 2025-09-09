@@ -8,8 +8,12 @@ This project is the official web application for Miryalguda Rice Industries, dev
 *   **Brand Profiles:** Highlights the company's various rice brands with their unique stories and product lines.
 *   **Company Information:** Provides insights into the company's history, values, and commitment to quality.
 *   **Contact & Enquiries:** Includes a contact form for customer enquiries, pre-filled with product information for user convenience.
-*   **SEO Optimized:** Features clean URLs, dynamic meta descriptions, and structured data for improved search engine visibility.
+*   **SEO Optimized:** Features dynamic sitemap generation, enhanced meta tag management (title, canonical URL, Open Graph, Twitter cards), and comprehensive structured data implementation for improved search engine visibility and rich snippets. Performance is boosted through optimized font loading and refined Netlify configuration.
 *   **Responsive Design:** Ensures a seamless user experience across desktops, tablets, and mobile devices.
+
+## 🗄️ Data Management
+
+Application data for products, brands, and blog posts is now managed through dedicated JSON files (`products.json`, `brands.json`, `blogs.json`) located in `src/app/services/data/`. This approach centralizes data, improves maintainability, and facilitates dynamic content generation, such as the sitemap.
 
 ## 🚀 Getting Started
 
