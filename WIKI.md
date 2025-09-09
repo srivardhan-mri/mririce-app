@@ -33,13 +33,14 @@ The project follows a standard Angular CLI structure:
         *   `pages/`: Feature components representing different pages.
         *   `pipes/`: Custom data transformation pipes.
         *   `services/`: Injectable services for shared functionality.
+            *   `services/data/`: New directory containing JSON data files (`products.json`, `brands.json`, `blogs.json`).
 *   `docs/`: Contains the built version of the application for deployment.
 
 ## 4. Core Concepts
 
 ### `app.component.ts`
 
-The root component of the application, serving as the main shell. It includes the header, footer, and a router outlet for displaying page components.
+The root component of the application, serving as the main shell. It includes the header, footer, and a router outlet for displaying page components. It also now handles base structured data (LocalBusiness and WebSite schemas) and dynamic meta tag updates based on route data.
 
 ### `app.config.ts`
 
@@ -47,7 +48,7 @@ Defines application-level providers and configurations, including the Angular ro
 
 ### `app.routes.ts`
 
-Defines the application's routing structure, mapping URL paths to their corresponding components.
+Defines the application's routing structure, mapping URL paths to their corresponding components. Route data now includes `title` and `description` for dynamic SEO meta tag generation.
 
 ## 5. Components
 
@@ -58,7 +59,7 @@ Defines the application's routing structure, mapping URL paths to their correspo
 
 ### Page Components (`src/app/pages/`)
 
-Each page component corresponds to a major section of the website:
+Each page component corresponds to a major section of the website and now integrates `SeoService` and `StructuredDataService` for dynamic SEO metadata:
 
 *   `home/home.component.ts`: The landing page.
 *   `about/about.component.ts`: Company history and values.
@@ -68,6 +69,8 @@ Each page component corresponds to a major section of the website:
 *   `contact/contact.component.ts`: Contact form and information.
 *   `privacy-policy/privacy-policy.component.ts`: Privacy policy page.
 *   `terms-conditions/terms-conditions.component.ts`: Terms and conditions page.
+*   `blog/blog.component.ts`: Displays blog posts.
+*   `blog-detail/blog-detail.component.ts`: Displays individual blog posts.
 *   `not-found/not-found.component.ts`: 404 page.
 
 ### Reusable UI Components (`src/app/components/`)
@@ -78,11 +81,12 @@ Each page component corresponds to a major section of the website:
 
 ## 6. Services (`src/app/services/`)
 
-*   **`product.service.ts`:** Manages and provides product data.
-*   **`brand.service.ts`:** Manages and provides brand data.
+*   **`product.service.ts`:** Manages and provides product data, now loaded from `products.json`.
+*   **`brand.service.ts`:** Manages and provides brand data, now loaded from `brands.json`.
+*   **`blog.service.ts`:** Manages and provides blog post data, now loaded from `blogs.json`.
 *   **`contact.service.ts`:** Intended for contact form submission logic.
-*   **`seo.service.ts`:** Manages dynamic meta tags for SEO.
-*   **`structured-data.service.ts`:** Injects structured data (JSON-LD) into the application.
+*   **`seo.service.ts`:** Enhanced to manage dynamic page titles, meta descriptions, canonical URLs, Open Graph tags, and Twitter card tags.
+*   **`structured-data.service.ts`:** Enhanced to inject various JSON-LD schemas, including `Product`, `BlogPosting`, `AboutPage`, `ContactPage`, and base `LocalBusiness` and `WebSite` schemas.
 
 ## 7. Development & Build
 
