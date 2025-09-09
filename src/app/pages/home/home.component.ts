@@ -1,8 +1,7 @@
-// src/app/pages/home/home.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { StructuredDataService } from '../../services/structured-data.service';
+import { SeoService } from '../../services/seo.service';
 
 // Interfaces
 interface HeroData {
@@ -68,22 +67,20 @@ interface LocalPresenceData {
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private structuredDataService: StructuredDataService) {}
+  constructor(private seoService: SeoService) {}
 
   ngOnInit(): void {
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Miryalguda Rice Industries",
-      "url": "https://www.mririce.com",
-      "logo": "https://www.mririce.com/assets/images/mri-logo.webp",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+91-984-816-4333",
-        "contactType": "customer service"
-      }
-    };
-    this.structuredDataService.addStructuredData(structuredData);
+    this.seoService.setTitle('Miryalguda Rice Industries Pvt Ltd (MRI) - Rice Mill & Manufacturer in Telangana');
+    this.seoService.updateMetaDescription('Premier rice mill in Miryalguda, Telangana: Miryalguda Rice Industries Pvt Ltd (MRI). 30+ years\' experience, best-in-class technology for superior steam & boiled rice (JSR, HMT, BPT). Trusted rice supplier for bulk orders & quality grains.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com');
+    this.seoService.updateOgUrl('https://www.mririce.com');
+    this.seoService.updateOgTitle('Miryalguda Rice Industries Pvt Ltd (MRI) - Rice Mill & Manufacturer');
+    this.seoService.updateOgDescription('Trusted rice supplier in Miryalguda, Telangana for premium JSR, HMT, BPT steam and boiled rice. Over 30 years of experience.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/mri-logo.webp');
+    this.seoService.updateTwitterCard('summary_large_image');
+    this.seoService.updateTwitterTitle('Miryalguda Rice Industries Pvt Ltd (MRI) - Rice Mill & Manufacturer');
+    this.seoService.updateTwitterDescription('Your reliable Miryalguda rice suppliers for premium JSR, HMT, BPT steam and boiled rice varieties.');
+    this.seoService.updateTwitterImage('https://www.mririce.com/assets/images/mri-logo.webp');
   }
 
   hero: HeroData = {
@@ -104,7 +101,7 @@ export class HomeComponent implements OnInit {
     },
     {
       iconUrl: 'assets/images/usp-trust-handshake.webp',
-      altText: 'Icon for Decades of Rice Milling Expertise at MRI Rice in Miryalguda',
+      altText: 'Icon for Decades of Rice Milling Expertise at MRI Rice in Miryalaguda',
       title: 'Decades of Expertise',
       text: 'With over 40 years as a leading rice mill in Miryalguda, our experience guarantees excellence and reliability as trusted rice suppliers in Telangana.'
     },

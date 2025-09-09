@@ -4,6 +4,8 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BlogService, BlogPost } from '../../services/blog.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { SeoService } from '../../services/seo.service';
+import { StructuredDataService } from '../../services/structured-data.service';
 
 @Component({
   selector: 'app-blog-detail',
@@ -18,6 +20,8 @@ export class BlogDetailComponent implements OnInit {
   private route = inject(ActivatedRoute);
   private router = inject(Router);
   private blogService = inject(BlogService);
+  private seoService = inject(SeoService);
+  private structuredDataService = inject(StructuredDataService);
 
   // Font Awesome Icons
   faFacebookF = faFacebookF;
@@ -32,7 +36,17 @@ export class BlogDetailComponent implements OnInit {
       const slug = params.get('slug');
       if (slug) {
         this.blogPost = this.blogService.getBlogPostBySlug(slug);
-        if (!this.blogPost) {
+        if (this.blogPost) {
+          this.seoService.setTitle(this.blogPost.title);
+          this.seoService.updateMetaDescription(this.blogPost.excerpt);
+          const canonicalUrl = `https://www.mririce.com/blog/${this.blogPost.slug}`;
+          this.seoService.updateCanonicalLink(canonicalUrl);
+          this.seoService.updateOgUrl(canonicalUrl);
+          this.seoService.updateOgTitle(this.blogPost.title);
+          this.seoService.updateOgDescription(this.blogPost.excerpt);
+          this.seoService.updateOgImage(`https://www.mririce.com/${this.blogPost.imageUrl}`);
+          this.structuredDataService.generateBlogPostSchema(this.blogPost);
+        } else {
           this.router.navigate(['/404']); // Navigate to 404 if post not found
         }
       } else {

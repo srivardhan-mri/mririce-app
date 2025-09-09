@@ -7,6 +7,7 @@ import { faMapMarkerAlt, faPhone, faEnvelope, faClock } from '@fortawesome/free-
 import { faWhatsapp, faFacebookF, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 
 import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
+import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../services/structured-data.service';
 import { ContactService } from '../../services/contact.service';
 
@@ -49,10 +50,11 @@ interface SocialLink {
 })
 export class ContactComponent implements OnInit {
 
-  private structuredDataService = inject(StructuredDataService);
   private formBuilder = inject(FormBuilder);
   private route = inject(ActivatedRoute);
   private contactService = inject(ContactService);
+  private seoService = inject(SeoService);
+  private structuredDataService = inject(StructuredDataService);
 
   contactForm!: FormGroup;
   formSubmitted = false;
@@ -104,50 +106,14 @@ export class ContactComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Miryalguda Rice Industries Pvt Ltd (MRI)",
-      "image": "https://www.mririce.com/assets/images/mri-logo.webp",
-      "@id": "https://www.mririce.com/contact",
-      "url": "https://www.mririce.com/contact",
-      "telephone": "+919866398337",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Miryalguda Industrial Area",
-        "addressLocality": "Miryalaguda",
-        "postalCode": "508207",
-        "addressRegion": "Telangana",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 16.855757199999996,
-        "longitude": 79.53042728715816
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
-          ],
-          "opens": "09:00",
-          "closes": "18:00"
-        }
-      ],
-      "sameAs": [
-        // Add social media links here if available
-        // "https://facebook.com/MRIRiceIndustries",
-        // "https://instagram.com/MRIRice",
-        // "https://linkedin.com/company/Miryalguda-rice-industries"
-      ]
-    };
-    this.structuredDataService.addStructuredData(structuredData);
+    this.seoService.setTitle('Contact MRI Rice - Bulk Rice Suppliers in Miryalguda');
+    this.seoService.updateMetaDescription('Contact us for wholesale and bulk rice inquiries. As a top rice mill in Miryalguda, we supply to Kerala, Maharashtra, Tamil Nadu, Karnataka, and across India.');
+    this.seoService.updateCanonicalLink('https://www.mririce.com/contact');
+    this.seoService.updateOgUrl('https://www.mririce.com/contact');
+    this.seoService.updateOgTitle('Contact MRI Rice - Bulk Rice Suppliers in Miryalguda');
+    this.seoService.updateOgDescription('Contact us for wholesale and bulk rice inquiries. As a top rice mill in Miryalguda, we supply to Kerala, Maharashtra, Tamil Nadu, Karnataka, and across India.');
+    this.seoService.updateOgImage('https://www.mririce.com/assets/images/contact-banner-miryalguda.webp');
+    this.structuredDataService.generateContactPageSchema();
 
     this.contactForm = this.formBuilder.group({
       name: ['', Validators.required],

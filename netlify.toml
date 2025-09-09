@@ -3,6 +3,14 @@
   publish = "docs"
 
 [[redirects]]
+  from = "https://mririce.com/*"
+  to = "https://www.mririce.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+
+
