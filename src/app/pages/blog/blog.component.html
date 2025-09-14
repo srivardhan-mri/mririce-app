@@ -47,5 +47,14 @@
         }
       </div>
     </section>
+
+    <!-- Pagination -->
+    <app-paginator 
+      [currentPage]="currentPage" 
+      [totalItems]="totalPosts" 
+      [pageSize]="pageSize" 
+      (pageChange)="onPageChange($event)">
+    </app-paginator>
+
   </div>
 </div>

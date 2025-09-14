@@ -1,0 +1,14 @@
+<div class="paginator-container" *ngIf="totalPages > 1">
+  <button class="nav-button" (click)="onPageChange(1)" [disabled]="currentPage === 1">First</button>
+  <button class="nav-button" (click)="onPageChange(currentPage - 1)" [disabled]="currentPage === 1">
+    <i class="fas fa-chevron-left"></i>
+  </button>
+  <ng-container *ngFor="let page of pages">
+    <a *ngIf="isNumber(page)" (click)="onPageChange(page)" [class.active]="currentPage === page">{{ page }}</a>
+    <span *ngIf="!isNumber(page)" class="ellipsis">{{ page }}</span>
+  </ng-container>
+  <button class="nav-button" (click)="onPageChange(currentPage + 1)" [disabled]="currentPage === totalPages">
+    <i class="fas fa-chevron-right"></i>
+  </button>
+  <button class="nav-button" (click)="onPageChange(totalPages)" [disabled]="currentPage === totalPages">Last</button>
+</div>
