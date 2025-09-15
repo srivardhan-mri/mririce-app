@@ -5,7 +5,7 @@ import { RouterLink } from '@angular/router';   // For the "Enquire Now" button
 
 // Import the Product interface from your service file
 // Ensure this path is correct relative to this component's location
-import { Product } from '../../services/product.service';
+import { Product } from '../../product.model';
 
 @Component({
   selector: 'app-product-card', // Used to embed this component in other templates

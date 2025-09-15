@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Product, ProductService } from '../../services/product.service';
+import { Product } from '../../product.model'; // Corrected import path
+import { ProductService } from '../../services/product.service'; // Keep ProductService import
 import { ProductCardComponent } from '../../components/product-card/product-card.component';
 import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../services/structured-data.service';

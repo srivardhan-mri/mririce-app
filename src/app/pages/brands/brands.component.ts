@@ -2,7 +2,8 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { Brand, BrandService } from '../../services/brand.service';
+import { Brand } from '../../brand.model'; // Corrected import path
+import { BrandService } from '../../services/brand.service'; // Keep BrandService import
 import { BrandProfileCardComponent } from '../../components/brand-profile-card/brand-profile-card.component';
 import { SeoService } from '../../services/seo.service';
 import { StructuredDataService } from '../../services/structured-data.service';

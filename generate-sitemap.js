@@ -55,6 +55,7 @@ const blogUrls = blogPosts.map(post => ({
 
 const allUrls = [...staticUrls, ...productUrls, ...brandUrls, ...blogUrls];
 
+// Generate sitemap.xml
 const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${allUrls.map(url => `
@@ -70,3 +71,10 @@ const sitemapPath = path.join(__dirname, 'src', 'sitemap.xml');
 fs.writeFileSync(sitemapPath, sitemapContent);
 
 console.log('sitemap.xml generated successfully.');
+
+// Generate routes.json for pre-rendering
+const routes = allUrls.map(url => new URL(url.loc).pathname);
+const routesPath = path.join(__dirname, 'src', 'routes.json');
+fs.writeFileSync(routesPath, JSON.stringify(routes, null, 2));
+
+console.log('routes.json generated successfully.');

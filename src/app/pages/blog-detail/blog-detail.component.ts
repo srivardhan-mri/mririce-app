@@ -44,6 +44,7 @@ export class BlogDetailComponent implements OnInit {
           this.seoService.updateOgDescription(this.blogPost.excerpt);
           this.seoService.updateOgImage(`https://www.mririce.com/${this.blogPost.imageUrl}`);
           this.seoService.updateOgType('article');
+          this.seoService.updateCanonicalLink(`https://www.mririce.com/blog/${this.blogPost.slug}`);
           this.structuredDataService.generateBlogPostSchema(this.blogPost);
         } else {
           this.router.navigate(['/404']); // Navigate to 404 if post not found

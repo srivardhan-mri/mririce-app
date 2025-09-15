@@ -14,6 +14,8 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { BlogComponent } from './pages/blog/blog.component';
 import { BlogDetailComponent } from './pages/blog-detail/blog-detail.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
+import { BrandDetailComponent } from './pages/brand-detail/brand-detail.component';
 
 export const routes: Routes = [
   // Redirect empty path to '/home'
@@ -45,12 +47,22 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'products/:slug',
+    component: ProductDetailComponent,
+    // Title and description will be set dynamically by the ProductDetailComponent
+  },
+  {
     path: 'brands',
     component: BrandsComponent,
     title: 'Our Rice Brands - Super Fine Star & More | MRI Rice Miryalguda',
     data: {
       description: 'Discover our signature rice brands like Super Fine Star, known for their consistent quality and taste. We are a leading rice supplier in Telangana, serving clients nationwide.'
     }
+  },
+  {
+    path: 'brands/:slug',
+    component: BrandDetailComponent,
+    // Title and description will be set dynamically by the BrandDetailComponent
   },
   {
     path: 'quality',

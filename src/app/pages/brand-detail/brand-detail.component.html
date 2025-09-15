@@ -1,0 +1,24 @@
+<div class="brand-detail-container" *ngIf="brand">
+  <div class="brand-logo">
+    <img [src]="'assets/images/' + brand.logoUrl" [alt]="brand.name + ' Logo'">
+  </div>
+  <div class="brand-info">
+    <h1>{{ brand.name }}</h1>
+    <p class="brand-description">{{ brand.description }}</p>
+    <div class="brand-products">
+      <h3>Products under this Brand:</h3>
+      <ul>
+        <li *ngFor="let product of brand.products">{{ product }}</li>
+      </ul>
+    </div>
+    <div class="back-button">
+      <a routerLink="/brands" class="btn btn-primary">Back to Brands</a>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!brand" class="brand-not-found">
+  <h2>Brand Not Found</h2>
+  <p>The brand you are looking for does not exist or has been moved.</p>
+  <a routerLink="/brands" class="btn btn-primary">View All Brands</a>
+</div>
