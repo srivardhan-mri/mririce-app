@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 // Corrected import path for the Brand interface
-import { Brand } from '../../services/brand.service'; // Was 'services/brand.service'
+import { Brand } from '../../brand.model';
 
 @Component({
   selector: 'app-brand-profile-card',

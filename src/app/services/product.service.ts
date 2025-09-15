@@ -1,23 +1,6 @@
-// src/app/services/product.service.ts
 import { Injectable } from '@angular/core';
 import productsData from './data/products.json';
-
-// Defines the structure of a Product object
-export interface Product {
-  id: string; // Unique identifier for keys and linking
-  name: string;
-  brandTag: string; // e.g., "Super Fine Star" or "MRI Brand"
-  brandTagClass?: 'superfine' | ''; // Optional class for specific styling of the brand tag
-  description: string;
-  attributes: string; // e.g., "Grain: Long | Texture: Fluffy..."
-  packSizes: string;
-  imageUrl: string; // Path to the product image, e.g., "assets/images/product.webp"
-  altText: string; // Alt text for the product image
-  category: 'Steam Rice Varieties' | 'Nutritious Boiled Rice'; // Product category
-  enquiryLinkPath: string; // Base path for the enquiry button (e.g., '/contact')
-  enquiryLinkQueryParam: string; // Product name to be used as a query parameter
-  lastmod: string; // YYYY-MM-DD
-}
+import { Product } from '../product.model'; // Import Product interface
 
 @Injectable({
   providedIn: 'root' // Makes the service available application-wide
@@ -42,5 +25,9 @@ export class ProductService {
   getCategories(): string[] {
     // Use Set to automatically handle uniqueness
     return [...new Set(this.products.map(product => product.category))];
+  }
+
+  getProductBySlug(slug: string): Product | undefined {
+    return this.products.find(product => product.slug === slug);
   }
 }

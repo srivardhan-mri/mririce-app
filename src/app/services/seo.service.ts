@@ -46,6 +46,10 @@ export class SeoService {
     this.updateMetaTag('og:image', imageUrl, 'property');
   }
 
+  updateOgType(type: string) {
+    this.updateMetaTag('og:type', type, 'property');
+  }
+
   updateTwitterCard(card: string) {
     this.updateMetaTag('twitter:card', card);
   }
