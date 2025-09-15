@@ -39,12 +39,11 @@ export class BlogDetailComponent implements OnInit {
         if (this.blogPost) {
           this.seoService.setTitle(this.blogPost.title);
           this.seoService.updateMetaDescription(this.blogPost.excerpt);
-          const canonicalUrl = `https://www.mririce.com/blog/${this.blogPost.slug}`;
-          this.seoService.updateCanonicalLink(canonicalUrl);
-          this.seoService.updateOgUrl(canonicalUrl);
+          this.seoService.updateOgUrl(`https://www.mririce.com/blog/${this.blogPost.slug}`);
           this.seoService.updateOgTitle(this.blogPost.title);
           this.seoService.updateOgDescription(this.blogPost.excerpt);
           this.seoService.updateOgImage(`https://www.mririce.com/${this.blogPost.imageUrl}`);
+          this.seoService.updateOgType('article');
           this.structuredDataService.generateBlogPostSchema(this.blogPost);
         } else {
           this.router.navigate(['/404']); // Navigate to 404 if post not found

@@ -31,7 +31,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.handleRedirect();
-    this.addBaseStructuredData();
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
@@ -43,19 +42,29 @@ export class AppComponent implements OnInit {
       filter(route => route.outlet === 'primary'),
       mergeMap(route => route.data)
     ).subscribe(event => {
-      if (event['title']) {
-        this.seoService.setTitle(event['title']);
-        this.seoService.updateOgTitle(event['title']);
-        this.seoService.updateTwitterTitle(event['title']);
+      this.structuredDataService.clearStructuredData();
+      this.addBaseStructuredData();
+
+      const title = event['title'];
+      const description = event['description'];
+      if (title) {
+        this.seoService.setTitle(title);
+        this.seoService.updateOgTitle(title);
+        this.seoService.updateTwitterTitle(title);
       }
-      if (event['description']) {
-        this.seoService.updateMetaDescription(event['description']);
-        this.seoService.updateOgDescription(event['description']);
-        this.seoService.updateTwitterDescription(event['description']);
+      if (description) {
+        this.seoService.updateMetaDescription(description);
+        this.seoService.updateOgDescription(description);
+        this.seoService.updateTwitterDescription(description);
       }
       const canonicalUrl = `https://www.mririce.com${this.router.url}`;
       this.seoService.updateCanonicalLink(canonicalUrl);
       this.seoService.updateOgUrl(canonicalUrl);
+      this.seoService.updateOgType('website');
+
+      if (title && description) {
+        this.structuredDataService.generateWebPageSchema(title, description, canonicalUrl);
+      }
     });
   }
 
@@ -118,7 +127,8 @@ export class AppComponent implements OnInit {
         "@type": "SearchAction",
         "target": "https://www.mririce.com/search?q={search_term_string}",
         "query-input": "required name=search_term_string"
-      }
+      },
+      "@id": "https://www.mririce.com/#website"
     };
 
     this.structuredDataService.addStructuredData([localBusinessSchema, websiteSchema]);

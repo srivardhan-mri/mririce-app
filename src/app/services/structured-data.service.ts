@@ -11,14 +11,21 @@ export class StructuredDataService {
 
   constructor(@Inject(DOCUMENT) private doc: Document) { }
 
-  addStructuredData(data: any) {
-    let script = this.doc.querySelector('script[type="application/ld+json"]');
-    if (!script) {
-      script = this.doc.createElement('script');
-      script.setAttribute('type', 'application/ld+json');
+  private scriptType = 'application/ld+json';
+
+  addStructuredData(data: any | any[]) {
+    const dataArray = Array.isArray(data) ? data : [data];
+    dataArray.forEach(item => {
+      const script = this.doc.createElement('script');
+      script.setAttribute('type', this.scriptType);
+      script.textContent = JSON.stringify(item);
       this.doc.head.appendChild(script);
-    }
-    script.textContent = JSON.stringify(data);
+    });
+  }
+
+  clearStructuredData() {
+    const scripts = this.doc.querySelectorAll(`script[type="${this.scriptType}"]`);
+    scripts.forEach(script => this.doc.head.removeChild(script));
   }
 
   generateProductSchema(product: Product) {
@@ -92,5 +99,49 @@ export class StructuredDataService {
       'url': 'https://www.mririce.com/contact'
     };
     this.addStructuredData(schema);
+  }
+
+  generateWebPageSchema(title: string, description: string, url: string) {
+    const webPageSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      'name': title,
+      'description': description,
+      'url': url,
+      'isPartOf': {
+        '@id': 'https://www.mririce.com/#website'
+      }
+    };
+    this.addStructuredData(webPageSchema);
+
+    const breadcrumbSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      'itemListElement': this.generateBreadcrumbItems(url)
+    };
+    this.addStructuredData(breadcrumbSchema);
+  }
+
+  private generateBreadcrumbItems(url: string) {
+    const urlParts = url.replace('https://www.mririce.com', '').split('/').filter(part => part);
+    const itemList = [{
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': 'https://www.mririce.com/home'
+    }];
+
+    let currentUrl = 'https://www.mririce.com';
+    urlParts.forEach((part, index) => {
+      currentUrl += `/${part}`;
+      itemList.push({
+        '@type': 'ListItem',
+        'position': index + 2,
+        'name': part.charAt(0).toUpperCase() + part.slice(1).replace(/-/g, ' '),
+        'item': currentUrl
+      });
+    });
+
+    return itemList;
   }
 }
