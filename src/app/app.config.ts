@@ -5,7 +5,7 @@ import { provideRouter, withComponentInputBinding, withInMemoryScrolling, withRo
 import { routes } from './app.routes';
 // import { provideClientHydration, withNoHttpTransferCache } from '@angular/platform-browser'; // Uncomment if you chose SSR
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser'; // If you need HttpClient for API calls
+// import { provideClientHydration, withEventReplay } from '@angular/platform-browser'; // If you need HttpClient for API calls
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,9 +29,6 @@ export const appConfig: ApplicationConfig = {
       // })
     ),
 
-    provideHttpClient(withFetch()), provideClientHydration(withEventReplay()), // Uncomment if your app will make HTTP requests (e.g., to a backend)
-
-    // provideClientHydration(withNoHttpTransferCache()), // Uncomment if you enabled SSR and want hydration
-                                                       // withNoHttpTransferCache can be useful for SSR setups
+    provideHttpClient(withFetch()), // Uncomment if your app will make HTTP requests (e.g., to a backend)
   ]
 };
